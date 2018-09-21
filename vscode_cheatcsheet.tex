@@ -69,7 +69,7 @@
                 \hline
                 \textbf{S} & Sidebar \\ \hline
                 \textbf{E} & Editor \\ \hline
-                \textbf{Q} & Explorer \\ \hline
+                \textbf{W} & Explorer \\ \hline
                 \textbf{F} & Find \\ \hline
             \end{tabular}
             \begin{tabular}{ll}
@@ -90,12 +90,13 @@
                 \textbf{A} & Focus (toggle) \\ \hline
                 \textbf{X} & Split \\ \hline
                 \textbf{W} & Next/Other \\ \hline
+                \textbf{E} & Expand (toggle) \\ \hline
             \end{tabular}
             \begin{tabular}{ll}
                 \hline
-                \textbf{E} & Expand (toggle) \\ \hline
                 \textbf{F} & File: open, show \\ \hline
-                \textbf{D} & Close \\ \hline
+                \textbf{N} & New/create \\ \hline
+                \textbf{D} & Close/hide \\ \hline
             \end{tabular}
         \end{vwcol}
 
@@ -113,6 +114,7 @@
         \begin{tabular}{ll}
             \hline
             \textbf{Meta$+$S A} & Focus sidebar \\ \hline
+            \textbf{Meta$+$W A} & Focus file explorer (toggle) \\ \hline
             \textbf{Meta$+$E A} & Focus active editor (from anywhere) \\ \hline
             \textbf{Meta$+$R A} & Focus on problems view \\ \hline
             \textbf{Meta$+$T A} & Focus terminal (toggle) \\ \hline
@@ -140,6 +142,30 @@
 \node[fancytitle, right=10pt] at (box.north west) {SideBar (Meta$+$S)};
 \end{tikzpicture}
 
+%------------ FILE EXPLORER ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{Meta$+$W A} & Focus file explorer (toggle) \\ \hline
+            \textbf{Meta$+$W C} & New file \\ \hline
+            \textbf{Meta$+$W Meta$+$C} & New folder \\ \hline
+            \textbf{Meta$+$W F} & Open file in expl. (worksp.) \\ \hline
+            \textbf{Meta$+$W D} & Hide file explorer \\ \hline
+            \textbf{Enter} & Open file, open/coll. folder \\ \hline
+            \textbf{Ctrl$+$Enter} & Open file to side \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {File Explorer (Meta$+$W)};
+\end{tikzpicture}
+
+\columnbreak
+
 %------------ EDITOR ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
@@ -148,7 +174,15 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{Meta$+$E A} & Focus active editor (from anywhere) \\ \hline
+            \textbf{Meta$+$E A} & Focus editor (from anywhere) \\ \hline
+            \textbf{Ctrl$+$P} & Quick open file... \\ \hline
+            \textbf{Ctrl$+$W} & Close active file window \\ \hline
+            \textbf{Ctrl$+$K Ctrl$+$W} & Close all open files \\ \hline
+            \textbf{Meta$+$E X} & Split editor horizontally \\ \hline
+            \textbf{Meta$+$E Meta$+$X} & Split editor vertically \\ \hline
+            \textbf{Alt$+$\{1-9\}} & Focus file \{1-9\} on group \\ \hline
+            \textbf{Ctrl$+$Tab} & Focus next file on group \\ \hline
+            \textbf{Ctrl$+$Alt$+$Tab} & Focus next editor group \\ \hline
         \end{tabular}
 
     \end{minipage}
@@ -164,7 +198,7 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{Meta$+$G D} & Close panel \\ \hline
+            \textbf{Meta$+$G D} & Hide panel \\ \hline
         \end{tabular}
 
     \end{minipage}
@@ -183,7 +217,7 @@
             \textbf{Meta$+$R A} & Focus on problems view \\ \hline
             \textbf{Enter} & Open problem in editor \\ \hline
             \textbf{Ctrl$+$Enter} & Open problem in new side editor \\ \hline
-            \textbf{Meta$+$R D} & Close problems view \\ \hline
+            \textbf{Meta$+$R D} & Hide problems view \\ \hline
         \end{tabular}
 
     \end{minipage}

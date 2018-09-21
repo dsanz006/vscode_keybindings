@@ -10,7 +10,7 @@
     General MAJOR-KEY meanings - Used with Meta (Super) key:
      · S:   Sidebar
      · E:   Editor
-     · Q:   Explorer
+     · W:   Explorer
      · F:   Find
      · D:   Debug
      · G:   Panel
@@ -23,34 +23,52 @@
      · W:   Next/other
      · E:   Expand/Contract
      · F:   File (open, show...)
+     · N:   New/Create
      · D:   Close
 
     ----------------------------------------------------------
 
     Focus on views:
      · Meta+S A         : Focus sidebar (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+W A         : Toggle focus between editor and file explorer
      · Meta+E A         : Focus active editor (from anywhere)
      · Meta+R A         : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+T A         : Toggle focus between editor and terminal
-     · Ctrl+Shift+E      : Toggle focus to file explorer
      · Ctrl+Shift+F      : Toggle focus to find/replace
      · Ctrl+Shift+D      : Toggle focus to Debugger
     
     Sidebar (Meta+S):
      · Meta+S A         : Focus sidebar (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+S E         : Expand/Contract Sidebar
+     · Meta+S E         : Expand/collapse Sidebar
+
+    File explorer (Meta+W):
+     · Meta+W A         : Focus on file explorer (toggle)
+     · Meta+W C         : New file
+     · Meta+W Meta+C    : New folder
+     · Meta+W F         : Reveal current file in file explorer (if in workspace)
+     · Meta+W D         : Hide file explorer
+     · Enter            : File: open, Folder: expand/collapse
+     · Ctrl+Enter       : Open to side
 
     Editor (Meta+E):
      · Meta+E A         : Focus active editor (from anywhere)
+     · Ctrl+P           : Quick open file...
+     · Ctrl+W           : Close active file window
+     · Ctrl+K Ctrl+W    : Close all open files
+     · Meta+E X         : Split editor horizontally
+     · Meta+E Meta+X    : Split editor vertically
+     · Alt+1-9          : Focus file at position 1-9 (same group)
+     · Ctrl+Tab         : Focus editor on next file (same group)
+     · Ctrl+Alt+Tab     : Focus next editor group
 
     Panel (Meta+G):
-     · Meta+G D         : Close Panel
+     · Meta+G D         : Hide Panel
 
     Problems view (Meta+R):
      · Meta+R A         : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
      · Enter            : Open problem in editor
      · Ctrl+Enter       : Open problem in new side editor
-     · Meta+R D         : Close problems view ( XXX not supported yet: issue #59083)
+     · Meta+R D         : Hide problems view ( XXX not supported yet: issue #59083)
 
     Terminal (Meta+T):
      · Meta+T A         : Toggle focus between editor and terminal
@@ -58,7 +76,7 @@
      · Meta+T X         : Split terminal (add a pane and focus)
      · Meta+T W         : Switch focus to next terminal pane
      · Meta+T Meta+W    : Switch focus to next terminal window
-     · Meta+T E         : Toggle terminal Expand/contract
+     · Meta+T E         : Toggle terminal Expand/collapse
      · Meta+T F         : Open new terminal in location of current file
      · Meta+T D         : Hide terminal view
      · Terminal text edition:
@@ -149,20 +167,6 @@
 
     /* ---------------------------------------------------- */
 
-    /****  Editor Layout  ****/
-
-    {
-        "key": "ctrl+shift+x",
-        "command": "workbench.action.splitEditor",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "ctrl+shift+x",
-        "command": "-workbench.view.extensions"
-    },
-
-    /* ---------------------------------------------------- */
-
     /****  Sub-Word Navigation  ****/
 
     {   
@@ -200,7 +204,7 @@
         
 /**** Side Bar (Meta+S) ****/
     
-    //removed shortcuts
+    //removed keybindings
     {
         "key": "ctrl+b",
         "command": "-workbench.action.toggleSidebarVisibility"
@@ -209,11 +213,7 @@
         "key": "ctrl+0",
         "command": "-workbench.action.focusSideBar"
     },
-    //added shortcuts
-    {
-        "key": "meta+s e",
-        "command": "workbench.action.toggleSidebarVisibility"
-    },
+    //added keybindings
     {
         "key": "meta+s a",
         "command": "workbench.action.focusSideBar"
@@ -229,21 +229,103 @@
         //"when": "filesExplorerFocus"
     },
     */
+    {
+        "key": "meta+s e",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+
+/* ---------------------------------------------------- */
+    
+/**** File Explorer (Meta+W) ****/
+
+    //removed keybindings
+    {
+        "key": "ctrl+shift+e",
+        "command": "-workbench.view.explorer"
+    },
+    //added keybindings
+    {
+        "key": "meta+w a",
+        "command": "workbench.files.action.focusFilesExplorer",
+        "when": "!filesExplorerFocus"
+    },
+    {
+        "key": "meta+w a",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "meta+w f",
+        "command": "revealInExplorer"
+    },
+    {
+        "key": "meta+w c",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "meta+w meta+n",
+        "command": "explorer.newFolder",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "meta+w d",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when" : "activeViewlet == 'workbench.view.explorer'"
+    },
 
 /* ---------------------------------------------------- */
 
 /****  Editor (Meta+E) ****/
 
+    //removed keybindings
+    {
+        "key": "ctrl+k ctrl+up",
+        "command": "-workbench.action.focusAboveGroup"
+    },
+    {
+        "key": "ctrl+k ctrl+down",
+        "command": "-workbench.action.focusBelowGroup"
+    },
+    {
+        "key": "ctrl+1",
+        "command": "-workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "ctrl+k ctrl+left",
+        "command": "-workbench.action.focusLeftGroup"
+    },
+    {
+        "key": "ctrl+k ctrl+right",
+        "command": "-workbench.action.focusRightGroup"
+    },
+    {
+        "key": "ctrl+k e",
+        "command": "-workbench.files.action.focusOpenEditorsView"
+    },
+    //added keybindings
     {
         "key": "meta+e a",
         "command": "workbench.action.focusActiveEditorGroup",
+    },
+    {
+        "key": "meta+e x",
+        "command": "workbench.action.splitEditorDown"
+    },
+    {
+        "key": "meta+w meta+x",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "ctrl+alt+tab",
+        "command": "workbench.action.focusBelowGroup"
     },
 
 /* ---------------------------------------------------- */
 
 /****  Terminal (Meta+T) ****/
 
-    //removed shortcuts
+    //removed keybindings
     {
         "key": "ctrl+shift+`",
         "command": "-workbench.action.terminal.new"
@@ -339,7 +421,7 @@
         "key": "ctrl+`",
         "command": "-workbench.action.terminal.toggleTerminal"
     },
-    //added shortcuts
+    //added keybindings
     {
         "key": "meta+t a",
         "command": "workbench.action.terminal.focus",
@@ -387,12 +469,12 @@
         
 /**** Problems View (Meta+R) ****/
     
-        //removed shortcuts
+        //removed keybindings
         {
             "key": "ctrl+shift+m",
             "command": "-workbench.actions.view.problems"
         },
-        //added shortcuts
+        //added keybindings
         {
             "key": "meta+r a",
             "command": "workbench.action.problems.focus",
@@ -417,12 +499,12 @@
     
 /**** Panel (Meta+G) ****/
 
-    //removed shortcuts
+    //removed keybindings
     {
         "key": "ctrl+j",
         "command": "-workbench.action.togglePanel"
     },
-    //added shortcuts
+    //added keybindings
     {
         "key": "meta+g d",
         "command": "workbench.action.closePanel"
@@ -628,8 +710,16 @@
 
 /* ---------------------------------------------------- */
 
-/**** General Removed Shortcuts ****/
+/**** General Removed keybindings ****/
 
+    {
+        "key": "ctrl+n",
+        "command": "-workbench.action.files.newUntitledFile"
+    },
+    {
+        "key": "ctrl+shift+x",
+        "command": "-workbench.view.extensions"
+    },
     {
         "key": "shift+alt+d",
         "command": "-extension.downloadSettings"
@@ -643,7 +733,7 @@
     
 /**** Code Completion and suggestions ****/
 
-    //removed shortcuts
+    //removed keybindings
     {
         "key": "ctrl+space",
         "command": "-toggleSuggestionDetails",
@@ -664,7 +754,7 @@
         "command": "-editor.action.triggerParameterHints",
         "when": "editorHasSignatureHelpProvider && editorTextFocus"
     },
-    //added shortcuts
+    //added keybindings
     {
         "key": "meta+space",
         "command": "toggleSuggestionDetails",
