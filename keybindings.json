@@ -1,0 +1,694 @@
+[
+    /*
+
+    More info here: https://code.visualstudio.com/docs/getstarted/keybindings
+
+    Pending issues: #59083, #59084
+
+    ----------------------------------------------------------
+
+    General MAJOR-KEY meanings - Used with Meta (Super) key:
+     · S:   Sidebar
+     · E:   Editor
+     · Q:   Explorer
+     · F:   Find
+     · D:   Debug
+     · G:   Panel
+     · R:   Problems view
+     · T:   Terminal
+
+    General MINOR-KEY meanings:
+     · A:   Focus/View/Toggle
+     · X:   Split
+     · W:   Next/other
+     · E:   Expand/Contract
+     · F:   File (open, show...)
+     · D:   Close
+
+    ----------------------------------------------------------
+
+    Focus on views:
+     · Meta+S A         : Focus sidebar (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+E A         : Focus active editor (from anywhere)
+     · Meta+R A         : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+T A         : Toggle focus between editor and terminal
+     · Ctrl+Shift+E      : Toggle focus to file explorer
+     · Ctrl+Shift+F      : Toggle focus to find/replace
+     · Ctrl+Shift+D      : Toggle focus to Debugger
+    
+    Sidebar (Meta+S):
+     · Meta+S A         : Focus sidebar (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+S E         : Expand/Contract Sidebar
+
+    Editor (Meta+E):
+     · Meta+E A         : Focus active editor (from anywhere)
+
+    Panel (Meta+G):
+     · Meta+G D         : Close Panel
+
+    Problems view (Meta+R):
+     · Meta+R A         : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
+     · Enter            : Open problem in editor
+     · Ctrl+Enter       : Open problem in new side editor
+     · Meta+R D         : Close problems view ( XXX not supported yet: issue #59083)
+
+    Terminal (Meta+T):
+     · Meta+T A         : Toggle focus between editor and terminal
+     · Meta+T Meta+A    : Add new terminal (another window) and focus
+     · Meta+T X         : Split terminal (add a pane and focus)
+     · Meta+T W         : Switch focus to next terminal pane
+     · Meta+T Meta+W    : Switch focus to next terminal window
+     · Meta+T E         : Toggle terminal Expand/contract
+     · Meta+T F         : Open new terminal in location of current file
+     · Meta+T D         : Hide terminal view
+     · Terminal text edition:
+         · Ctrl+Shift+C : Copy (linux terminal)
+         · Ctrl+Shift+V : Paste (linux terminal)
+         · Ctrl+D       : Kill
+
+    Compiling and Debugging:
+     · F5:              : Execute launch configuration and debug
+     · Shift+F5          : Stop debugging execution
+     · Ctrl+Shift+B      : Run default build task
+     · Ctrl+Shift+Alt+B  : Run non-default task (choose)
+
+    BreadCrumbs:
+     · Ctrl+Shift+I:    : Shows BreadCrumbs view of current file
+
+    ----------------------------------------------------------
+
+    Editor :: Multiple Cursors:
+     · Ctrl+Shift+Up/Down   : Add cursor on next/previous line
+     · Alt+Click            : Add cursor on mouse click
+
+    Editor :: Text Selection:
+     · Ctrl+I                   : Select current line
+     · Shift+Left/Right          : Select next/previous char
+     · Ctrl+Shift+Left/Right     : Select next/previous word
+     · Ctrl+Shift+Alt+Left/Right : Select next/previous sub-word
+     · Shift+Up/Down             : Select/deselect next/previous line
+     · Ctrl+Shift+Up/Down        : Add next/previous line to selection
+     · Ctrl+D                   : Select current word, or select next word occurrence
+     · Ctrl+U                   : Soft undo: deselect last selection added with Ctrl+D
+     · Ctrl+Shift+L              : Select all occurrences of currently selected text
+     · Alt+Up/Down              : Move selected text up/down
+
+    Editor :: Navigation:
+     · Ctrl+L                   : Go to Line
+
+    Cancel, leave... (similar to Escape key, anywhere):
+     · Ctrl+G           : Leave, cancel, exit... (depends on context)
+
+    ---------------------------------------------------------- 
+    
+    */
+
+    /****  Code Formatting  ****/
+
+    {
+        "key": "Ctrl+tab",
+        "command": "editor.action.formatSelection",
+        "when": "editorHasSelection && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+k ctrl+f",
+        "command": "-editor.action.formatSelection",
+        "when": "editorHasSelection && editorTextFocus && !editorReadonly"
+    },
+    /*
+    {
+        "key": "tab",
+        "command": "editor.action.format"
+    },
+    {
+        "key": "tab",
+        "command": "editor.action.reindentlines"
+    },
+    */
+
+    /* ---------------------------------------------------- */
+
+    /****  Zooming  ****/
+
+    {
+        "key": "ctrl+shift+[BracketRight]",
+        "command": "workbench.action.zoomIn"
+    },
+    {
+        "key": "ctrl+[BracketRight]",
+        "command": "-workbench.action.zoomIn"
+    },
+    {
+        "key": "ctrl+shift+-",
+        "command": "workbench.action.zoomOut"
+    },
+    {
+        "key": "ctrl+-",
+        "command": "-workbench.action.zoomOut"
+    },
+
+    /* ---------------------------------------------------- */
+
+    /****  Editor Layout  ****/
+
+    {
+        "key": "ctrl+shift+x",
+        "command": "workbench.action.splitEditor",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+x",
+        "command": "-workbench.view.extensions"
+    },
+
+    /* ---------------------------------------------------- */
+
+    /****  Sub-Word Navigation  ****/
+
+    {   
+        "key": "ctrl+alt+right",        
+        "command": "cursorWordPartRight",
+        "when": "textInputFocus"
+    },
+    {   
+        "key": "ctrl+shift+alt+right",
+        "command": "cursorWordPartRightSelect",
+        "when": "textInputFocus"
+    },
+    {   
+        "key": "ctrl+alt+left",
+        "command": "cursorWordPartStartLeft",
+        "when": "textInputFocus"
+    },
+    {   
+        "key": "ctrl+shift+alt+left",
+        "command": "cursorWordPartStartLeftSelect",
+        "when": "textInputFocus"
+    },
+    {   
+        "key": "ctrl+alt+backspace",
+        "command": "deleteWordPartLeft",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {   
+        "key": "ctrl+alt+delete",
+        "command": "deleteWordPartRight",
+        "when": "textInputFocus && !editorReadonly"
+    },
+
+/* ---------------------------------------------------- */
+        
+/**** Side Bar (Meta+S) ****/
+    
+    //removed shortcuts
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+0",
+        "command": "-workbench.action.focusSideBar"
+    },
+    //added shortcuts
+    {
+        "key": "meta+s e",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "meta+s a",
+        "command": "workbench.action.focusSideBar"
+    },
+    /*
+    {
+        "key": "meta+s a",
+        "command": "workbench.action.focusActiveEditorGroup",
+        //XXX missing: a) "when": "sideBarFocus" 
+        //             b) "focusViewlet == workbench.view.explorer" || "focusViewlet == workbench.view.search" || ...
+        //"when": "activeViewlet == workbench.view.explorer"
+        //"when": "explorerViewletFocus"
+        //"when": "filesExplorerFocus"
+    },
+    */
+
+/* ---------------------------------------------------- */
+
+/****  Editor (Meta+E) ****/
+
+    {
+        "key": "meta+e a",
+        "command": "workbench.action.focusActiveEditorGroup",
+    },
+
+/* ---------------------------------------------------- */
+
+/****  Terminal (Meta+T) ****/
+
+    //removed shortcuts
+    {
+        "key": "ctrl+shift+`",
+        "command": "-workbench.action.terminal.new"
+    },
+    {
+        "key": "ctrl+shift+5",
+        "command": "-workbench.action.terminal.split",
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "-workbench.action.terminal.openNativeConsole",
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+right",
+        "command": "-workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+down",
+        "command": "-workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+left",
+        "command": "-workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+up",
+        "command": "-workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+down",
+        "command": "-workbench.action.terminal.resizePaneDown",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+left",
+        "command": "-workbench.action.terminal.resizePaneLeft",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+right",
+        "command": "-workbench.action.terminal.resizePaneRight",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+up",
+        "command": "-workbench.action.terminal.resizePaneUp",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "shift+end",
+        "command": "-workbench.action.terminal.scrollToBottom",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "shift+home",
+        "command": "-workbench.action.terminal.scrollToTop",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+down",
+        "command": "-workbench.action.terminal.scrollDown",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "shift+pagedown",
+        "command": "-workbench.action.terminal.scrollDownPage",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+up",
+        "command": "-workbench.action.terminal.scrollUp",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "shift+pageup",
+        "command": "-workbench.action.terminal.scrollUpPage",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    //added shortcuts
+    {
+        "key": "meta+t a",
+        "command": "workbench.action.terminal.focus",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "meta+t a",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "meta+t meta+a",
+        "command": "workbench.action.terminal.newInActiveWorkspace"
+    },
+    {
+        "key": "meta+t x",
+        "command": "workbench.action.terminal.splitInActiveWorkspace",
+    },
+    {
+        "key": "meta+t w",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "meta+t meta+w",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "meta+t e",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "meta+t f",
+        "command": "openInTerminal"
+    },
+    {
+        "key": "meta+t d",
+        "command": "workbench.action.closePanel",
+        "when": "activePanel == 'workbench.panel.terminal'" //when terminal is visible
+    },
+
+/* ---------------------------------------------------- */
+        
+/**** Problems View (Meta+R) ****/
+    
+        //removed shortcuts
+        {
+            "key": "ctrl+shift+m",
+            "command": "-workbench.actions.view.problems"
+        },
+        //added shortcuts
+        {
+            "key": "meta+r a",
+            "command": "workbench.action.problems.focus",
+            //"when": "!problemFocus" //XXX doesn't exist
+        },
+        /*
+        //XXX not working, as "problemFocus" doesn't exist
+        {
+            "key": "meta+r a",
+            "command": "workbench.action.focusActiveEditorGroup",
+            "when": "problemFocus"
+        },
+        //XXX not working for some reason
+        {
+            "key": "meta+r d",
+            "command": "workbench.action.closePanel",
+            "when": "activePanel == 'workbench.panel.match'" //when problems view is visible
+        },
+        */
+
+/* ---------------------------------------------------- */
+    
+/**** Panel (Meta+G) ****/
+
+    //removed shortcuts
+    {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
+    },
+    //added shortcuts
+    {
+        "key": "meta+g d",
+        "command": "workbench.action.closePanel"
+    },
+
+/* ---------------------------------------------------- */
+
+/****  Line navigation  ****/
+
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.gotoLine"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "-workbench.action.gotoLine"
+    },
+
+/* ---------------------------------------------------- */
+
+/****  Ctrl+G similar to Esc  ****/
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.terminal.clearSelection",
+        "when": "terminalFocus && terminalTextSelected && !terminalFindWidgetVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.terminal.hideFindWidget",
+        "when": "terminalFindWidgetVisible && terminalFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.hideInterfaceOverview",
+        "when": "interfaceOverviewVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "cancelRenameInput",
+        "when": "editorFocus && renameInputVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "cancelSelection",
+        "when": "editorHasSelection && textInputFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeAccessibilityHelp",
+        "when": "accessibilityHelpWidgetVisible && editorFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeBreakpointWidget",
+        "when": "breakpointWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeDirtyDiff",
+        "when": "dirtyDiffVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeFindWidget",
+        "when": "editorFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeMarkersNavigation",
+        "when": "editorFocus && markersNavigationVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeParameterHints",
+        "when": "editorTextFocus && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeReferenceSearch",
+        "when": "referenceSearchVisible && !config.editor.stablePeek"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeReferenceSearchEditor",
+        "when": "inReferenceSearchEditor && !config.editor.stablePeek"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeReplaceInFilesWidget",
+        "when": "replaceInputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeReviewPanel",
+        "when": "reviewPanelVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "editor.action.webvieweditor.hideFind",
+        "when": "webviewEditorFocus && webviewFindWidgetVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "hideSuggestWidget",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "keybindings.editor.clearSearchResults",
+        "when": "inKeybindings && inKeybindingsSearch"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "leaveEditorMessage",
+        "when": "messageVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "leaveSnippet",
+        "when": "editorTextFocus && inSnippetMode"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "list.clear",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "notifications.hideList",
+        "when": "notificationCenterVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "notifications.hideToasts",
+        "when": "notificationToastsVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "removeSecondaryCursors",
+        "when": "editorHasMultipleSelections && textInputFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "search.action.cancel",
+        "when": "listFocus && searchViewletVisible && !inputFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "settings.action.clearSearchResults",
+        "when": "inSettingsSearch"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+g ctrl+g",
+        "command": "workbench.action.exitZenMode",
+        "when": "inZenMode"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "breadcrumbs.selectEditor",
+        "when": "breadcrumbsActive && breadcrumbsVisible"
+    },
+
+/* ---------------------------------------------------- */
+
+/****  Running non-default tasks  ****/
+
+    {
+        "key": "ctrl+shift+alt+b",
+        "command": "-xmlTools.formatAsXml"
+    },
+    {
+        "key": "ctrl+shift+alt+b",
+        "command": "workbench.action.tasks.runTask"
+    },
+
+/* ---------------------------------------------------- */
+
+/**** BreadCrumbs ****/
+    
+    {
+        "key": "ctrl+shift+i",
+        "command": "-editor.action.formatDocument",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+[Period]",
+        "command": "-breadcrumbs.focus"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "breadcrumbs.focusAndSelect"
+    },
+    {
+        "key": "ctrl+shift+[IntlBackslash]",
+        "command": "-breadcrumbs.focusAndSelect"
+    },
+    
+
+/* ---------------------------------------------------- */
+
+/**** General Removed Shortcuts ****/
+
+    {
+        "key": "shift+alt+d",
+        "command": "-extension.downloadSettings"
+    },
+    {
+        "key": "shift+alt+u",
+        "command": "-extension.updateSettings"
+    },
+
+/* ---------------------------------------------------- */
+    
+/**** Code Completion and suggestions ****/
+
+    //removed shortcuts
+    {
+        "key": "ctrl+space",
+        "command": "-toggleSuggestionDetails",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+space",
+        "command": "-editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+space",
+        "command": "-toggleSuggestionFocus",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+space",
+        "command": "-editor.action.triggerParameterHints",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    },
+    //added shortcuts
+    {
+        "key": "meta+space",
+        "command": "toggleSuggestionDetails",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "meta+space",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+meta+space",
+        "command": "toggleSuggestionFocus",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "shift+meta+space",
+        "command": "editor.action.triggerParameterHints",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    },
+
+/* ---------------------------------------------------- */
+
+/**** Automatic additions (should be empty) ****/
+
+    {},
+]
