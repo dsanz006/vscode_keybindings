@@ -3,7 +3,7 @@
 
     More info here: https://code.visualstudio.com/docs/getstarted/keybindings
 
-    Pending issues: #59083, #59084
+    Pending issues: #59084
 
     Todo: 
         Find/Replace
@@ -74,7 +74,7 @@
      · Meta+R A         : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
      · Enter            : Open problem in editor
      · Ctrl+Enter       : Open problem in new side editor
-     · Meta+R D         : Hide problems view ( XXX not supported yet: issue #59083)
+     · Meta+R D         : Hide problems view
 
     Terminal (Meta+T):
      · Meta+T A         : Toggle focus between editor and terminal
@@ -493,13 +493,12 @@
             "command": "workbench.action.focusActiveEditorGroup",
             "when": "problemFocus"
         },
-        //XXX not working for some reason
+        */
         {
             "key": "meta+r d",
             "command": "workbench.action.closePanel",
-            "when": "activePanel == 'workbench.panel.match'" //when problems view is visible
+            "when": "activePanel == 'workbench.panel.markers'" //when problems view is visible
         },
-        */
 
 /* ---------------------------------------------------- */
     
