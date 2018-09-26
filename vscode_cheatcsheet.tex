@@ -31,7 +31,7 @@
 \usepackage[T1]{fontenc}
 
 
-\title{VS Code Keyboard Shortcuts}
+\title{VS Code Keybindings}
 \usepackage[brazilian]{babel}
 \usepackage[utf8]{inputenc}
 
@@ -47,7 +47,7 @@
 %\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
 \begin{document}
 
-\begin{center}{\huge{\textbf{VS Code Keyboard Shortcuts}}}\\
+\begin{center}{\huge{\textbf{VS Code Keybindings}}}\\
 {\large By Dani Sanz}
 \end{center}
 \begin{multicols*}{3}
@@ -56,21 +56,51 @@
     rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
 \tikzstyle{fancytitle} =[fill=black, text=white, font=\bfseries]
 
-%------------ MAJOR/MINOR KEYS ---------------
+%------------ GENERAL ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
     \begin{minipage}{0.3\textwidth}
 
-		More info here: \url{https://code.visualstudio.com/docs/getstarted/keybindings}
+        Pending issues: \#59084 \\
 
-        Pending issues: \#59083, \#59084 \\
+        \textit{Keys:} \\
+
+        \begin{vwcol}[widths={0.5,0.5},
+            sep=.2cm, rule=0pt,indent=1em]
+            \begin{tabular}{ll}
+                \hline
+                \textbf{\textit{Mt}} & Meta/Super \\ \hline
+                \textbf{\textit{Ct}} & Control \\ \hline
+                \textbf{\textit{Sh}} & Shift \\ \hline
+            \end{tabular}
+            \begin{tabular}{ll}
+                \hline
+                \textbf{\textit{Al}} & Alt \\ \hline
+                \textbf{\textit{En}} & Enter \\ \hline
+                \textbf{\textit{<a>}} & Arrows \\ \hline
+            \end{tabular}
+        \end{vwcol}
         
-        \textit{General MAJOR-KEY meanings - Used with Meta (Super) key:} \\
+        \textit{General commands}:
+
+        \begin{center}
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Ct}$+$P} & Quick open file \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$P} & Open command palette \\ \hline
+            \textbf{\textit{Ct}$+$G} & Leave, cancel, exit... (Esc) \\ \hline
+            \textbf{\textit{En}} & Open file, expand/collapse folder \\ \hline
+            \textbf{\textit{Ct}$+$\textit{En}} & Open to side editor \\ \hline
+        \end{tabular}
+        \end{center}
+        
+        \textit{General MAJOR-KEY meanings - Used with \textbf{Mt} or \textbf{Ct}:} \\
         
         \begin{vwcol}[widths={0.5,0.5},
             sep=.2cm, rule=0pt,indent=1em]
             \begin{tabular}{ll}
                 \hline
+                \textbf{A} & IntelliSense \\ \hline
                 \textbf{S} & Sidebar \\ \hline
                 \textbf{E} & Editor \\ \hline
                 \textbf{W} & Explorer \\ \hline
@@ -98,15 +128,16 @@
             \end{tabular}
             \begin{tabular}{ll}
                 \hline
-                \textbf{F} & File: open, show \\ \hline
+                \textbf{F} & Show file \\ \hline
                 \textbf{N} & New/create \\ \hline
                 \textbf{D} & Close/hide \\ \hline
+                \textbf{\textit{<a>}} & Move \\ \hline
             \end{tabular}
         \end{vwcol}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Major/Minor keys};
+\node[fancytitle, right=10pt] at (box.north west) {General};
 \end{tikzpicture}
 
 %------------ FOCUSING ON VIEWS ---------------
@@ -117,17 +148,19 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{Meta$+$S A} & Focus sidebar \\ \hline
-            \textbf{Meta$+$W A} & Focus file explorer (toggle) \\ \hline
-            \textbf{Meta$+$E A} & Focus active editor (from anywhere) \\ \hline
-            \textbf{Meta$+$R A} & Focus on problems view \\ \hline
-            \textbf{Meta$+$T A} & Focus terminal (toggle) \\ \hline
+            \textbf{\textit{Mt}$+$S A} & Focus sidebar \\ \hline
+            \textbf{\textit{Mt}$+$W A} & Focus file explorer (toggle) \\ \hline
+            \textbf{\textit{Mt}$+$E A} & Focus active editor (from anywhere) \\ \hline
+            \textbf{\textit{Mt}$+$R A} & Focus on problems view \\ \hline
+            \textbf{\textit{Mt}$+$T A} & Focus terminal (toggle) \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {Focusing on views};
 \end{tikzpicture}
+
+\columnbreak
 
 %------------ SIDEBAR ---------------
 \begin{tikzpicture}
@@ -137,13 +170,14 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{Meta$+$S A} & Focus sidebar \\ \hline
-            \textbf{Meta$+$S E} & Expand/Contract Sidebar \\ \hline
+            \textbf{\textit{Mt}$+$S A} & Focus sidebar \\ \hline
+            \textbf{\textit{Mt}$+$S E} & Expand/Contract Sidebar \\ \hline
+            \textbf{\textit{Mt}$+$(S-E)} & Same (continuous) \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {SideBar (Meta$+$S)};
+\node[fancytitle, right=10pt] at (box.north west) {SideBar (\textit{Mt}$+$S)};
 \end{tikzpicture}
 
 %------------ FILE EXPLORER ---------------
@@ -154,21 +188,17 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{Meta$+$W A} & Focus file explorer (toggle) \\ \hline
-            \textbf{Meta$+$W C} & New file \\ \hline
-            \textbf{Meta$+$W Meta$+$C} & New folder \\ \hline
-            \textbf{Meta$+$W F} & Open file in expl. (worksp.) \\ \hline
-            \textbf{Meta$+$W D} & Hide file explorer \\ \hline
-            \textbf{Enter} & Open file, open/coll. folder \\ \hline
-            \textbf{Ctrl$+$Enter} & Open file to side \\ \hline
+            \textbf{\textit{Mt}$+$W A} & Focus file explorer (toggle) \\ \hline
+            \textbf{\textit{Mt}$+$W N} & New file \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$W N} & New folder \\ \hline
+            \textbf{\textit{Mt}$+$W F} & Reveal file in explorer (worksp.) \\ \hline
+            \textbf{\textit{Mt}$+$W D} & Hide file explorer \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {File Explorer (Meta$+$W)};
+\node[fancytitle, right=10pt] at (box.north west) {File Explorer (\textit{Mt}$+$W)};
 \end{tikzpicture}
-
-\columnbreak
 
 %------------ EDITOR ---------------
 \begin{tikzpicture}
@@ -178,20 +208,30 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{Meta$+$E A} & Focus editor (from anywhere) \\ \hline
-            \textbf{Ctrl$+$P} & Quick open file... \\ \hline
-            \textbf{Ctrl$+$W} & Close active file window \\ \hline
-            \textbf{Ctrl$+$K Ctrl$+$W} & Close all open files \\ \hline
-            \textbf{Meta$+$E X} & Split editor horizontally \\ \hline
-            \textbf{Meta$+$E Meta$+$X} & Split editor vertically \\ \hline
-            \textbf{Alt$+$\{1-9\}} & Focus file \{1-9\} on group \\ \hline
-            \textbf{Ctrl$+$Tab} & Focus next file on group \\ \hline
-            \textbf{Ctrl$+$Alt$+$Tab} & Focus next editor group \\ \hline
+            \textbf{\textit{Mt/Ct}$+$E A} & Focus on editor \\ \hline
+            \textbf{\textit{Mt/Ct}$+$E D} & Close active file editor \\ \hline
+            \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$E D} & Close all editors in group \\ \hline
+            \textbf{\textit{Mt/Ct}$+$E N} & Open file in new window \\ \hline
+            \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$E N} & Duplic. worksp. in new win. \\ \hline
+            \textbf{\textit{Mt/Ct}$+$E X} & Toggle layout (horiz./vertic.) \\ \hline
+            \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$E X} & Split editor vertically \\ \hline
+            \textbf{\textit{Mt/Ct}$+$E W} & Focus on next editor group \\ \hline
+            \textbf{\textit{Mt/Ct}$+$(E-W)} & Same (continuous) \\ \hline
+            \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$E W} & Focus on next file of group \\ \hline
+            \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$(E-W)} & Same (continuous) \\ \hline
+            \textbf{\textit{Mt}$+$E <1-9>} & Focus on file <1-9> of group \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E <1-9>} & Focus on group index <1-9> \\ \hline
+            \textbf{\textit{Ct}$+$E \textit{<a>}} & Move editor to <u/d/l/r> gr. \\ \hline
+            \textbf{\textit{Ct}$+$(E-\textit{<a>})} & Same (continuous) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$E \textit{<a>}} & Move editor to <l/r> in group \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$(E-\textit{<a>})} & Same (continuous) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$\textit{Sh}$+$E \textit{<a>}} & Move group <u/d/l/r> \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$\textit{Sh}$+$(E-\textit{<a>})} & Same (continuous) \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Editor (Meta$+$E)};
+\node[fancytitle, right=10pt] at (box.north west) {Editor (\textit{Mt}$+$E / \textit{Ct}$+$E)};
 \end{tikzpicture}
 
 %------------ PANEL ---------------
@@ -202,12 +242,12 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{Meta$+$G D} & Hide panel \\ \hline
+            \textbf{\textit{Mt}$+$G D} & Hide panel \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Panel (Meta$+$G)};
+\node[fancytitle, right=10pt] at (box.north west) {Panel (\textit{Mt}$+$G)};
 \end{tikzpicture}
 
 %------------ PROBLEMS VIEW ---------------
@@ -218,15 +258,13 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{Meta$+$R A} & Focus on problems view \\ \hline
-            \textbf{Enter} & Open problem in editor \\ \hline
-            \textbf{Ctrl$+$Enter} & Open problem in new side editor \\ \hline
-            \textbf{Meta$+$R D} & Hide problems view \\ \hline
+            \textbf{\textit{Mt}$+$R A} & Focus on problems view \\ \hline
+            \textbf{\textit{Mt}$+$R D} & Hide problems view \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Problems View (Meta$+$R)};
+\node[fancytitle, right=10pt] at (box.north west) {Problems View (\textit{Mt}$+$R)};
 \end{tikzpicture}
 
 %------------ TERMINAL ---------------
@@ -237,22 +275,25 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{Meta$+$T A} & Focus terminal (toggle) \\ \hline
-            \textbf{Meta$+$T Meta$+$A} & New terminal window \\ \hline
-            \textbf{Meta$+$T X} & Split terminal into panes \\ \hline
-            \textbf{Meta$+$T W} & Focus next terminal pane \\ \hline
-            \textbf{Meta$+$T Meta$+$W} & Focus next terminal window \\ \hline
-            \textbf{Meta$+$T E} & Expand terminal (toggle) \\ \hline
-            \textbf{Meta$+$T F} & Open terminal in file path \\ \hline
-            \textbf{Meta$+$T D} & Hide terminal \\ \hline
-            \textbf{Ctrl$+$D} & Term. focus: kill terminal \\ \hline
-            \textbf{Ctrl$+$Shift$+$C} & Term. focus: copy text \\ \hline
-            \textbf{Ctrl$+$Shift$+$V} & Term. focus: paste text \\ \hline
+            \textbf{\textit{Mt}$+$T A} & Focus terminal (toggle) \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$T A} & New terminal window \\ \hline
+            \textbf{\textit{Mt}$+$T X} & Split terminal into panes \\ \hline
+            \textbf{\textit{Mt}$+$T W} & Focus to next terminal window \\ \hline
+            \textbf{\textit{Mt}$+$(T-W)} & Same (continuous) \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$T W} & Focus to next terminal pane \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$(T-W)} & Same (continuous) \\ \hline
+            \textbf{\textit{Mt}$+$T E} & Expand terminal (toggle) \\ \hline
+            \textbf{\textit{Mt}$+$(T-E)} & Same (continuous) \\ \hline
+            \textbf{\textit{Mt}$+$T F} & Open terminal in file path \\ \hline
+            \textbf{\textit{Mt}$+$T D} & Hide terminal \\ \hline
+            \textbf{\textit{Ct}$+$D} & Term. focus: kill terminal \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$C} & Term. focus: copy text \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$V} & Term. focus: paste text \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Terminal (Meta$+$T)};
+\node[fancytitle, right=10pt] at (box.north west) {Terminal (\textit{Mt}$+$T)};
 \end{tikzpicture}
 
 \end{multicols*}
