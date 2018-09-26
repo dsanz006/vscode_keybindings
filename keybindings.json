@@ -76,8 +76,8 @@
      · (Meta/Ctrl)+Shft+E D         : Close all editors in group
      · (Meta/Ctrl)+E N              : Open file in new window
      · (Meta/Ctrl)+Shft+E N         : Duplicate workspace in new window
-     · (Meta/Ctrl)+E X              : Toggle layout (horiz./vert.)
-     · (Meta/Ctrl)+Shift+E X        : Split editor vertically
+     · (Meta/Ctrl)+E X              : Split editor vertically
+     · (Meta/Ctrl)+Shift+E X        : Toggle layout (horiz./vert.)
      · (Meta/Ctrl)+E W              : Focus on next editor group
      · (Meta/Ctrl)+(E-W)            : Same (continuous)
      · (Meta/Ctrl)+Shift+E W        : Focus on next file of group
@@ -594,19 +594,19 @@
     },
     {
         "key": "meta+e x",
-        "command": "workbench.action.toggleEditorGroupLayout"
+        "command": "workbench.action.splitEditorRight"
     },
     {
         "key": "ctrl+e x",
-        "command": "workbench.action.toggleEditorGroupLayout"
+        "command": "workbench.action.splitEditorRight"
     },
     {
         "key": "meta+shift+e x",
-        "command": "workbench.action.splitEditorRight"
+        "command": "workbench.action.toggleEditorGroupLayout"
     },
     {
         "key": "ctrl+shift+e x",
-        "command": "workbench.action.splitEditorRight"
+        "command": "workbench.action.toggleEditorGroupLayout"
     },
     {
         "key": "meta+e w",
