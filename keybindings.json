@@ -11,6 +11,8 @@
         · Text edition
         · IntelliSense (Code completion & navigation)
         · Compare editor (workbench.action.compareEditor)
+        · Breadcrumbs
+        · Refactoring/code actions ??
 
     ----------------------------------------------------------
 
@@ -50,16 +52,16 @@
     ----------------------------------------------------------
 
     Focus on views:
-     · Meta+S A         : Focus sidebar (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+W A         : Focus explorer (toggle)
-     · Meta+E A         : Focus active editor (from anywhere)
+     · Meta+S A         : Focus on sidebar (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+W A         : Focus on file explorer (toggle)
+     · Meta+D A         : Focus on debug bar (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+E A         : Focus on active editor (from anywhere)
      · Meta+R A         : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+T A         : Toggle terminal (toggle)
+     · Meta+T A         : Focus on terminal (toggle)
      · Ctrl+Shift+F      : Toggle focus to find/replace
-     · Ctrl+Shift+D      : Toggle focus to Debugger
     
     Sidebar (Meta+S):
-     · Meta+S A         : Focus sidebar (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+S A         : Focus on sidebar (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+S E         : Expand/collapse Sidebar
      · Meta+(S-E)       : Same (continuous)
 
@@ -70,17 +72,28 @@
      · Meta+W F         : Reveal current file in file explorer (if in workspace)
      · Meta+W D         : Hide file explorer
 
+    Debug (Meta+D):
+     · Meta+D A             : Focus on debug bar (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+Shft+D A        : Choose debug configuration and start debuging
+     · Meta+D B             : Toggle breakpoint
+     · Meta+Shft+D B        : Add conditional breakpoint
+     · Meta+Ctrl+Shft+D B   : Add function breakpoint
+     · Meta+D T             : Add tracepoint (logpoint)
+     · Meta+D E             : Toggle enable/disable all breakpoints //XXX todo: download VScode source to see if there is a when clause: breakpointsEnabled
+     · Meta+Shft+D E        : Remove all breakpoints //XXX todo: download VScode source to see if there is a when clause: breakpointsEnabled
+     · Meta+D D             : Hide debug bar 
+
     Editor (Ctrl+E / Meta+E):
-     · (Meta/Ctrl)+E A              : Focus active editor (from anywhere)
+     · (Meta/Ctrl)+E A              : Focus on active editor (from anywhere)
      · (Meta/Ctrl)+E D              : Close active file editor
      · (Meta/Ctrl)+Shft+E D         : Close all editors in group
      · (Meta/Ctrl)+E N              : Open file in new window
      · (Meta/Ctrl)+Shft+E N         : Duplicate workspace in new window
      · (Meta/Ctrl)+E X              : Split editor vertically
      · (Meta/Ctrl)+Shift+E X        : Toggle layout (horiz./vert.)
-     · (Meta/Ctrl)+E W              : Focus on next editor group
+     · (Meta/Ctrl)+E W              : Focus on next file of group
      · (Meta/Ctrl)+(E-W)            : Same (continuous)
-     · (Meta/Ctrl)+Shift+E W        : Focus on next file of group
+     · (Meta/Ctrl)+Shift+E W        : Focus on next editor group
      · (Meta/Ctrl)+Shift+(E-W)      : Same (continuous)
      · Ctrl+E 1-9                   : Focus on file index 1-9 of group
      · Ctrl+Shift+E 1-9             : Focus on editor group index 1-9
@@ -99,8 +112,8 @@
      · Meta+R D         : Hide problems view
 
     Terminal (Meta+T):
-     · Meta+T A         : Toggle focus between editor and terminal
-     · Meta+Shift+T A   : Add new terminal (another window) and focus
+     · Meta+T A         : Focus on terminal (toggle)
+     · Meta+T N         : Add new terminal (another window) and focus
      · Meta+T X         : Split terminal (add a pane and focus)
      · Meta+T W         : Switch focus to next terminal window
      · Meta+(T-W)       : Same (continuous)
@@ -304,6 +317,60 @@
         "key": "meta+w d",
         "command": "workbench.action.toggleSidebarVisibility",
         "when" : "activeViewlet == 'workbench.view.explorer'"
+    },
+
+/* ---------------------------------------------------- */
+
+/**** Debug (Meta+D) ****/
+
+    //removed keybindings
+    {
+        "key": "ctrl+shift+d",
+        "command": "-workbench.view.debug"
+    },
+    {
+        "key": "f9",
+        "command": "-editor.debug.action.toggleBreakpoint",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+f9",
+        "command": "-editor.debug.action.toggleInlineBreakpoint",
+        "when": "editorTextFocus"
+    },
+    //added keybindings
+    {
+        "key": "meta+d a",
+        "command": "workbench.view.debug"
+    },
+    {
+        "key": "shift+meta+d a",
+        "command": "workbench.action.debug.selectandstart"
+    },
+    {
+        "key": "meta+d b",
+        "command": "editor.debug.action.toggleBreakpoint",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+meta+d b",
+        "command": "editor.debug.action.conditionalBreakpoint",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+meta+d b",
+        "command": "workbench.debug.viewlet.action.addFunctionBreakpointAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "meta+d t",
+        "command": "editor.debug.action.toggleLogPoint",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "meta+d d",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when" : "activeViewlet == 'workbench.view.debug'"
     },
 
 /* ---------------------------------------------------- */
@@ -610,35 +677,35 @@
     },
     {
         "key": "meta+e w",
-        "command": "workbench.action.focusNextGroup"
+        "command": "workbench.action.nextEditorInGroup"
     },
     {
         "key": "ctrl+e w",
-        "command": "workbench.action.focusNextGroup"
+        "command": "workbench.action.nextEditorInGroup"
     },
     {
         "key": "meta+e meta+w",
-        "command": "workbench.action.focusNextGroup"
+        "command": "workbench.action.nextEditorInGroup"
     },
     {
         "key": "ctrl+e ctrl+w",
-        "command": "workbench.action.focusNextGroup"
+        "command": "workbench.action.nextEditorInGroup"
     },
     {
         "key": "meta+shift+e w",
-        "command": "workbench.action.nextEditorInGroup"
+        "command": "workbench.action.focusNextGroup"
     },
     {
         "key": "ctrl+shift+e w",
-        "command": "workbench.action.nextEditorInGroup"
+        "command": "workbench.action.focusNextGroup"
     },
     {
         "key": "meta+shift+e meta+shift+w",
-        "command": "workbench.action.nextEditorInGroup"
+        "command": "workbench.action.focusNextGroup"
     },
     {
         "key": "ctrl+shift+e ctrl+shift+w",
-        "command": "workbench.action.nextEditorInGroup"
+        "command": "workbench.action.focusNextGroup"
     },
     {
         "key": "meta+shift+e 1",
@@ -905,7 +972,7 @@
         "when": "terminalFocus"
     },
     {
-        "key": "meta+shift+t a",
+        "key": "meta+t n",
         "command": "workbench.action.terminal.newInActiveWorkspace"
     },
     {
@@ -934,13 +1001,11 @@
     },
     {
         "key": "meta+t e",
-        "command": "workbench.action.toggleMaximizedPanel",
-        "when": "terminalFocus"
+        "command": "workbench.action.toggleMaximizedPanel"
     },
     {
         "key": "meta+t meta+e",
-        "command": "workbench.action.toggleMaximizedPanel",
-        "when": "terminalFocus"
+        "command": "workbench.action.toggleMaximizedPanel"
     },
     {
         "key": "meta+t f",

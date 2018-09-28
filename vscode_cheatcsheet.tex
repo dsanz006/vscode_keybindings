@@ -200,6 +200,28 @@
 \node[fancytitle, right=10pt] at (box.north west) {File Explorer (\textit{Mt}$+$W)};
 \end{tikzpicture}
 
+%------------ DEBUG ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Mt}$+$D A} & Focus on debug bar \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$D A} & Choose rebug config. and debug \\ \hline
+            \textbf{\textit{Mt}$+$D B} & Toggle breakpoint \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$D B} & Add conditional breakpoint \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Ct}$+$\textit{Sh}$+$D B} & Add function breakpoint \\ \hline
+            \textbf{\textit{Mt}$+$D T} & Add tracepoint (logpoint) \\ \hline
+            \textbf{\textit{Mt}$+$D D} & Hide debug bar \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Debug (\textit{Mt}$+$D)};
+\end{tikzpicture}
+
 %------------ EDITOR ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
@@ -215,9 +237,9 @@
             \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$E N} & Duplic. worksp. in new win. \\ \hline
             \textbf{\textit{Mt/Ct}$+$E X} & Split editor vertically \\ \hline
             \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$E X} & Toggle layout (horiz./vertic.) \\ \hline
-            \textbf{\textit{Mt/Ct}$+$E W} & Focus on next editor group \\ \hline
+            \textbf{\textit{Mt/Ct}$+$E W} & Focus on next file of group \\ \hline
             \textbf{\textit{Mt/Ct}$+$(E-W)} & Same (continuous) \\ \hline
-            \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$E W} & Focus on next file of group \\ \hline
+            \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$E W} & Focus on next editor group \\ \hline
             \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$(E-W)} & Same (continuous) \\ \hline
             \textbf{\textit{Mt}$+$E <1-9>} & Focus on file <1-9> of group \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$E <1-9>} & Focus on group index <1-9> \\ \hline
@@ -233,6 +255,8 @@
 };
 \node[fancytitle, right=10pt] at (box.north west) {Editor (\textit{Mt}$+$E / \textit{Ct}$+$E)};
 \end{tikzpicture}
+
+\columnbreak
 
 %------------ PANEL ---------------
 \begin{tikzpicture}
@@ -276,7 +300,7 @@
         \begin{tabular}{ll}
             \hline
             \textbf{\textit{Mt}$+$T A} & Focus terminal (toggle) \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$T A} & New terminal window \\ \hline
+            \textbf{\textit{Mt}$+$T N} & New terminal window, focus \\ \hline
             \textbf{\textit{Mt}$+$T X} & Split terminal into panes \\ \hline
             \textbf{\textit{Mt}$+$T W} & Focus to next terminal window \\ \hline
             \textbf{\textit{Mt}$+$(T-W)} & Same (continuous) \\ \hline
