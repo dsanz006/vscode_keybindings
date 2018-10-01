@@ -63,7 +63,6 @@
     Sidebar (Meta+S):
      · Meta+S A         : Focus on sidebar (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+S E         : Expand/collapse Sidebar
-     · Meta+(S-E)       : Same (continuous)
 
     File explorer (Meta+W):
      · Meta+W A         : Focus on file explorer (toggle)
@@ -92,17 +91,12 @@
      · (Meta/Ctrl)+E X              : Split editor vertically
      · (Meta/Ctrl)+Shift+E X        : Toggle layout (horiz./vert.)
      · (Meta/Ctrl)+E W              : Focus on next file of group
-     · (Meta/Ctrl)+(E-W)            : Same (continuous)
      · (Meta/Ctrl)+Shift+E W        : Focus on next editor group
-     · (Meta/Ctrl)+Shift+(E-W)      : Same (continuous)
      · Ctrl+E 1-9                   : Focus on file index 1-9 of group
      · Ctrl+Shift+E 1-9             : Focus on editor group index 1-9
      · Ctrl+E <a>                   : Move editor to above/below/left/right group
-     · Ctrl+(E-<a>)                 : Same (continuous)
      · Ctrl+Shft+E <a>              : Move editor left/right in froup
-     · Ctrl+Shft+(E-<a>)            : Same (continuous)
      · Ctrl+Alt+Shft+E <a>          : Move editor group to above/below/left/right
-     · Ctrl+Alt+Shft+(E-<a>)        : Same (continuous)
 
     Panel (Meta+G):
      · Meta+G D         : Hide Panel
@@ -116,11 +110,8 @@
      · Meta+T N         : Add new terminal (another window) and focus
      · Meta+T X         : Split terminal (add a pane and focus)
      · Meta+T W         : Switch focus to next terminal window
-     · Meta+(T-W)       : Same (continuous)
      · Meta+Shift+T W   : Switch focus to next terminal pane
-     · Meta+Shift+(T-W) : Same (continuous)
      · Meta+T E         : Toggle terminal Expand/collapse
-     · Meta+(T-E)       : Same (continuous)
      · Meta+T F         : Open new terminal in location of current file
      · Meta+T D         : Hide terminal view
      · Terminal text edition:
@@ -295,7 +286,17 @@
         "when": "!filesExplorerFocus"
     },
     {
+        "key": "meta+w meta+a",
+        "command": "workbench.files.action.focusFilesExplorer",
+        "when": "!filesExplorerFocus"
+    },
+    {
         "key": "meta+w a",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "meta+w meta+a",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "filesExplorerFocus"
     },
@@ -304,7 +305,16 @@
         "command": "revealInExplorer"
     },
     {
+        "key": "meta+w meta+f",
+        "command": "revealInExplorer"
+    },
+    {
         "key": "meta+w n",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "meta+w meta+n",
         "command": "explorer.newFile",
         "when": "filesExplorerFocus"
     },
@@ -314,13 +324,23 @@
         "when": "filesExplorerFocus"
     },
     {
+        "key": "meta+shift+w meta+shift+n",
+        "command": "explorer.newFolder",
+        "when": "filesExplorerFocus"
+    },
+    {
         "key": "meta+w d",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when" : "activeViewlet == 'workbench.view.explorer'"
+    },
+    {
+        "key": "meta+w meta+d",
         "command": "workbench.action.toggleSidebarVisibility",
         "when" : "activeViewlet == 'workbench.view.explorer'"
     },
 
 /* ---------------------------------------------------- */
-
+    
 /**** Debug (Meta+D) ****/
 
     //removed keybindings
@@ -344,11 +364,24 @@
         "command": "workbench.view.debug"
     },
     {
+        "key": "meta+d meta+a",
+        "command": "workbench.view.debug"
+    },
+    {
         "key": "shift+meta+d a",
         "command": "workbench.action.debug.selectandstart"
     },
     {
+        "key": "shift+meta+d shift+meta+a",
+        "command": "workbench.action.debug.selectandstart"
+    },
+    {
         "key": "meta+d b",
+        "command": "editor.debug.action.toggleBreakpoint",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "meta+d meta+b",
         "command": "editor.debug.action.toggleBreakpoint",
         "when": "editorTextFocus"
     },
@@ -358,7 +391,17 @@
         "when": "editorTextFocus"
     },
     {
+        "key": "shift+meta+d shift+meta+b",
+        "command": "editor.debug.action.conditionalBreakpoint",
+        "when": "editorTextFocus"
+    },
+    {
         "key": "ctrl+shift+meta+d b",
+        "command": "workbench.debug.viewlet.action.addFunctionBreakpointAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+meta+d ctrl+shift+meta+b",
         "command": "workbench.debug.viewlet.action.addFunctionBreakpointAction",
         "when": "editorTextFocus"
     },
@@ -368,7 +411,17 @@
         "when": "editorTextFocus"
     },
     {
+        "key": "meta+d meta+t",
+        "command": "editor.debug.action.toggleLogPoint",
+        "when": "editorTextFocus"
+    },
+    {
         "key": "meta+d d",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when" : "activeViewlet == 'workbench.view.debug'"
+    },
+    {
+        "key": "meta+d meta+d",
         "command": "workbench.action.toggleSidebarVisibility",
         "when" : "activeViewlet == 'workbench.view.debug'"
     },
@@ -604,7 +657,15 @@
         "command": "workbench.action.focusActiveEditorGroup",
     },
     {
+        "key": "meta+e meta+a",
+        "command": "workbench.action.focusActiveEditorGroup",
+    },
+    {
         "key": "ctrl+e a",
+        "command": "workbench.action.focusActiveEditorGroup",
+    },
+    {
+        "key": "ctrl+e ctrl+a",
         "command": "workbench.action.focusActiveEditorGroup",
     },
     {
@@ -613,7 +674,17 @@
         "when": "!editorIsOpen && !multipleEditorGroups"
     },
     {
+        "key": "meta+e meta+d",
+        "command": "workbench.action.closeWindow",
+        "when": "!editorIsOpen && !multipleEditorGroups"
+    },
+    {
         "key": "ctrl+e d",
+        "command": "workbench.action.closeWindow",
+        "when": "!editorIsOpen && !multipleEditorGroups"
+    },
+    {
+        "key": "ctrl+e ctrl+d",
         "command": "workbench.action.closeWindow",
         "when": "!editorIsOpen && !multipleEditorGroups"
     },
@@ -622,7 +693,15 @@
         "command": "workbench.action.closeActiveEditor"
     },
     {
+        "key": "meta+e meta+d",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
         "key": "ctrl+e d",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+e ctrl+d",
         "command": "workbench.action.closeActiveEditor"
     },
     {
@@ -631,7 +710,17 @@
         "when": "activeEditorGroupEmpty && multipleEditorGroups"
     },
     {
+        "key": "meta+e meta+d",
+        "command": "workbench.action.closeGroup",
+        "when": "activeEditorGroupEmpty && multipleEditorGroups"
+    },
+    {
         "key": "ctrl+e d",
+        "command": "workbench.action.closeGroup",
+        "when": "activeEditorGroupEmpty && multipleEditorGroups"
+    },
+    {
+        "key": "ctrl+e ctrl+d",
         "command": "workbench.action.closeGroup",
         "when": "activeEditorGroupEmpty && multipleEditorGroups"
     },
@@ -640,7 +729,15 @@
         "command": "workbench.action.closeEditorsInGroup"
     },
     {
+        "key": "meta+shift+e meta+shift+d",
+        "command": "workbench.action.closeEditorsInGroup"
+    },
+    {
         "key": "ctrl+shift+e d",
+        "command": "workbench.action.closeEditorsInGroup"
+    },
+    {
+        "key": "ctrl+shift+e ctrl+shift+d",
         "command": "workbench.action.closeEditorsInGroup"
     },
     {
@@ -648,7 +745,15 @@
         "command": "workbench.action.files.showOpenedFileInNewWindow"
     },
     {
+        "key": "meta+e meta+n",
+        "command": "workbench.action.files.showOpenedFileInNewWindow"
+    },
+    {
         "key": "ctrl+e n",
+        "command": "workbench.action.files.showOpenedFileInNewWindow"
+    },
+    {
+        "key": "ctrl+e ctrl+n",
         "command": "workbench.action.files.showOpenedFileInNewWindow"
     },
     {
@@ -656,7 +761,15 @@
         "command": "workbench.action.duplicateWorkspaceInNewWindow"
     },
     {
+        "key": "meta+shift+e meta+shift+n",
+        "command": "workbench.action.duplicateWorkspaceInNewWindow"
+    },
+    {
         "key": "ctrl+shift+e n",
+        "command": "workbench.action.duplicateWorkspaceInNewWindow"
+    },
+    {
+        "key": "ctrl+shift+e ctrl+shift+n",
         "command": "workbench.action.duplicateWorkspaceInNewWindow"
     },
     {
@@ -664,7 +777,15 @@
         "command": "workbench.action.splitEditorRight"
     },
     {
+        "key": "meta+e meta+x",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
         "key": "ctrl+e x",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "ctrl+e ctrl+x",
         "command": "workbench.action.splitEditorRight"
     },
     {
@@ -672,7 +793,15 @@
         "command": "workbench.action.toggleEditorGroupLayout"
     },
     {
+        "key": "meta+shift+e meta+shift+x",
+        "command": "workbench.action.toggleEditorGroupLayout"
+    },
+    {
         "key": "ctrl+shift+e x",
+        "command": "workbench.action.toggleEditorGroupLayout"
+    },
+    {
+        "key": "ctrl+shift+e ctrl+shift+x",
         "command": "workbench.action.toggleEditorGroupLayout"
     },
     {
@@ -680,11 +809,11 @@
         "command": "workbench.action.nextEditorInGroup"
     },
     {
-        "key": "ctrl+e w",
+        "key": "meta+e meta+w",
         "command": "workbench.action.nextEditorInGroup"
     },
     {
-        "key": "meta+e meta+w",
+        "key": "ctrl+e w",
         "command": "workbench.action.nextEditorInGroup"
     },
     {
@@ -696,11 +825,11 @@
         "command": "workbench.action.focusNextGroup"
     },
     {
-        "key": "ctrl+shift+e w",
+        "key": "meta+shift+e meta+shift+w",
         "command": "workbench.action.focusNextGroup"
     },
     {
-        "key": "meta+shift+e meta+shift+w",
+        "key": "ctrl+shift+e w",
         "command": "workbench.action.focusNextGroup"
     },
     {
@@ -712,7 +841,15 @@
         "command": "workbench.action.focusFirstEditorGroup"
     },
     {
+        "key": "meta+shift+e meta+shift+1",
+        "command": "workbench.action.focusFirstEditorGroup"
+    },
+    {
         "key": "meta+shift+e 2",
+        "command": "workbench.action.focusSecondEditorGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+2",
         "command": "workbench.action.focusSecondEditorGroup"
     },
     {
@@ -720,7 +857,15 @@
         "command": "workbench.action.focusThirdEditorGroup"
     },
     {
+        "key": "meta+shift+e meta+shift+3",
+        "command": "workbench.action.focusThirdEditorGroup"
+    },
+    {
         "key": "meta+shift+e 4",
+        "command": "workbench.action.focusFourthEditorGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+4",
         "command": "workbench.action.focusFourthEditorGroup"
     },
     {
@@ -728,7 +873,15 @@
         "command": "workbench.action.focusFifthEditorGroup"
     },
     {
+        "key": "meta+shift+e meta+shift+5",
+        "command": "workbench.action.focusFifthEditorGroup"
+    },
+    {
         "key": "meta+shift+e 6",
+        "command": "workbench.action.focusSixthEditorGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+6",
         "command": "workbench.action.focusSixthEditorGroup"
     },
     {
@@ -736,7 +889,15 @@
         "command": "workbench.action.focusSeventhEditorGroup"
     },
     {
+        "key": "meta+shift+e meta+shift+7",
+        "command": "workbench.action.focusSeventhEditorGroup"
+    },
+    {
         "key": "meta+shift+e 8",
+        "command": "workbench.action.focusEighthEditorGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+8",
         "command": "workbench.action.focusEighthEditorGroup"
     },
     {
@@ -744,7 +905,15 @@
         "command": "workbench.action.lastEditorInGroup"
     },
     {
+        "key": "meta+shift+e meta+shift+9",
+        "command": "workbench.action.lastEditorInGroup"
+    },
+    {
         "key": "meta+e 1",
+        "command": "workbench.action.openEditorAtIndex1"
+    },
+    {
+        "key": "meta+e meta+1",
         "command": "workbench.action.openEditorAtIndex1"
     },
     {
@@ -752,7 +921,15 @@
         "command": "workbench.action.openEditorAtIndex2"
     },
     {
+        "key": "meta+e meta+2",
+        "command": "workbench.action.openEditorAtIndex2"
+    },
+    {
         "key": "meta+e 3",
+        "command": "workbench.action.openEditorAtIndex3"
+    },
+    {
+        "key": "meta+e meta+3",
         "command": "workbench.action.openEditorAtIndex3"
     },
     {
@@ -760,7 +937,15 @@
         "command": "workbench.action.openEditorAtIndex4"
     },
     {
+        "key": "meta+e meta+4",
+        "command": "workbench.action.openEditorAtIndex4"
+    },
+    {
         "key": "meta+e 5",
+        "command": "workbench.action.openEditorAtIndex5"
+    },
+    {
+        "key": "meta+e meta+5",
         "command": "workbench.action.openEditorAtIndex5"
     },
     {
@@ -768,7 +953,15 @@
         "command": "workbench.action.openEditorAtIndex6"
     },
     {
+        "key": "meta+e meta+6",
+        "command": "workbench.action.openEditorAtIndex6"
+    },
+    {
         "key": "meta+e 7",
+        "command": "workbench.action.openEditorAtIndex7"
+    },
+    {
+        "key": "meta+e meta+7",
         "command": "workbench.action.openEditorAtIndex7"
     },
     {
@@ -776,7 +969,15 @@
         "command": "workbench.action.openEditorAtIndex8"
     },
     {
+        "key": "meta+e meta+8",
+        "command": "workbench.action.openEditorAtIndex8"
+    },
+    {
         "key": "meta+e 9",
+        "command": "workbench.action.openEditorAtIndex9"
+    },
+    {
+        "key": "meta+e meta+9",
         "command": "workbench.action.openEditorAtIndex9"
     },
     {
@@ -967,7 +1168,17 @@
         "when": "!terminalFocus"
     },
     {
+        "key": "meta+t meta+a",
+        "command": "workbench.action.terminal.focus",
+        "when": "!terminalFocus"
+    },
+    {
         "key": "meta+t a",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "meta+t meta+a",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "terminalFocus"
     },
@@ -976,7 +1187,15 @@
         "command": "workbench.action.terminal.newInActiveWorkspace"
     },
     {
+        "key": "meta+t meta+n",
+        "command": "workbench.action.terminal.newInActiveWorkspace"
+    },
+    {
         "key": "meta+t x",
+        "command": "workbench.action.terminal.splitInActiveWorkspace",
+    },
+    {
+        "key": "meta+t meta+x",
         "command": "workbench.action.terminal.splitInActiveWorkspace",
     },
     {
@@ -1012,7 +1231,16 @@
         "command": "openInTerminal"
     },
     {
+        "key": "meta+t meta+f",
+        "command": "openInTerminal"
+    },
+    {
         "key": "meta+t d",
+        "command": "workbench.action.closePanel",
+        "when": "activePanel == 'workbench.panel.terminal'" //when terminal is visible
+    },
+    {
+        "key": "meta+t meta+d",
         "command": "workbench.action.closePanel",
         "when": "activePanel == 'workbench.panel.terminal'" //when terminal is visible
     },
@@ -1032,6 +1260,11 @@
             "command": "workbench.action.problems.focus",
             //"when": "!problemFocus" //XXX doesn't exist
         },
+        {
+            "key": "meta+r meta+a",
+            "command": "workbench.action.problems.focus",
+            //"when": "!problemFocus" //XXX doesn't exist
+        },
         /*
         //XXX not working, as "problemFocus" doesn't exist
         {
@@ -1039,9 +1272,19 @@
             "command": "workbench.action.focusActiveEditorGroup",
             "when": "problemFocus"
         },
+        {
+            "key": "meta+r meta+a",
+            "command": "workbench.action.focusActiveEditorGroup",
+            "when": "problemFocus"
+        },
         */
         {
             "key": "meta+r d",
+            "command": "workbench.action.closePanel",
+            "when": "activePanel == 'workbench.panel.markers'" //when problems view is visible
+        },
+        {
+            "key": "meta+r meta+d",
             "command": "workbench.action.closePanel",
             "when": "activePanel == 'workbench.panel.markers'" //when problems view is visible
         },
@@ -1058,6 +1301,10 @@
     //added keybindings
     {
         "key": "meta+g d",
+        "command": "workbench.action.closePanel"
+    },
+    {
+        "key": "meta+g meta+d",
         "command": "workbench.action.closePanel"
     },
 
