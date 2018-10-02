@@ -5,6 +5,8 @@
 
     Pending issues: #59084
 
+    Some more can be found on VS Code source code. Under src/vs/ search for "new RawContextKey<"
+
     Todo: 
         · Find/Replace
         · Debug
@@ -40,12 +42,13 @@
      · T        : Terminal
 
     General MINOR-KEY meanings:
-     · A        : Focus/View/Toggle
+     · A        : Focus/View (Toggle)
      · X        : Split
      · W        : Next/other
      · E        : Expand/Contract
      · F        : File (open, show...)
      · N        : New/Create
+     · T        : Toggle
      · D        : Close
      · <a>      : Move
 
@@ -92,6 +95,7 @@
      · (Meta/Ctrl)+Shift+E X        : Toggle layout (horiz./vert.)
      · (Meta/Ctrl)+E W              : Focus on next file of group
      · (Meta/Ctrl)+Shift+E W        : Focus on next editor group
+     · (Meta/Ctrl)+E T              : Focus on prev. file on history
      · Ctrl+E 1-9                   : Focus on file index 1-9 of group
      · Ctrl+Shift+E 1-9             : Focus on editor group index 1-9
      · Ctrl+E <a>                   : Move editor to above/below/left/right group
@@ -837,6 +841,22 @@
         "command": "workbench.action.focusNextGroup"
     },
     {
+        "key": "meta+e t",
+        "command": "workbench.action.openPreviousEditorFromHistory"
+    },
+    {
+        "key": "meta+e meta+t",
+        "command": "workbench.action.openPreviousEditorFromHistory",
+    },
+    {
+        "key": "ctrl+e t",
+        "command": "workbench.action.openPreviousEditorFromHistory"
+    },
+    {
+        "key": "ctrl+e ctrl+t",
+        "command": "workbench.action.openPreviousEditorFromHistory",
+    },
+    {
         "key": "meta+shift+e 1",
         "command": "workbench.action.focusFirstEditorGroup"
     },
@@ -1258,24 +1278,24 @@
         {
             "key": "meta+r a",
             "command": "workbench.action.problems.focus",
-            //"when": "!problemFocus" //XXX doesn't exist
+           // "when": "!problemsViewFocus" //XXX doesn't work
         },
         {
             "key": "meta+r meta+a",
             "command": "workbench.action.problems.focus",
-            //"when": "!problemFocus" //XXX doesn't exist
+            //"when": "!problemsViewFocus" //XXX doesn't work
         },
         /*
-        //XXX not working, as "problemFocus" doesn't exist
+        //XXX not working, as "problemsViewFocus" doesn't work
         {
             "key": "meta+r a",
             "command": "workbench.action.focusActiveEditorGroup",
-            "when": "problemFocus"
+            "when": "problemsViewFocus"
         },
         {
             "key": "meta+r meta+a",
             "command": "workbench.action.focusActiveEditorGroup",
-            "when": "problemFocus"
+            "when": "problemsViewFocus"
         },
         */
         {
@@ -1535,6 +1555,49 @@
         "key": "ctrl+shift+e",
         "command": "-workbench.action.quickOpenNavigatePreviousInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-latex-workshop.build",
+        "when": "editorTextFocus && !isMac"
+    },
+    {
+        "key": "alt+meta+b",
+        "command": "-latex-workshop.build",
+        "when": "editorTextFocus && isMac"
+    },
+    {
+        "key": "alt+meta+x",
+        "command": "-workbench.view.extension.latex",
+        "when": "isMac"
+    },
+    {
+        "key": "ctrl+alt+x",
+        "command": "-workbench.view.extension.latex"
+    },
+    {
+        "key": "alt+meta+j",
+        "command": "-latex-workshop.synctex",
+        "when": "editorTextFocus && isMac"
+    },
+    {
+        "key": "ctrl+alt+j",
+        "command": "-latex-workshop.synctex",
+        "when": "editorTextFocus && !isMac"
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "-latex-workshop.view",
+        "when": "editorTextFocus && !isMac"
+    },
+    {
+        "key": "alt+meta+v",
+        "command": "-latex-workshop.view",
+        "when": "editorTextFocus && isMac"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "-editor.action.toggleTabFocusMode"
     },
 
 /* ---------------------------------------------------- */
