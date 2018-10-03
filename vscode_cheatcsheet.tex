@@ -71,10 +71,12 @@
                 \textbf{\textit{Mt}} & Meta/Super \\ \hline
                 \textbf{\textit{Ct}} & Control \\ \hline
                 \textbf{\textit{Sh}} & Shift \\ \hline
+                \textbf{\textit{Al}} & Alt \\ \hline
             \end{tabular}
             \begin{tabular}{ll}
                 \hline
-                \textbf{\textit{Al}} & Alt \\ \hline
+                \textbf{\textit{Bs}} & BackSpace \\ \hline
+                \textbf{\textit{Sp}} & Supr \\ \hline
                 \textbf{\textit{En}} & Enter \\ \hline
                 \textbf{\textit{<a>}} & Arrows \\ \hline
             \end{tabular}
@@ -90,6 +92,7 @@
             \textbf{\textit{Ct}$+$G} & Leave, cancel, exit... (Esc) \\ \hline
             \textbf{\textit{En}} & Open file, expand/collapse folder \\ \hline
             \textbf{\textit{Ct}$+$\textit{En}} & Open to side editor \\ \hline
+            \textbf{\textit{Bs}/\textit{Sp}} & Delete/remove \\ \hline
         \end{tabular}
         \end{center}
         
@@ -123,11 +126,12 @@
                 \textbf{A} & Focus (toggle) \\ \hline
                 \textbf{X} & Split \\ \hline
                 \textbf{W} & Next/Other \\ \hline
+                \textbf{Q} & Previous \\ \hline
                 \textbf{E} & Expand (toggle) \\ \hline
-                \textbf{F} & Show file \\ \hline
             \end{tabular}
             \begin{tabular}{ll}
                 \hline
+                \textbf{F} & Show file \\ \hline
                 \textbf{N} & New/create \\ \hline
                 \textbf{T} & Toggle \\ \hline
                 \textbf{D} & Close/hide \\ \hline
@@ -140,6 +144,8 @@
 \node[fancytitle, right=10pt] at (box.north west) {General};
 \end{tikzpicture}
 
+\columnbreak
+
 %------------ FOCUSING ON VIEWS ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
@@ -150,6 +156,7 @@
             \hline
             \textbf{\textit{Mt}$+$S A} & Focus sidebar \\ \hline
             \textbf{\textit{Mt}$+$W A} & Focus file explorer (toggle) \\ \hline
+            \textbf{\textit{Mt}$+$D A} & Focus on debug bar \\ \hline
             \textbf{\textit{Mt}$+$E A} & Focus active editor (from anywhere) \\ \hline
             \textbf{\textit{Mt}$+$R A} & Focus on problems view \\ \hline
             \textbf{\textit{Mt}$+$T A} & Focus terminal (toggle) \\ \hline
@@ -159,8 +166,6 @@
 };
 \node[fancytitle, right=10pt] at (box.north west) {Focusing on views};
 \end{tikzpicture}
-
-\columnbreak
 
 %------------ SIDEBAR ---------------
 \begin{tikzpicture}
@@ -208,18 +213,33 @@
         \begin{tabular}{ll}
             \hline
             \textbf{\textit{Mt}$+$D A} & Focus on debug bar \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$D A} & Choose rebug config. and debug \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$D A} & Choose debug config., start \\ \hline
             \textbf{\textit{Mt}$+$D B} & Toggle breakpoint \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$D B} & Add conditional breakpoint \\ \hline
             \textbf{\textit{Mt}$+$\textit{Ct}$+$\textit{Sh}$+$D B} & Add function breakpoint \\ \hline
             \textbf{\textit{Mt}$+$D T} & Add tracepoint (logpoint) \\ \hline
+            \textbf{\textit{Mt}$+$D E} & Enable/Disable breakpoint \\ \hline
+            \textbf{\textit{Mt}$+$D W} & Go to next breakpoint \\ \hline
+            \textbf{\textit{Mt}$+$D Q} & Go to previous breakpoint \\ \hline
+            \textbf{\textit{Mt}$+$D R} & Focus on breakpoints view \\ \hline
+            \textbf{\quad \textit{Bs}/\textit{Sp}} & (bpFocus) Remove breakpoint \\ \hline
+            \textbf{\quad E} & (bpFocus) En./dis. breakpoint \\ \hline
+            \textbf{\quad \textit{Ct}$+$E} & (bpFocus) En. all breakpoints \\ \hline
+            \textbf{\quad \textit{Ct}$+$\textit{Sh}$+$E} & (bpFocus) Dis. all breakpoints \\ \hline
+            \textbf{\quad \textit{Ct}$+$\textit{Sh}$+$\textit{Bs}} & (bpFocus) Rem. all breakpoints \\ \hline
+            \textbf{\textit{Mt}$+$D V} & Focus on variables view \\ \hline
+            \textbf{\textit{Mt}$+$D Z} & Focus on watch view \\ \hline
+            \textbf{\textit{Mt}$+$D C} & Focus on call stack view \\ \hline
             \textbf{\textit{Mt}$+$D D} & Hide debug bar \\ \hline
+            \textbf{F5, F6, F10, F11} & Common debugging keys \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {Debug (\textit{Mt}$+$D)};
 \end{tikzpicture}
+
+\columnbreak
 
 %------------ EDITOR ---------------
 \begin{tikzpicture}
@@ -229,16 +249,18 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Mt/Ct}$+$E A} & Focus on editor \\ \hline
-            \textbf{\textit{Mt/Ct}$+$E D} & Close active file editor \\ \hline
-            \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$E D} & Close all editors in group \\ \hline
-            \textbf{\textit{Mt/Ct}$+$E N} & Open file in new window \\ \hline
-            \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$E N} & Duplic. worksp. in new win. \\ \hline
-            \textbf{\textit{Mt/Ct}$+$E X} & Split editor vertically \\ \hline
-            \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$E X} & Toggle layout (horiz./vertic.) \\ \hline
-            \textbf{\textit{Mt/Ct}$+$E W} & Focus on next file of group \\ \hline
-            \textbf{\textit{Mt/Ct}$+$\textit{Sh}$+$E W} & Focus on next editor group \\ \hline
-            \textbf{\textit{Mt/Ct}$+$E T} & Focus on prev. file on history \\ \hline
+            \textbf{\textit{Mt}$+$E A} & Focus on editor \\ \hline
+            \textbf{\textit{Mt}$+$E D} & Close active file editor \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E D} & Close all editors in group \\ \hline
+            \textbf{\textit{Mt}$+$E N} & Open file in new window \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E N} & Duplic. worksp. in new win. \\ \hline
+            \textbf{\textit{Mt}$+$E X} & Split editor vertically \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E X} & Toggle layout (horiz./vertic.) \\ \hline
+            \textbf{\textit{Mt}$+$E W} & Focus on next file of group \\ \hline
+            \textbf{\textit{Mt}$+$E Q} & Focus on previous file of group \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E W} & Focus on next editor group \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E Q} & Focus on previous editor group \\ \hline
+            \textbf{\textit{Mt}$+$E T} & Focus on prev. file on history \\ \hline
             \textbf{\textit{Mt}$+$E <1-9>} & Focus on file <1-9> of group \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$E <1-9>} & Focus on group index <1-9> \\ \hline
             \textbf{\textit{Ct}$+$E \textit{<a>}} & Move editor to <u/d/l/r> gr. \\ \hline
@@ -250,8 +272,6 @@
 };
 \node[fancytitle, right=10pt] at (box.north west) {Editor (\textit{Mt}$+$E / \textit{Ct}$+$E)};
 \end{tikzpicture}
-
-\columnbreak
 
 %------------ PANEL ---------------
 \begin{tikzpicture}
@@ -298,13 +318,15 @@
             \textbf{\textit{Mt}$+$T N} & New terminal window, focus \\ \hline
             \textbf{\textit{Mt}$+$T X} & Split terminal into panes \\ \hline
             \textbf{\textit{Mt}$+$T W} & Focus to next terminal window \\ \hline
+            \textbf{\textit{Mt}$+$T Q} & Focus to previous terminal window \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$T W} & Focus to next terminal pane \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$T Q} & Focus to previous terminal pane \\ \hline
+            \textbf{\quad \textit{Ct}$+$D} & (termFocus) kill terminal \\ \hline
+            \textbf{\quad \textit{Ct}$+$\textit{Sh}$+$C} & (termFocus) copy text \\ \hline
+            \textbf{\quad \textit{Ct}$+$\textit{Sh}$+$V} & (termFocus) paste text \\ \hline
             \textbf{\textit{Mt}$+$T E} & Expand terminal (toggle) \\ \hline
             \textbf{\textit{Mt}$+$T F} & Open terminal in file path \\ \hline
             \textbf{\textit{Mt}$+$T D} & Hide terminal \\ \hline
-            \textbf{\textit{Ct}$+$D} & Term. focus: kill terminal \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$C} & Term. focus: copy text \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$V} & Term. focus: paste text \\ \hline
         \end{tabular}
 
     \end{minipage}
