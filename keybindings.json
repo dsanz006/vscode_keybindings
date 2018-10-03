@@ -9,10 +9,8 @@
 
     Todo: 
         · Find/Replace
-        · Debug
         · Text edition
         · IntelliSense (Code completion & navigation)
-        · Compare editor (workbench.action.compareEditor)
         · Breadcrumbs
         · Refactoring/code actions ??
 
@@ -29,6 +27,8 @@
      · Ctrl+G           : Leave, cancel, exit... (depends on context)
      · Enter            : Open file (on quick open, problems view, file explorer...), expand/collapse folder
      · Ctrl+Enter       : Open file to side editor
+     · Left/Right       : Expand/Collapse
+     · BkSpc/Supr       : Delete/Remove
 
     General MAJOR-KEY meanings - Used with Meta (Super) key:
      · A        : IntelliSense (Code completion & navigation)
@@ -40,6 +40,7 @@
      · G        : Panel
      · R        : Problems view
      · T        : Terminal
+     · C        : Compare editor
 
     General MINOR-KEY meanings:
      · A        : Focus/View (Toggle)
@@ -132,12 +133,16 @@
      · Meta+T Q         : Switch focus to previous terminal window
      · Meta+Shift+T W   : Switch focus to next terminal pane
      · Meta+Shift+T Q   : Switch focus to previous terminal pane
-       · Ctrl+Shift+C : (terminalFocus) Copy
-       · Ctrl+Shift+V : (terminalFocus) Paste
-       · Ctrl+D       : (terminalFocus) Kill
+       · Ctrl+Shift+C   : (terminalFocus) Copy
+       · Ctrl+Shift+V   : (terminalFocus) Paste
+       · Ctrl+D         : (terminalFocus) Kill
      · Meta+T E         : Toggle terminal Expand/collapse
      · Meta+T F         : Open new terminal in location of current file
      · Meta+T D         : Hide terminal view
+
+    Compare Editor (Meta+C):
+     · Meta+C W         : Go to next change
+     · Meta+C Q         : Go to previous change
 
     Compiling and Debugging:
      · F5:              : Execute launch configuration and debug
@@ -1444,6 +1449,43 @@
         "command": "workbench.action.closePanel"
     },
 
+    /* ---------------------------------------------------- */
+        
+    /**** Compare editor (Meta+C) ****/
+        
+        //removed keybindings
+        {
+            "key": "alt+f5",
+            "command": "-workbench.action.compareEditor.nextChange",
+            "when": "textCompareEditorVisible"
+        },
+        {
+            "key": "shift+alt+f5",
+            "command": "-workbench.action.compareEditor.previousChange",
+            "when": "textCompareEditorVisible"
+        },
+        //added keybindings
+        {
+            "key": "meta+c w",
+            "command": "workbench.action.compareEditor.nextChange",
+            "when": "textCompareEditorVisible"
+        },
+        {
+            "key": "meta+c meta+w",
+            "command": "workbench.action.compareEditor.nextChange",
+            "when": "textCompareEditorVisible"
+        },
+        {
+            "key": "meta+c q",
+            "command": "workbench.action.compareEditor.previousChange",
+            "when": "textCompareEditorVisible"
+        },
+        {
+            "key": "meta+c meta+q",
+            "command": "workbench.action.compareEditor.previousChange",
+            "when": "textCompareEditorVisible"
+        },
+
 /* ---------------------------------------------------- */
 
 /****  Line navigation  ****/
@@ -1768,4 +1810,5 @@
 /**** Automatic additions (should be empty) ****/
 
     {},
+
 ]

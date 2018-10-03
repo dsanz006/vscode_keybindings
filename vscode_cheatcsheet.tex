@@ -92,6 +92,7 @@
             \textbf{\textit{Ct}$+$G} & Leave, cancel, exit... (Esc) \\ \hline
             \textbf{\textit{En}} & Open file, expand/collapse folder \\ \hline
             \textbf{\textit{Ct}$+$\textit{En}} & Open to side editor \\ \hline
+            \textbf{\textit{Lft}/\textit{Rght}} & Expand/collapse \\ \hline
             \textbf{\textit{Bs}/\textit{Sp}} & Delete/remove \\ \hline
         \end{tabular}
         \end{center}
@@ -114,6 +115,7 @@
                 \textbf{G} & Panel \\ \hline
                 \textbf{R} & Problems view \\ \hline
                 \textbf{T} & Terminal \\ \hline
+                \textbf{C} & Compare editor \\ \hline
             \end{tabular}
         \end{vwcol}
 
@@ -332,6 +334,25 @@
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {Terminal (\textit{Mt}$+$T)};
+\end{tikzpicture}
+
+\columnbreak
+
+%------------ COMPARE EDITOR ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Mt}$+$C W} & Go to next change \\ \hline
+            \textbf{\textit{Mt}$+$C Q} & Go to previous change \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Compare Editor (\textit{Mt}$+$C)};
 \end{tikzpicture}
 
 \end{multicols*}
