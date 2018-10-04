@@ -76,7 +76,7 @@
             \begin{tabular}{ll}
                 \hline
                 \textbf{\textit{Bs}} & BackSpace \\ \hline
-                \textbf{\textit{Sp}} & Supr \\ \hline
+                \textbf{\textit{Su}} & Supr \\ \hline
                 \textbf{\textit{En}} & Enter \\ \hline
                 \textbf{\textit{<a>}} & Arrows \\ \hline
             \end{tabular}
@@ -93,7 +93,7 @@
             \textbf{\textit{En}} & Open file, expand/collapse folder \\ \hline
             \textbf{\textit{Ct}$+$\textit{En}} & Open to side editor \\ \hline
             \textbf{\textit{Lft}/\textit{Rght}} & Expand/collapse \\ \hline
-            \textbf{\textit{Bs}/\textit{Sp}} & Delete/remove \\ \hline
+            \textbf{\textit{Bs}/\textit{Su}} & Delete/remove \\ \hline
         \end{tabular}
         \end{center}
         
@@ -104,7 +104,7 @@
             \begin{tabular}{ll}
                 \hline
                 \textbf{A} & IntelliSense \\ \hline
-                \textbf{S} & Sidebar \\ \hline
+                \textbf{S} & Sidebar \& Menu \\ \hline
                 \textbf{E} & Editor \\ \hline
                 \textbf{W} & Explorer \\ \hline
                 \textbf{F} & Find \\ \hline
@@ -169,7 +169,7 @@
 \node[fancytitle, right=10pt] at (box.north west) {Focusing on views};
 \end{tikzpicture}
 
-%------------ SIDEBAR ---------------
+%------------ SIDEBAR & MENU ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
     \begin{minipage}{0.3\textwidth}
@@ -179,11 +179,18 @@
             \hline
             \textbf{\textit{Mt}$+$S A} & Focus sidebar \\ \hline
             \textbf{\textit{Mt}$+$S E} & Expand/Contract Sidebar \\ \hline
+            \textbf{\textit{Mt}$+$S R} & Open recent... \\ \hline
+            \textbf{\textit{Mt}$+$S W} & Open workspace... \\ \hline
+            \textbf{\textit{Mt}$+$S D} & Open directory... \\ \hline
+            \textbf{\textit{Mt}$+$S F} & Open file... \\ \hline
+            \textbf{\textit{Mt}$+$S N} & Open active file in new window \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$S N} & Duplicate worksp. in new window \\ \hline
+            \textbf{\textit{Mt}$+$S \textit{Bs}/\textit{Su}} & Close window \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {SideBar (\textit{Mt}$+$S)};
+\node[fancytitle, right=10pt] at (box.north west) {SideBar \& Menu (\textit{Mt}$+$S)};
 \end{tikzpicture}
 
 %------------ FILE EXPLORER ---------------
@@ -197,6 +204,7 @@
             \textbf{\textit{Mt}$+$W A} & Focus file explorer (toggle) \\ \hline
             \textbf{\textit{Mt}$+$W N} & New file \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$W N} & New folder \\ \hline
+            \textbf{\textit{Mt}$+$W E} & Collapse all folders in file explorer \\ \hline
             \textbf{\textit{Mt}$+$W F} & Reveal file in explorer (worksp.) \\ \hline
             \textbf{\textit{Mt}$+$W D} & Hide file explorer \\ \hline
         \end{tabular}
@@ -224,7 +232,7 @@
             \textbf{\textit{Mt}$+$D W} & Go to next breakpoint \\ \hline
             \textbf{\textit{Mt}$+$D Q} & Go to previous breakpoint \\ \hline
             \textbf{\textit{Mt}$+$D R} & Focus on breakpoints view \\ \hline
-            \textbf{\quad \textit{Bs}/\textit{Sp}} & (bpFocus) Remove breakpoint \\ \hline
+            \textbf{\quad \textit{Bs}/\textit{Su}} & (bpFocus) Remove breakpoint \\ \hline
             \textbf{\quad E} & (bpFocus) En./dis. breakpoint \\ \hline
             \textbf{\quad \textit{Ct}$+$E} & (bpFocus) En. all breakpoints \\ \hline
             \textbf{\quad \textit{Ct}$+$\textit{Sh}$+$E} & (bpFocus) Dis. all breakpoints \\ \hline
@@ -241,8 +249,6 @@
 \node[fancytitle, right=10pt] at (box.north west) {Debug (\textit{Mt}$+$D)};
 \end{tikzpicture}
 
-\columnbreak
-
 %------------ EDITOR ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
@@ -253,16 +259,18 @@
             \hline
             \textbf{\textit{Mt}$+$E A} & Focus on editor \\ \hline
             \textbf{\textit{Mt}$+$E D} & Close active file editor \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$E D} & Close all editors in group \\ \hline
-            \textbf{\textit{Mt}$+$E N} & Open file in new window \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$E N} & Duplic. worksp. in new win. \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E D} & Close all other files in group \\ \hline
+            \textbf{\textit{Mt}$+$E F} & Close active editor group \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E F} & Close all other editor groups \\ \hline
             \textbf{\textit{Mt}$+$E X} & Split editor vertically \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$E X} & Toggle layout (horiz./vertic.) \\ \hline
+            \textbf{\textit{Mt}$+$E T} & Toggle layout (horiz./vertic.) \\ \hline
+            \textbf{\textit{Mt}$+$E E} & Expand editor group \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E E} & Reset editor group sizes \\ \hline
             \textbf{\textit{Mt}$+$E W} & Focus on next file of group \\ \hline
             \textbf{\textit{Mt}$+$E Q} & Focus on previous file of group \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$E W} & Focus on next editor group \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$E Q} & Focus on previous editor group \\ \hline
-            \textbf{\textit{Mt}$+$E T} & Focus on prev. file on history \\ \hline
+            \textbf{\textit{Mt}$+$E S} & Focus on prev. file on history \\ \hline
             \textbf{\textit{Mt}$+$E <1-9>} & Focus on file <1-9> of group \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$E <1-9>} & Focus on group index <1-9> \\ \hline
             \textbf{\textit{Ct}$+$E \textit{<a>}} & Move editor to <u/d/l/r> gr. \\ \hline
@@ -274,6 +282,8 @@
 };
 \node[fancytitle, right=10pt] at (box.north west) {Editor (\textit{Mt}$+$E / \textit{Ct}$+$E)};
 \end{tikzpicture}
+
+\columnbreak
 
 %------------ PANEL ---------------
 \begin{tikzpicture}
@@ -335,8 +345,6 @@
 };
 \node[fancytitle, right=10pt] at (box.north west) {Terminal (\textit{Mt}$+$T)};
 \end{tikzpicture}
-
-\columnbreak
 
 %------------ COMPARE EDITOR ---------------
 \begin{tikzpicture}

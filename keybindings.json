@@ -32,7 +32,7 @@
 
     General MAJOR-KEY meanings - Used with Meta (Super) key:
      · A        : IntelliSense (Code completion & navigation)
-     · S        : Sidebar
+     · S        : Sidebar & Menu
      · E        : Editor
      · W        : Explorer
      · F        : Find
@@ -57,24 +57,32 @@
     ----------------------------------------------------------
 
     Focus on views:
-     · Meta+S A         : Focus on sidebar (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+W A         : Focus on file explorer (toggle)
-     · Meta+D A         : Focus on debug bar (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+E A         : Focus on active editor (from anywhere)
-     · Meta+R A         : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+T A         : Focus on terminal (toggle)
+     · Meta+S A             : Focus on sidebar (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+W A             : Focus on file explorer (toggle)
+     · Meta+D A             : Focus on debug bar (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+E A             : Focus on active editor (from anywhere)
+     · Meta+R A             : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+T A             : Focus on terminal (toggle)
      · Ctrl+Shift+F      : Toggle focus to find/replace
     
-    Sidebar (Meta+S):
-     · Meta+S A         : Focus on sidebar (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+S E         : Expand/collapse Sidebar
+    Sidebar & Menu (Meta+S):
+     · Meta+S A             : Focus on sidebar (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+S E             : Expand/collapse Sidebar
+     · Meta+S R             : Open recent...
+     · Meta+S W             : Open workspace...
+     · Meta+S D             : Open directory...
+     · Meta+S F             : Open file...
+     · Meta+S N             : Open active file in new window
+     · Meta+Shft+S N        : Duplicate workspace in new window
+     · Meta+S BkSp/Supr     : Close window
 
     File explorer (Meta+W):
-     · Meta+W A         : Focus on file explorer (toggle)
-     · Meta+W N         : New file
-     · Meta+Shft+W N    : New folder
-     · Meta+W F         : Reveal current file in file explorer (if in workspace)
-     · Meta+W D         : Hide file explorer
+     · Meta+W A             : Focus on file explorer (toggle)
+     · Meta+W N             : New file
+     · Meta+Shft+W N        : New folder
+     · Meta+W E             : Collapse all folders in file explorer
+     · Meta+W F             : Reveal current file in file explorer (if in workspace)
+     · Meta+W D             : Hide file explorer
 
     Debug (Meta+D):
      · Meta+D A             : Focus on debug bar (XXX toggle not suported yet, focus needed: issue #59084)
@@ -100,49 +108,51 @@
      · F5, F6, F10, F11     : Debugging keys
 
     Editor (Meta+E / Ctrl+E):
-     · Meta+E A              : Focus on active editor (from anywhere)
-     · Meta+E D              : Close active file editor
-     · Meta+Shft+E D         : Close all editors in group
-     · Meta+E N              : Open file in new window
-     · Meta+Shft+E N         : Duplicate workspace in new window
-     · Meta+E X              : Split editor vertically
-     · Meta+Shft+E X         : Toggle layout (horiz./vert.)
-     · Meta+E W              : Focus on next file of group
-     · Meta+E Q              : Focus on previous file of group
-     · Meta+Shft+E W         : Focus on next editor group
-     · Meta+Shft+E Q         : Focus on previous editor group
-     · Meta+E T              : Focus on prev. file on history
-     · Ctrl+E 1-9            : Focus on file index 1-9 of group
-     · Ctrl+Shift+E 1-9      : Focus on editor group index 1-9
-     · Ctrl+E <a>            : Move editor to above/below/left/right group
-     · Ctrl+Shft+E <a>       : Move editor left/right in froup
-     · Ctrl+Alt+Shft+E <a>   : Move editor group to above/below/left/right
+     · Meta+E A             : Focus on active editor (from anywhere)
+     · Meta+E D             : Close active file editor
+     · Meta+Shft+E D        : Close all other files in group
+     · Meta+E F             : Close active editor group
+     · Meta+Shft+E F        : Close all other editor groups
+     · Meta+E X             : Split editor vertically
+     · Meta+E T             : Toggle layout (horiz./vert.)
+     · Meta+E E             : Expand editor group
+     · Meta+Shft+E E        : Reset editor group sizes
+     · Meta+E W             : Focus on next file of group
+     · Meta+E Q             : Focus on previous file of group
+     · Meta+Shft+E W        : Focus on next editor group
+     · Meta+Shft+E Q        : Focus on previous editor group
+     · Meta+E S             : Focus on prev. file on history
+     · Ctrl+E 1-9           : Focus on file index 1-9 of group
+     · Ctrl+Shift+E 1-9     : Focus on editor group index 1-9
+     · Ctrl+E <a>           : Move editor to above/below/left/right group
+     · Ctrl+Shft+E <a>      : Move editor left/right in froup
+     · Ctrl+Alt+Shft+E <a>  : Move editor group to above/below/left/right
 
     Panel (Meta+G):
-     · Meta+G D         : Hide Panel
+     · Meta+G D             : Hide Panel
 
     Problems view (Meta+R):
-     · Meta+R A         : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+R D         : Hide problems view
+     · Meta+R A             : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+R D             : Hide problems view
 
     Terminal (Meta+T):
-     · Meta+T A         : Focus on terminal (toggle)
-     · Meta+T N         : Add new terminal (another window) and focus
-     · Meta+T X         : Split terminal (add a pane and focus)
-     · Meta+T W         : Switch focus to next terminal window
-     · Meta+T Q         : Switch focus to previous terminal window
-     · Meta+Shift+T W   : Switch focus to next terminal pane
-     · Meta+Shift+T Q   : Switch focus to previous terminal pane
-       · Ctrl+Shift+C   : (terminalFocus) Copy
-       · Ctrl+Shift+V   : (terminalFocus) Paste
-       · Ctrl+D         : (terminalFocus) Kill
-     · Meta+T E         : Toggle terminal Expand/collapse
-     · Meta+T F         : Open new terminal in location of current file
-     · Meta+T D         : Hide terminal view
+     · Meta+T A             : Focus on terminal (toggle)
+     · Meta+T N             : Add new terminal (another window) and focus
+     · Meta+T X             : Split terminal (add a pane and focus)
+     · Meta+T W             : Switch focus to next terminal window
+     · Meta+T Q             : Switch focus to previous terminal window
+     · Meta+Shift+T W       : Switch focus to next terminal pane
+     · Meta+Shift+T Q       : Switch focus to previous terminal pane
+       · Ctrl+Shift+C       : (terminalFocus) Copy
+       · Ctrl+Shift+V       : (terminalFocus) Paste
+       · Ctrl+D             : (terminalFocus) Kill
+     · Meta+T E             : Toggle terminal Expand/collapse
+     · Meta+T F             : Open new terminal in location of current file
+     · Meta+T D             : Hide terminal view
 
     Compare Editor (Meta+C):
-     · Meta+C W         : Go to next change
-     · Meta+C Q         : Go to previous change
+     · Meta+C W             : Go to next change
+     · Meta+C Q             : Go to previous change
 
     Compiling and Debugging:
      · F5:              : Execute launch configuration and debug
@@ -270,6 +280,36 @@
         "key": "ctrl+0",
         "command": "-workbench.action.focusSideBar"
     },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.quickOpenNavigateNextInRecentFilesPicker",
+        "when": "inQuickOpen && inRecentFilesPicker"
+    },
+    {
+        "key": "ctrl+shift+r",
+        "command": "-workbench.action.quickOpenNavigatePreviousInRecentFilesPicker",
+        "when": "inQuickOpen && inRecentFilesPicker"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "-workbench.action.files.openFile"
+    },
+    {
+        "key": "ctrl+k ctrl+o",
+        "command": "-workbench.action.files.openFolder"
+    },
+    {
+        "key": "ctrl+k f",
+        "command": "-workbench.action.closeFolder"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quit"
+    },
     //added keybindings
     {
         "key": "meta+s a",
@@ -293,6 +333,62 @@
     {
         "key": "meta+s meta+e",
         "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "meta+s r",
+        "command": "workbench.action.openRecent"
+    },
+    {
+        "key": "meta+s meta+r",
+        "command": "workbench.action.openRecent"
+    },
+    {
+        "key": "meta+s w",
+        "command": "workbench.action.openWorkspace"
+    },
+    {
+        "key": "meta+s meta+w",
+        "command": "workbench.action.openWorkspace"
+    },
+    {
+        "key": "meta+s d",
+        "command": "workbench.action.files.openFolder"
+    },
+    {
+        "key": "meta+s meta+d",
+        "command": "workbench.action.files.openFolder"
+    },
+    {
+        "key": "meta+s f",
+        "command": "workbench.action.files.openFile"
+    },
+    {
+        "key": "meta+s meta+f",
+        "command": "workbench.action.files.openFile"
+    },
+    {
+        "key": "meta+s n",
+        "command": "workbench.action.files.showOpenedFileInNewWindow"
+    },
+    {
+        "key": "meta+s meta+n",
+        "command": "workbench.action.files.showOpenedFileInNewWindow"
+    },
+    {
+        "key": "meta+shift+s n",
+        "command": "workbench.action.duplicateWorkspaceInNewWindow"
+    },
+    {
+        "key": "meta+shift+s meta+shift+n",
+        "command": "workbench.action.duplicateWorkspaceInNewWindow"
+    },
+    {
+        "key":"meta+s backspace",
+        "command": "workbench.action.closeWindow"
+    },
+    {
+        "key":"meta+s delete",
+        "command": "workbench.action.closeWindow"
     },
 
 /* ---------------------------------------------------- */
@@ -332,6 +428,14 @@
     {
         "key": "meta+w meta+f",
         "command": "revealInExplorer"
+    },
+    {
+        "key": "meta+w e",
+        "command": "workbench.files.action.collapseExplorerFolders"
+    },
+    {
+        "key": "meta+w meta+e",
+        "command": "workbench.files.action.collapseExplorerFolders"
     },
     {
         "key": "meta+w n",
@@ -814,128 +918,107 @@
     },
     {
         "key": "meta+e d",
-        "command": "workbench.action.closeWindow",
-        "when": "editorFocus && !editorIsOpen && !multipleEditorGroups"
+        "command": "workbench.action.closeActiveEditor"
     },
     {
         "key": "meta+e meta+d",
-        "command": "workbench.action.closeWindow",
-        "when": "editorFocus && !editorIsOpen && !multipleEditorGroups"
+        "command": "workbench.action.closeActiveEditor"
     },
     {
-        "key": "meta+e d",
-        "command": "workbench.action.closeActiveEditor",
-        "when": "editorFocus"
+        "key": "shift+meta+e d",
+        "command": "workbench.action.closeOtherEditors"
     },
     {
-        "key": "meta+e meta+d",
-        "command": "workbench.action.closeActiveEditor",
-        "when": "editorFocus"
+        "key": "shift+meta+e shift+meta+d",
+        "command": "workbench.action.closeOtherEditors"
     },
     {
-        "key": "meta+e d",
-        "command": "workbench.action.closeGroup",
-        "when": "editorFocus && activeEditorGroupEmpty && multipleEditorGroups"
+        "key": "meta+e f",
+        "command": "workbench.action.closeEditorsInGroup"
     },
     {
-        "key": "meta+e meta+d",
-        "command": "workbench.action.closeGroup",
-        "when": "editorFocus && activeEditorGroupEmpty && multipleEditorGroups"
+        "key": "meta+e meta+f",
+        "command": "workbench.action.closeEditorsInGroup"
     },
     {
-        "key": "meta+shift+e d",
-        "command": "workbench.action.closeEditorsInGroup",
-        "when": "editorFocus"
+        "key": "shift+meta+e f",
+        "command": "workbench.action.closeEditorsInOtherGroups"
     },
     {
-        "key": "meta+shift+e meta+shift+d",
-        "command": "workbench.action.closeEditorsInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "meta+e n",
-        "command": "workbench.action.files.showOpenedFileInNewWindow"
-    },
-    {
-        "key": "meta+e meta+n",
-        "command": "workbench.action.files.showOpenedFileInNewWindow"
-    },
-    {
-        "key": "meta+shift+e n",
-        "command": "workbench.action.duplicateWorkspaceInNewWindow"
-    },
-    {
-        "key": "meta+shift+e meta+shift+n",
-        "command": "workbench.action.duplicateWorkspaceInNewWindow"
+        "key": "shift+meta+e shift+meta+f",
+        "command": "workbench.action.closeEditorsInOtherGroups"
     },
     {
         "key": "meta+e x",
-        "command": "workbench.action.splitEditorRight",
-        "when": "editorFocus"
+        "command": "workbench.action.splitEditorRight"
     },
     {
         "key": "meta+e meta+x",
-        "command": "workbench.action.splitEditorRight",
-        "when": "editorFocus"
-    },
-    {
-        "key": "meta+shift+e x",
-        "command": "workbench.action.toggleEditorGroupLayout",
-        "when": "editorFocus"
-    },
-    {
-        "key": "meta+shift+e meta+shift+x",
-        "command": "workbench.action.toggleEditorGroupLayout",
-        "when": "editorFocus"
-    },
-    {
-        "key": "meta+e w",
-        "command": "workbench.action.nextEditorInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "meta+e meta+w",
-        "command": "workbench.action.nextEditorInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "meta+e q",
-        "command": "workbench.action.previousEditorInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "meta+e meta+q",
-        "command": "workbench.action.previousEditorInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "meta+shift+e w",
-        "command": "workbench.action.focusNextGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "meta+shift+e meta+shift+w",
-        "command": "workbench.action.focusNextGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "meta+shift+e q",
-        "command": "workbench.action.focusPreviousGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "meta+shift+e meta+shift+q",
-        "command": "workbench.action.focusPreviousGroup",
-        "when": "editorFocus"
+        "command": "workbench.action.splitEditorRight"
     },
     {
         "key": "meta+e t",
-        "command": "workbench.action.openPreviousEditorFromHistory",
-        "when": "editorFocus"
+        "command": "workbench.action.toggleEditorGroupLayout"
     },
     {
         "key": "meta+e meta+t",
-        "command": "workbench.action.openPreviousEditorFromHistory",
+        "command": "workbench.action.toggleEditorGroupLayout"
+    },
+    {
+        "key": "meta+e e",
+        "command": "workbench.action.minimizeOtherEditors"
+    },
+    {
+        "key": "meta+e meta+e",
+        "command": "workbench.action.minimizeOtherEditors"
+    },
+    {
+        "key": "shift+meta+e e",
+        "command": "workbench.action.evenEditorWidths"
+    },
+    {
+        "key": "shift+meta+e shift+meta+e",
+        "command": "workbench.action.evenEditorWidths"
+    },
+    {
+        "key": "meta+e w",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "meta+e meta+w",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "meta+e q",
+        "command": "workbench.action.previousEditorInGroup"
+    },
+    {
+        "key": "meta+e meta+q",
+        "command": "workbench.action.previousEditorInGroup"
+    },
+    {
+        "key": "meta+shift+e w",
+        "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+w",
+        "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "meta+shift+e q",
+        "command": "workbench.action.focusPreviousGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+q",
+        "command": "workbench.action.focusPreviousGroup"
+    },
+    {
+        "key": "meta+e s",
+        "command": "workbench.action.openPreviousEditorFromHistory"
+    },
+    {
+        "key": "meta+e meta+s",
+        "command": "workbench.action.openPreviousEditorFromHistory"
     },
     {
         "key": "meta+shift+e 1",
@@ -1449,42 +1532,42 @@
         "command": "workbench.action.closePanel"
     },
 
-    /* ---------------------------------------------------- */
-        
-    /**** Compare editor (Meta+C) ****/
-        
-        //removed keybindings
-        {
-            "key": "alt+f5",
-            "command": "-workbench.action.compareEditor.nextChange",
-            "when": "textCompareEditorVisible"
-        },
-        {
-            "key": "shift+alt+f5",
-            "command": "-workbench.action.compareEditor.previousChange",
-            "when": "textCompareEditorVisible"
-        },
-        //added keybindings
-        {
-            "key": "meta+c w",
-            "command": "workbench.action.compareEditor.nextChange",
-            "when": "textCompareEditorVisible"
-        },
-        {
-            "key": "meta+c meta+w",
-            "command": "workbench.action.compareEditor.nextChange",
-            "when": "textCompareEditorVisible"
-        },
-        {
-            "key": "meta+c q",
-            "command": "workbench.action.compareEditor.previousChange",
-            "when": "textCompareEditorVisible"
-        },
-        {
-            "key": "meta+c meta+q",
-            "command": "workbench.action.compareEditor.previousChange",
-            "when": "textCompareEditorVisible"
-        },
+/* ---------------------------------------------------- */
+    
+/**** Compare editor (Meta+C) ****/
+    
+    //removed keybindings
+    {
+        "key": "alt+f5",
+        "command": "-workbench.action.compareEditor.nextChange",
+        "when": "textCompareEditorVisible"
+    },
+    {
+        "key": "shift+alt+f5",
+        "command": "-workbench.action.compareEditor.previousChange",
+        "when": "textCompareEditorVisible"
+    },
+    //added keybindings
+    {
+        "key": "meta+c w",
+        "command": "workbench.action.compareEditor.nextChange",
+        "when": "textCompareEditorVisible"
+    },
+    {
+        "key": "meta+c meta+w",
+        "command": "workbench.action.compareEditor.nextChange",
+        "when": "textCompareEditorVisible"
+    },
+    {
+        "key": "meta+c q",
+        "command": "workbench.action.compareEditor.previousChange",
+        "when": "textCompareEditorVisible"
+    },
+    {
+        "key": "meta+c meta+q",
+        "command": "workbench.action.compareEditor.previousChange",
+        "when": "textCompareEditorVisible"
+    },
 
 /* ---------------------------------------------------- */
 
