@@ -88,7 +88,6 @@
      · Meta+S R             : Focus on search bar (replace) (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+S D             : Hide search bar
      · Ctrl+S               : Focus on find widget
-     · Ctrl+G Ctrl+G        : Hide find widget
      · Ctrl+, S             : Find next match (from widget or selected)
      · Ctrl+Shft+, S        : Find previous match (from widget or selected)
      · Ctrl+Alt+, S         : Select all matches (from widget or selected)
@@ -684,21 +683,6 @@
         "key": "ctrl+s",
         "command": "workbench.action.terminal.focusFindWidget",
         "when": "terminalFocus"
-    },
-    {
-        "key": "ctrl+g ctrl+g",
-        "command": "closeFindWidget",
-        "when": "editorFocus && findWidgetVisible"
-    },
-    {
-        "key": "ctrl+g ctrl+g",
-        "command": "workbench.action.terminal.hideFindWidget",
-        "when": "terminalFindWidgetVisible && terminalFocus"
-    },
-    {
-        "key": "ctrl+g ctrl+g",
-        "command": "editor.action.webvieweditor.hideFind",
-        "when": "webviewEditorFocus && webviewFindWidgetVisible"
     },
     {
         "key": "ctrl+[Comma] s",
@@ -2055,6 +2039,21 @@
         "key": "ctrl+g",
         "command": "breadcrumbs.selectEditor",
         "when": "breadcrumbsActive && breadcrumbsVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeFindWidget",
+        "when": "editorFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.terminal.hideFindWidget",
+        "when": "terminalFindWidgetVisible && terminalFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "editor.action.webvieweditor.hideFind",
+        "when": "webviewEditorFocus && webviewFindWidgetVisible"
     },
 
 /* ---------------------------------------------------- */
