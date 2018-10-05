@@ -87,8 +87,6 @@
         \begin{center}
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Ct}$+$P} & Quick open file \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$P} & Open command palette \\ \hline
             \textbf{\textit{Ct}$+$G} & Leave, cancel, exit... (Esc) \\ \hline
             \textbf{\textit{En}} & Open file, expand/collapse folder \\ \hline
             \textbf{\textit{Ct}$+$\textit{En}} & Open to side editor \\ \hline
@@ -156,10 +154,11 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Mt}$+$S A} & Focus sidebar \\ \hline
-            \textbf{\textit{Mt}$+$W A} & Focus file explorer (toggle) \\ \hline
+            \textbf{\textit{Mt}$+$S A} & Focus on sidebar \\ \hline
+            \textbf{\textit{Mt}$+$W A} & Focus on file explorer (toggle) \\ \hline
+            \textbf{\textit{Mt}$+$F A} & Focus on find \& replace \\ \hline
             \textbf{\textit{Mt}$+$D A} & Focus on debug bar \\ \hline
-            \textbf{\textit{Mt}$+$E A} & Focus active editor (from anywhere) \\ \hline
+            \textbf{\textit{Mt}$+$E A} & Focus on active editor \\ \hline
             \textbf{\textit{Mt}$+$R A} & Focus on problems view \\ \hline
             \textbf{\textit{Mt}$+$T A} & Focus terminal (toggle) \\ \hline
         \end{tabular}
@@ -179,6 +178,8 @@
             \hline
             \textbf{\textit{Mt}$+$S A} & Focus sidebar \\ \hline
             \textbf{\textit{Mt}$+$S E} & Expand/Contract Sidebar \\ \hline
+            \textbf{\textit{Mt}$+$S G} & Quick open... \\ \hline
+            \textbf{\textit{Mt}$+$S C} & Command palette... \\ \hline
             \textbf{\textit{Mt}$+$S R} & Open recent... \\ \hline
             \textbf{\textit{Mt}$+$S W} & Open workspace... \\ \hline
             \textbf{\textit{Mt}$+$S D} & Open directory... \\ \hline
@@ -201,7 +202,7 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Mt}$+$W A} & Focus file explorer (toggle) \\ \hline
+            \textbf{\textit{Mt}$+$W A} & Focus on file explorer (toggle) \\ \hline
             \textbf{\textit{Mt}$+$W N} & New file \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$W N} & New folder \\ \hline
             \textbf{\textit{Mt}$+$W E} & Collapse all folders in file explorer \\ \hline
@@ -212,6 +213,32 @@
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {File Explorer (\textit{Mt}$+$W)};
+\end{tikzpicture}
+
+%------------ FIND & REPLACE ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Mt}$+$F A} & Focus on find bar \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$F A} & Focus on replace bar \\ \hline
+            \textbf{\textit{Mt}$+$F D} & Hide find \& replace bar \\ \hline
+            \textbf{\textit{Ct}$+$F} & Focus on find widget \\ \hline
+            \textbf{\textit{Ct}$+$, G} & Hide find widget \\ \hline
+            \textbf{\textit{Ct}$+$, F} & Find next match (from widget or sel.) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$, F} & Find prev. match (from widget or sel.) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$, F} & Sel. all matches (from widget or sel.) \\ \hline
+            \textbf{\textit{Ct}$+$R} & Focus on replace widget \\ \hline
+            \textbf{\textit{Ct}$+$, R} & Replace current match \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$, R} & Replace all matches \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Find \& Replace (\textit{Mt}$+$F)};
 \end{tikzpicture}
 
 %------------ DEBUG ---------------
@@ -270,7 +297,7 @@
             \textbf{\textit{Mt}$+$E Q} & Focus on previous file of group \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$E W} & Focus on next editor group \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$E Q} & Focus on previous editor group \\ \hline
-            \textbf{\textit{Mt}$+$E S} & Focus on prev. file on history \\ \hline
+            \textbf{\textit{Mt}$+$E R} & Focus on recent file on history \\ \hline
             \textbf{\textit{Mt}$+$E <1-9>} & Focus on file <1-9> of group \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$E <1-9>} & Focus on group index <1-9> \\ \hline
             \textbf{\textit{Ct}$+$E \textit{<a>}} & Move editor to <u/d/l/r> gr. \\ \hline

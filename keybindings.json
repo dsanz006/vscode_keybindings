@@ -7,8 +7,7 @@
 
     Some more can be found on VS Code source code. Under src/vs/ search for "new RawContextKey<"
 
-    Todo: 
-        · Find/Replace
+    Todo:
         · Text edition
         · IntelliSense (Code completion & navigation)
         · Breadcrumbs
@@ -22,8 +21,6 @@
     Meta    : Super key
 
     General commands:
-     · Ctrl+P           : Quick open file
-     · Ctrl+Shift+P      : Open command palette
      · Ctrl+G           : Leave, cancel, exit... (depends on context)
      · Enter            : Open file (on quick open, problems view, file explorer...), expand/collapse folder
      · Ctrl+Enter       : Open file to side editor
@@ -59,15 +56,17 @@
     Focus on views:
      · Meta+S A             : Focus on sidebar (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+W A             : Focus on file explorer (toggle)
+     · Meta+F A             : Focus on find & replace (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+D A             : Focus on debug bar (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+E A             : Focus on active editor (from anywhere)
      · Meta+R A             : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+T A             : Focus on terminal (toggle)
-     · Ctrl+Shift+F      : Toggle focus to find/replace
     
     Sidebar & Menu (Meta+S):
      · Meta+S A             : Focus on sidebar (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+S E             : Expand/collapse Sidebar
+     · Meta+S G             : Quick open...
+     · Meta+S C             : Command palette...
      · Meta+S R             : Open recent...
      · Meta+S W             : Open workspace...
      · Meta+S D             : Open directory...
@@ -83,6 +82,19 @@
      · Meta+W E             : Collapse all folders in file explorer
      · Meta+W F             : Reveal current file in file explorer (if in workspace)
      · Meta+W D             : Hide file explorer
+
+    Find & Replace (Meta+F):
+     · Meta+F A             : Focus on find bar (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+Shft+F A        : Focus on replace bar (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+F D             : Hide find & replace
+     · Ctrl+F               : Focus on find widget
+     · Ctrl+, G             : Hide find widget
+     · Ctrl+, F             : Find next match (from widget or selected)
+     · Ctrl+Shft+, F        : Find previous match (from widget or selected)
+     · Ctrl+Alt+, F         : Select all matches (from widget or selected)
+     · Ctrl+R               : Focus on replace widget
+     · Ctrl+, R             : Replace current match
+     · Ctrl+Alt+, R         : Replace all matches 
 
     Debug (Meta+D):
      · Meta+D A             : Focus on debug bar (XXX toggle not suported yet, focus needed: issue #59084)
@@ -121,7 +133,7 @@
      · Meta+E Q             : Focus on previous file of group
      · Meta+Shft+E W        : Focus on next editor group
      · Meta+Shft+E Q        : Focus on previous editor group
-     · Meta+E S             : Focus on prev. file on history
+     · Meta+E R             : Focus on recent file on history
      · Ctrl+E 1-9           : Focus on file index 1-9 of group
      · Ctrl+Shift+E 1-9     : Focus on editor group index 1-9
      · Ctrl+E <a>           : Move editor to above/below/left/right group
@@ -154,9 +166,10 @@
      · Meta+C W             : Go to next change
      · Meta+C Q             : Go to previous change
 
-    Compiling and Debugging:
-     · F5:              : Execute launch configuration and debug
-     · Shift+F5          : Stop debugging execution
+    Text Edition (XXX todo):
+     · Ctrl+, E             : Focus on active editor (from anywhere)
+
+    Building tasks:
      · Ctrl+Shift+B      : Run default build task
      · Ctrl+Shift+Alt+B  : Run non-default task (choose)
 
@@ -310,6 +323,24 @@
         "key": "ctrl+q",
         "command": "-workbench.action.quit"
     },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "ctrl+shift+p",
+        "command": "-workbench.action.quickOpenNavigatePreviousInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "ctrl+shift+p",
+        "command": "-workbench.action.showCommands"
+    },
     //added keybindings
     {
         "key": "meta+s a",
@@ -333,6 +364,22 @@
     {
         "key": "meta+s meta+e",
         "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "meta+s g",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "meta+s meta+g",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "meta+s c",
+        "command": "workbench.action.showCommands"
+    },
+    {
+        "key": "meta+s meta+c",
+        "command": "workbench.action.showCommands"
     },
     {
         "key": "meta+s r",
@@ -466,6 +513,225 @@
         "key": "meta+w meta+d",
         "command": "workbench.action.toggleSidebarVisibility",
         "when" : "activeViewlet == 'workbench.view.explorer'"
+    },
+
+/* ---------------------------------------------------- */
+        
+/**** Find & Replace (Meta+F) ****/
+    
+    //removed keybindings
+    {
+        "key": "ctrl+shift+f",
+        "command": "-workbench.action.findInFiles"
+    },
+    {
+        "key": "ctrl+shift+h",
+        "command": "-workbench.action.replaceInFiles"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "-editor.action.startFindReplaceAction"
+    },
+    {
+        "key": "f3",
+        "command": "-editor.action.nextMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+f3",
+        "command": "-editor.action.previousMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+f",
+        "command": "-workbench.view.search",
+        "when": "!searchViewletVisible"
+    },
+    {
+        "key": "ctrl+f3",
+        "command": "-editor.action.nextSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+f3",
+        "command": "-editor.action.previousSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+f12",
+        "command": "-editor.action.referenceSearch.trigger",
+        "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+k ctrl+d",
+        "command": "-editor.action.moveSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "-editor.action.selectHighlights",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+enter",
+        "command": "-editor.action.selectAllMatches",
+        "when": "editorFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+shift+[IntlBackslash]",
+        "command": "-editor.action.inPlaceReplace.down",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+[IntlBackslash]",
+        "command": "-editor.action.inPlaceReplace.up",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+1",
+        "command": "-editor.action.replaceOne",
+        "when": "editorFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+alt+enter",
+        "command": "-editor.action.replaceAll",
+        "when": "editorFocus && findWidgetVisible"
+    },
+    //added keybindings
+    {
+        "key": "meta+f a",
+        "command": "workbench.action.findInFiles"
+    },
+    {
+        "key": "meta+f meta+a",
+        "command": "workbench.action.findInFiles"
+    },
+    {
+        "key": "shift+meta+f a",
+        "command": "workbench.action.replaceInFiles"
+    },
+    {
+        "key": "shift+meta+f shift+meta+a",
+        "command": "workbench.action.replaceInFiles"
+    },
+    {
+        "key": "meta+f d",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when" : "activeViewlet == 'workbench.view.search'"
+    },
+    {
+        "key": "meta+f meta+d",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when" : "activeViewlet == 'workbench.view.search'"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "actions.find"
+    },
+    {
+        "key": "ctrl+[Comma] g",
+        "command": "closeFindWidget",
+        "when": "editorFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+[Comma] ctrl+g",
+        "command": "closeFindWidget",
+        "when": "editorFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+[Comma] f",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "!editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+[Comma] ctrl+f",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "!editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+shift+[Comma] f",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "!editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+shift+[Comma] ctrl+shift+f",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "!editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+[Comma] f",
+        "command": "editor.action.nextMatchFindAction",
+        "when": "editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+[Comma] ctrl+f",
+        "command": "editor.action.nextMatchFindAction",
+        "when": "editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+shift+[Comma] f",
+        "command": "editor.action.previousMatchFindAction",
+        "when": "editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+shift+[Comma] ctrl+shift+f",
+        "command": "editor.action.previousMatchFindAction",
+        "when": "editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+[Comma] f",
+        "command": "editor.action.nextSelectionMatchFindAction",
+        "when": "editorTextFocus && !findWidgetVisible"
+    },
+    {
+        "key": "ctrl+[Comma] ctrl+f",
+        "command": "editor.action.nextSelectionMatchFindAction",
+        "when": "editorTextFocus && !findWidgetVisible"
+    },
+    {
+        "key": "ctrl+shift+[Comma] f",
+        "command": "editor.action.previousSelectionMatchFindAction",
+        "when": "editorTextFocus && !findWidgetVisible"
+    },
+    {
+        "key": "ctrl+shift+[Comma] ctrl+shift+f",
+        "command": "editor.action.previousSelectionMatchFindAction",
+        "when": "editorTextFocus && !findWidgetVisible"
+    },
+    {
+        "key": "ctrl+alt+[Comma] f",
+        "command": "editor.action.selectHighlights",
+        "when": "editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+alt+[Comma] ctrl+alt+f",
+        "command": "editor.action.selectHighlights",
+        "when": "editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "editor.action.startFindReplaceAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+[Comma] r",
+        "command": "editor.action.replaceOne",
+        "when": "editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+[Comma] ctrl+r",
+        "command": "editor.action.replaceOne",
+        "when": "editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+alt+[Comma] r",
+        "command": "editor.action.replaceAll",
+        "when": "editorFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+alt+[Comma] ctrl+alt+r",
+        "command": "editor.action.replaceAll",
+        "when": "editorFocus && findWidgetVisible"
     },
 
 /* ---------------------------------------------------- */
@@ -1013,11 +1279,11 @@
         "command": "workbench.action.focusPreviousGroup"
     },
     {
-        "key": "meta+e s",
+        "key": "meta+e r",
         "command": "workbench.action.openPreviousEditorFromHistory"
     },
     {
-        "key": "meta+e meta+s",
+        "key": "meta+e meta+r",
         "command": "workbench.action.openPreviousEditorFromHistory"
     },
     {
@@ -1627,11 +1893,6 @@
     },
     {
         "key": "ctrl+g",
-        "command": "closeFindWidget",
-        "when": "editorFocus && findWidgetVisible"
-    },
-    {
-        "key": "ctrl+g",
         "command": "closeMarkersNavigation",
         "when": "editorFocus && markersNavigationVisible"
     },
@@ -1886,6 +2147,19 @@
         "key": "shift+meta+space",
         "command": "editor.action.triggerParameterHints",
         "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    },
+
+/* ---------------------------------------------------- */
+        
+/**** Text Edition (XXX todo) ****/
+    
+    {
+        "key": "ctrl+[Comma] e",
+        "command": "workbench.action.focusActiveEditorGroup"
+    },
+    {
+        "key": "ctrl+[Comma] ctrl+e",
+        "command": "workbench.action.focusActiveEditorGroup"
     },
 
 /* ---------------------------------------------------- */
