@@ -82,7 +82,7 @@
             \end{tabular}
         \end{vwcol}
         
-        \textit{General commands}:
+        \textit{General commands:}
 
         \begin{center}
         \begin{tabular}{ll}
@@ -102,10 +102,10 @@
             \begin{tabular}{ll}
                 \hline
                 \textbf{A} & IntelliSense \\ \hline
-                \textbf{S} & Sidebar \& Menu \\ \hline
+                \textbf{F} & Menu \& Sidebar \\ \hline
                 \textbf{E} & Editor \\ \hline
                 \textbf{W} & Explorer \\ \hline
-                \textbf{F} & Find \\ \hline
+                \textbf{S} & Search \\ \hline
             \end{tabular}
             \begin{tabular}{ll}
                 \hline
@@ -139,6 +139,21 @@
             \end{tabular}
         \end{vwcol}
 
+        \textit{Focusing on views:}
+
+        \begin{center}
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Mt}$+$F A} & Focus on sidebar \\ \hline
+            \textbf{\textit{Mt}$+$W A} & Focus on file explorer (toggle) \\ \hline
+            \textbf{\textit{Mt}$+$S A} & Focus on search bar \\ \hline
+            \textbf{\textit{Mt}$+$D A} & Focus on debug bar \\ \hline
+            \textbf{\textit{Mt}$+$E A} & Focus on active editor \\ \hline
+            \textbf{\textit{Mt}$+$R A} & Focus on problems view \\ \hline
+            \textbf{\textit{Mt}$+$T A} & Focus terminal (toggle) \\ \hline
+        \end{tabular}
+        \end{center}
+
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {General};
@@ -146,7 +161,7 @@
 
 \columnbreak
 
-%------------ FOCUSING ON VIEWS ---------------
+%------------ MENU & SIDEBAR ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
     \begin{minipage}{0.3\textwidth}
@@ -154,44 +169,22 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Mt}$+$S A} & Focus on sidebar \\ \hline
-            \textbf{\textit{Mt}$+$W A} & Focus on file explorer (toggle) \\ \hline
-            \textbf{\textit{Mt}$+$F A} & Focus on find \& replace \\ \hline
-            \textbf{\textit{Mt}$+$D A} & Focus on debug bar \\ \hline
-            \textbf{\textit{Mt}$+$E A} & Focus on active editor \\ \hline
-            \textbf{\textit{Mt}$+$R A} & Focus on problems view \\ \hline
-            \textbf{\textit{Mt}$+$T A} & Focus terminal (toggle) \\ \hline
+            \textbf{\textit{Mt}$+$F A} & Focus sidebar \\ \hline
+            \textbf{\textit{Mt}$+$F E} & Expand/Contract Sidebar \\ \hline
+            \textbf{\textit{Mt}$+$F G} & Quick open... \\ \hline
+            \textbf{\textit{Mt}$+$F C} & Command palette... \\ \hline
+            \textbf{\textit{Mt}$+$F R} & Open recent... \\ \hline
+            \textbf{\textit{Mt}$+$F W} & Open workspace... \\ \hline
+            \textbf{\textit{Mt}$+$F D} & Open directory... \\ \hline
+            \textbf{\textit{Mt}$+$F F} & Open file... \\ \hline
+            \textbf{\textit{Mt}$+$F N} & Open active file in new window \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$F N} & Duplicate worksp. in new window \\ \hline
+            \textbf{\textit{Mt}$+$F \textit{Bs}/\textit{Su}} & Close window \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Focusing on views};
-\end{tikzpicture}
-
-%------------ SIDEBAR & MENU ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Mt}$+$S A} & Focus sidebar \\ \hline
-            \textbf{\textit{Mt}$+$S E} & Expand/Contract Sidebar \\ \hline
-            \textbf{\textit{Mt}$+$S G} & Quick open... \\ \hline
-            \textbf{\textit{Mt}$+$S C} & Command palette... \\ \hline
-            \textbf{\textit{Mt}$+$S R} & Open recent... \\ \hline
-            \textbf{\textit{Mt}$+$S W} & Open workspace... \\ \hline
-            \textbf{\textit{Mt}$+$S D} & Open directory... \\ \hline
-            \textbf{\textit{Mt}$+$S F} & Open file... \\ \hline
-            \textbf{\textit{Mt}$+$S N} & Open active file in new window \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$S N} & Duplicate worksp. in new window \\ \hline
-            \textbf{\textit{Mt}$+$S \textit{Bs}/\textit{Su}} & Close window \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {SideBar \& Menu (\textit{Mt}$+$S)};
+\node[fancytitle, right=10pt] at (box.north west) {Menu \& Sidebar (\textit{Mt}$+$F)};
 \end{tikzpicture}
 
 %------------ FILE EXPLORER ---------------
@@ -215,7 +208,7 @@
 \node[fancytitle, right=10pt] at (box.north west) {File Explorer (\textit{Mt}$+$W)};
 \end{tikzpicture}
 
-%------------ FIND & REPLACE ---------------
+%------------ SEARCH & REPLACE ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
     \begin{minipage}{0.3\textwidth}
@@ -223,14 +216,14 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Mt}$+$F A} & Focus on find bar \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$F A} & Focus on replace bar \\ \hline
-            \textbf{\textit{Mt}$+$F D} & Hide find \& replace bar \\ \hline
-            \textbf{\textit{Ct}$+$F} & Focus on find widget \\ \hline
-            \textbf{\textit{Ct}$+$, G} & Hide find widget \\ \hline
-            \textbf{\textit{Ct}$+$, F} & Find next match (from widget or sel.) \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$, F} & Find prev. match (from widget or sel.) \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Al}$+$, F} & Sel. all matches (from widget or sel.) \\ \hline
+            \textbf{\textit{Mt}$+$S A} & Focus on search bar (find) \\ \hline
+            \textbf{\textit{Mt}$+$S R} & Focus on search bar (replace) \\ \hline
+            \textbf{\textit{Mt}$+$S D} & Hide search bar \\ \hline
+            \textbf{\textit{Ct}$+$S} & Focus on find widget \\ \hline
+            \textbf{\textit{Ct}$+$G \textit{Ct}$+$G} & Hide find widget \\ \hline
+            \textbf{\textit{Ct}$+$, S} & Find next match (from widget or sel.) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$, S} & Find prev. match (from widget or sel.) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$, S} & Sel. all matches (from widget or sel.) \\ \hline
             \textbf{\textit{Ct}$+$R} & Focus on replace widget \\ \hline
             \textbf{\textit{Ct}$+$, R} & Replace current match \\ \hline
             \textbf{\textit{Ct}$+$\textit{Al}$+$, R} & Replace all matches \\ \hline
@@ -238,7 +231,7 @@
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Find \& Replace (\textit{Mt}$+$F)};
+\node[fancytitle, right=10pt] at (box.north west) {Search \& Replace (\textit{Mt}$+$S / \textit{Ct}$+$S / \textit{Ct}$+$R)};
 \end{tikzpicture}
 
 %------------ DEBUG ---------------
