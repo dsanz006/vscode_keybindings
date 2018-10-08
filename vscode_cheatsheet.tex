@@ -105,13 +105,13 @@
                 \textbf{F} & Menu \& Sidebar \\ \hline
                 \textbf{E} & Editor \\ \hline
                 \textbf{W} & Explorer \\ \hline
-                \textbf{S} & Search \\ \hline
+                \textbf{D} & Debug \\ \hline
             \end{tabular}
             \begin{tabular}{ll}
                 \hline
-                \textbf{D} & Debug \\ \hline
                 \textbf{G} & Panel \\ \hline
-                \textbf{R} & Problems view \\ \hline
+                \textbf{S} & Search \\ \hline
+                \textbf{R} & Problems panel \\ \hline
                 \textbf{T} & Terminal \\ \hline
                 \textbf{C} & Compare editor \\ \hline
             \end{tabular}
@@ -146,10 +146,10 @@
             \hline
             \textbf{\textit{Mt}$+$F A} & Focus on sidebar \\ \hline
             \textbf{\textit{Mt}$+$W A} & Focus on file explorer (toggle) \\ \hline
-            \textbf{\textit{Mt}$+$S A} & Focus on search bar \\ \hline
             \textbf{\textit{Mt}$+$D A} & Focus on debug bar \\ \hline
             \textbf{\textit{Mt}$+$E A} & Focus on active editor \\ \hline
-            \textbf{\textit{Mt}$+$R A} & Focus on problems view \\ \hline
+            \textbf{\textit{Mt}$+$S A} & Focus on search panel \\ \hline
+            \textbf{\textit{Mt}$+$R A} & Focus on problems panel \\ \hline
             \textbf{\textit{Mt}$+$T A} & Focus terminal (toggle) \\ \hline
         \end{tabular}
         \end{center}
@@ -206,31 +206,6 @@
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {File Explorer (\textit{Mt}$+$W)};
-\end{tikzpicture}
-
-%------------ SEARCH & REPLACE ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Mt}$+$S A} & Focus on search bar (find) \\ \hline
-            \textbf{\textit{Mt}$+$S R} & Focus on search bar (replace) \\ \hline
-            \textbf{\textit{Mt}$+$S D} & Hide search bar \\ \hline
-            \textbf{\textit{Ct}$+$S} & Focus on find widget \\ \hline
-            \textbf{\textit{Ct}$+$, S} & Find next match (from widget or sel.) \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$, S} & Find prev. match (from widget or sel.) \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Al}$+$, S} & Sel. all matches (from widget or sel.) \\ \hline
-            \textbf{\textit{Ct}$+$R} & Focus on replace widget \\ \hline
-            \textbf{\textit{Ct}$+$, R} & Replace current match \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Al}$+$, R} & Replace all matches \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Search \& Replace (\textit{Mt}$+$S / \textit{Ct}$+$S / \textit{Ct}$+$R)};
 \end{tikzpicture}
 
 %------------ DEBUG ---------------
@@ -302,8 +277,6 @@
 \node[fancytitle, right=10pt] at (box.north west) {Editor (\textit{Mt}$+$E / \textit{Ct}$+$E)};
 \end{tikzpicture}
 
-\columnbreak
-
 %------------ PANEL ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
@@ -320,7 +293,9 @@
 \node[fancytitle, right=10pt] at (box.north west) {Panel (\textit{Mt}$+$G)};
 \end{tikzpicture}
 
-%------------ PROBLEMS VIEW ---------------
+\columnbreak
+
+%------------ SEARCH & REPLACE ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
     \begin{minipage}{0.3\textwidth}
@@ -328,13 +303,51 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Mt}$+$R A} & Focus on problems view \\ \hline
-            \textbf{\textit{Mt}$+$R D} & Hide problems view \\ \hline
+            \textbf{\textit{Ct}$+$S} & Focus on find widget \\ \hline
+            \textbf{\textit{Ct}$+$, S} & Show next match (from widget or sel.) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$, S} & Show prev. match (from widget or sel.) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$, S} & Sel. all matches (from widget or sel.) \\ \hline
+            \textbf{\textit{Ct}$+$R} & Focus on replace widget \\ \hline
+            \textbf{\textit{Ct}$+$, R} & Replace current match (widget repl.)\\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$, R} & Replace all matches (widget repl.) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$S} & Search on panel \\ \hline
+            \textbf{\textit{Ct}$+$\textit{down}} & Focus on search/replace results \\ \hline
+            \textbf{\textit{Ct}$+$\textit{up}} & Focus on search input box \\ \hline
+            \textbf{\textit{Ct}$+$. S} & Show next search match / search sel. \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$. S} & Show previous search match \\ \hline
+            \textbf{\textit{Ct}$+$R} & Replace on search panel \\ \hline
+            \textbf{\textit{Ct}$+$. R} & Replace current match (search pan.) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$. R} & Replace all file matches (search pan.) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$. R} & Replace all matches (search pan.) \\ \hline
+            \textbf{\textit{Mt}$+$S A} & Focus on search panel (as \textit{Ct}$+$\textit{Sh}$+$S) \\ \hline
+            \textbf{\textit{Mt}$+$S E} & Collapse search results \\ \hline
+            \textbf{\textit{Mt}$+$S C} & Toggle search/find case sensitive \\ \hline
+            \textbf{\textit{Mt}$+$S X} & Toggle search/find regex. \\ \hline
+            \textbf{\textit{Mt}$+$S W} & Toggle search/find whole word \\ \hline
+            \textbf{\textit{Mt}$+$S G} & Clear search results \\ \hline
+            \textbf{\textit{Mt}$+$S D} & Hide search panel \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Problems View (\textit{Mt}$+$R)};
+\node[fancytitle, right=10pt] at (box.north west) {Search \& Replace (\textit{Mt}$+$S / \textit{Ct}$+$S / \textit{Ct}$+$R)};
+\end{tikzpicture}
+
+%------------ PROBLEMS PANEL ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Mt}$+$R A} & Focus on problems panel \\ \hline
+            \textbf{\textit{Mt}$+$R D} & Hide problems panel \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Problems panel (\textit{Mt}$+$R)};
 \end{tikzpicture}
 
 %------------ TERMINAL ---------------
@@ -364,6 +377,8 @@
 };
 \node[fancytitle, right=10pt] at (box.north west) {Terminal (\textit{Mt}$+$T)};
 \end{tikzpicture}
+
+\columnbreak
 
 %------------ COMPARE EDITOR ---------------
 \begin{tikzpicture}

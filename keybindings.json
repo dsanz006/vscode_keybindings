@@ -22,7 +22,7 @@
 
     General commands:
      · Ctrl+G           : Leave, cancel, exit... (depends on context)
-     · Enter            : Open file (on quick open, problems view, file explorer...), expand/collapse folder
+     · Enter            : Open file (on quick open, problems panel, file explorer...), expand/collapse folder
      · Ctrl+Enter       : Open file to side editor
      · Left/Right       : Expand/Collapse
      · BkSpc/Supr       : Delete/Remove
@@ -32,10 +32,10 @@
      · F        : Menu & Sidebar
      · E        : Editor
      · W        : Explorer
-     · S        : Search
      · D        : Debug
      · G        : Panel
-     · R        : Problems view
+     · S        : Search
+     · R        : Problems panel
      · T        : Terminal
      · C        : Compare editor
 
@@ -56,10 +56,10 @@
     Focus on views:
      · Meta+F A             : Focus on sidebar (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+W A             : Focus on file explorer (toggle)
-     · Meta+S A             : Focus on search bar (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+D A             : Focus on debug bar (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+E A             : Focus on active editor (from anywhere)
-     · Meta+R A             : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+S A             : Focus on search panel (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+R A             : Focus on problems panel (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+T A             : Focus on terminal (toggle)
     
     Menu & Sidebar (Meta+F):
@@ -82,18 +82,6 @@
      · Meta+W E             : Collapse all folders in file explorer
      · Meta+W F             : Reveal current file in file explorer (if in workspace)
      · Meta+W D             : Hide file explorer
-
-    Search & Replace (Meta+S / Ctrl+S / Ctrl+R):
-     · Meta+S A             : Focus on search bar (find) (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+S R             : Focus on search bar (replace) (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+S D             : Hide search bar
-     · Ctrl+S               : Focus on find widget
-     · Ctrl+, S             : Find next match (from widget or selected)
-     · Ctrl+Shft+, S        : Find previous match (from widget or selected)
-     · Ctrl+Alt+, S         : Select all matches (from widget or selected)
-     · Ctrl+R               : Focus on replace widget
-     · Ctrl+, R             : Replace current match
-     · Ctrl+Alt+, R         : Replace all matches 
 
     Debug (Meta+D):
      · Meta+D A             : Focus on debug bar (XXX toggle not suported yet, focus needed: issue #59084)
@@ -142,9 +130,34 @@
     Panel (Meta+G):
      · Meta+G D             : Hide Panel
 
-    Problems view (Meta+R):
-     · Meta+R A             : Focus on problems view (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+R D             : Hide problems view
+    Search & Replace (Meta+S / Ctrl+S / Ctrl+R):
+     · Ctrl+S               : Focus on find widget
+     · Ctrl+, S             : Show next match (from widget or selected)
+     · Ctrl+Shft+, S        : Show previous match (from widget or selected)
+     · Ctrl+Alt+, S         : Select all matches (from widget or selected)
+     · Ctrl+R               : Focus on replace widget
+     · Ctrl+, R             : Replace current match (widget replace)
+     · Ctrl+Alt+, R         : Replace all matches (widget replace)
+     · Ctrl+Shft+S          : Search on search panel
+     · Ctrl+<down>          : Focus on search/replace results
+     · Ctrl+<up>            : Focus on search input box
+     · Ctrl+. S             : Show next search panel match / search selected
+     · Ctrl+Shft+. S        : Show previous search panel match
+     · Ctrl+Shft+R          : Replace on search panel
+     · Ctrl+. R             : Replace current match (search panel replace)
+     · Ctrl+Shft+. R        : Replace all file matches (search panel replace)
+     · Ctrl+Alt+. R         : Replace all matches (search panel replace)
+     · Meta+S A             : Focus on search panel (same as Ctrl+Shft+S)
+     · Meta+S E             : Collapse search results
+     · Meta+S C             : Toggle search case sensitive
+     · Meta+S X             : Toggle search regex
+     · Meta+S W             : Toggle search whole word
+     · Meta+S G             : Clear search results
+     · Meta+S D             : Hide search panel
+
+    Problems panel (Meta+R):
+     · Meta+R A             : Focus on problems panel (XXX toggle not suported yet, focus needed: issue #59084)
+     · Meta+R D             : Hide problems panel
 
     Terminal (Meta+T):
      · Meta+T A             : Focus on terminal (toggle)
@@ -159,7 +172,7 @@
        · Ctrl+D             : (terminalFocus) Kill
      · Meta+T E             : Toggle terminal Expand/collapse
      · Meta+T F             : Open new terminal in location of current file
-     · Meta+T D             : Hide terminal view
+     · Meta+T D             : Hide terminal panel
 
     Compare Editor (Meta+C):
      · Meta+C W             : Go to next change
@@ -628,33 +641,122 @@
         "command": "-workbench.action.terminal.focusFindWidget",
         "when": "terminalFocus"
     },
+    {
+        "key": "alt+c",
+        "command": "-toggleFindCaseSensitive",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+l",
+        "command": "-toggleFindInSelection",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+r",
+        "command": "-toggleFindRegex",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+w",
+        "command": "-toggleFindWholeWord",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+c",
+        "command": "-toggleSearchCaseSensitive",
+        "when": "searchInputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "alt+r",
+        "command": "-toggleSearchRegex",
+        "when": "searchInputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "alt+w",
+        "command": "-toggleSearchWholeWord",
+        "when": "searchInputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "f4",
+        "command": "-search.action.focusNextSearchResult",
+        "when": "hasSearchResult"
+    },
+    {
+        "key": "shift+f4",
+        "command": "-search.action.focusPreviousSearchResult",
+        "when": "hasSearchResult"
+    },
+    {
+        "key": "f4",
+        "command": "-goToNextReference",
+        "when": "referenceSearchVisible"
+    },
+    {
+        "key": "f4",
+        "command": "-goToNextReferenceFromEmbeddedEditor",
+        "when": "inReferenceSearchEditor"
+    },
+    {
+        "key": "shift+f4",
+        "command": "-goToPreviousReference",
+        "when": "referenceSearchVisible"
+    },
+    {
+        "key": "shift+f4",
+        "command": "-goToPreviousReferenceFromEmbeddedEditor",
+        "when": "inReferenceSearchEditor"
+    },
+    {
+        "key": "ctrl+shift+j",
+        "command": "-workbench.action.search.toggleQueryDetails",
+        "when": "searchViewletVisible"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-search.action.copyMatch",
+        "when": "fileMatchOrMatchFocus"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "-search.action.copyPath",
+        "when": "fileMatchOrFolderMatchFocus"
+    },
+    {
+        "key": "ctrl+shift+1",
+        "command": "-search.action.replace",
+        "when": "matchFocus && replaceActive && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+alt+enter",
+        "command": "-search.action.replaceAll",
+        "when": "replaceActive && searchViewletVisible && !findWidgetVisible"
+    },
+    {
+        "key": "ctrl+shift+1",
+        "command": "-search.action.replaceAllInFile",
+        "when": "fileMatchFocus && replaceActive && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+shift+1",
+        "command": "-search.action.replaceAllInFolder",
+        "when": "folderMatchFocus && replaceActive && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+shift+enter",
+        "command": "-search.action.replaceAllInFolder",
+        "when": "folderMatchFocus && replaceActive && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+shift+enter",
+        "command": "-search.action.replaceAllInFile",
+        "when": "fileMatchFocus && replaceActive && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+up",
+        "command": "-search.action.focusSearchFromResults",
+        "when": "firstMatchFocus && searchViewletVisible"
+    },
     //added keybindings
-    {
-        "key": "meta+s a",
-        "command": "workbench.action.findInFiles"
-    },
-    {
-        "key": "meta+s meta+a",
-        "command": "workbench.action.findInFiles"
-    },
-    {
-        "key": "meta+s r",
-        "command": "workbench.action.replaceInFiles"
-    },
-    {
-        "key": "meta+s meta+r",
-        "command": "workbench.action.replaceInFiles"
-    },
-    {
-        "key": "meta+s d",
-        "command": "workbench.action.toggleSidebarVisibility",
-        "when" : "activeViewlet == 'workbench.view.search'"
-    },
-    {
-        "key": "meta+s meta+d",
-        "command": "workbench.action.toggleSidebarVisibility",
-        "when" : "activeViewlet == 'workbench.view.search'"
-    },
     {
         "key": "ctrl+s",
         "command": "actions.find"
@@ -798,6 +900,173 @@
         "key": "ctrl+alt+[Comma] ctrl+alt+r",
         "command": "editor.action.replaceAll",
         "when": "editorFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "workbench.action.findInFiles"
+    },
+    {
+        "key": "meta+s a",
+        "command": "workbench.action.findInFiles"
+    },
+    {
+        "key": "meta+s meta+a",
+        "command": "workbench.action.findInFiles"
+    },
+    {
+        "key": "ctrl+[Period] s",
+        "command": "workbench.action.findInFiles",
+        "when": "editorFocus && !hasSearchResult"
+    },
+    {
+        "key": "ctrl+[Period] ctrl+s",
+        "command": "workbench.action.findInFiles",
+        "when": "editorFocus && !hasSearchResult"
+    },
+    {
+        "key": "ctrl+[Period] s",
+        "command": "search.action.focusNextSearchResult",
+        "when": "hasSearchResult"
+    },
+    {
+        "key": "ctrl+[Period] ctrl+s",
+        "command": "search.action.focusNextSearchResult",
+        "when": "hasSearchResult"
+    },
+    {
+        "key": "ctrl+shift+[Period] s",
+        "command": "search.action.focusPreviousSearchResult",
+        "when": "hasSearchResult"
+    },
+    {
+        "key": "ctrl+shift+[Period] ctrl+shift+s",
+        "command": "search.action.focusPreviousSearchResult",
+        "when": "hasSearchResult"
+    },
+    {
+        "key": "ctrl+up",
+        "command": "search.action.focusSearchFromResults",
+        "when": "searchViewletVisible"
+    },
+    {
+        "key": "ctrl+shift+r",
+        "command": "workbench.action.replaceInFiles"
+    },
+    {
+        "key": "ctrl+[Period] r",
+        "command": "search.action.replace",
+        "when": "matchFocus && replaceActive && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+[Period] ctrl+r",
+        "command": "search.action.replace",
+        "when": "matchFocus && replaceActive && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+alt+[Period] r",
+        "command": "search.action.replaceAll",
+        "when": "replaceActive && searchViewletVisible && !findWidgetVisible"
+    },
+    {
+        "key": "ctrl+alt+[Period] ctrl+alt+r",
+        "command": "search.action.replaceAll",
+        "when": "replaceActive && searchViewletVisible && !findWidgetVisible"
+    },
+    {
+        "key": "ctrl+shift+[Period] r",
+        "command": "search.action.replaceAllInFile",
+        "when": "fileMatchFocus && replaceActive && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+shift+[Period] ctrl+shift+r",
+        "command": "search.action.replaceAllInFile",
+        "when": "fileMatchFocus && replaceActive && searchViewletVisible"
+    },
+    {
+        "key": "meta+s c",
+        "command": "toggleFindCaseSensitive",
+        "when": "editorFocus"
+    },
+    {
+        "key": "meta+s meta+c",
+        "command": "toggleFindCaseSensitive",
+        "when": "editorFocus"
+    },
+    {
+        "key": "meta+s x",
+        "command": "toggleFindRegex",
+        "when": "editorFocus"
+    },
+    {
+        "key": "meta+s meta+x",
+        "command": "toggleFindRegex",
+        "when": "editorFocus"
+    },
+    {
+        "key": "meta+s w",
+        "command": "toggleFindWholeWord",
+        "when": "editorFocus"
+    },
+    {
+        "key": "meta+s meta+w",
+        "command": "toggleFindWholeWord",
+        "when": "editorFocus"
+    },
+    {
+        "key": "meta+s c",
+        "command": "toggleSearchCaseSensitive",
+        "when": "searchInputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "meta+s meta+c",
+        "command": "toggleSearchCaseSensitive",
+        "when": "searchInputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "meta+s x",
+        "command": "toggleSearchRegex",
+        "when": "searchInputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "meta+s meta+x",
+        "command": "toggleSearchRegex",
+        "when": "searchInputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "meta+s w",
+        "command": "toggleSearchWholeWord",
+        "when": "searchInputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "meta+s meta+w",
+        "command": "toggleSearchWholeWord",
+        "when": "searchInputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "meta+s e",
+        "command": "search.action.collapseSearchResults"
+    },
+    {
+        "key": "meta+s meta+e",
+        "command": "search.action.collapseSearchResults"
+    },
+    {
+        "key": "meta+s g",
+        "command": "search.action.clearSearchResults"
+    },
+    {
+        "key": "meta+s meta+g",
+        "command": "search.action.clearSearchResults"
+    },
+    {
+        "key": "meta+s d",
+        "command": "workbench.action.closePanel",
+        "when" : "activePanel == 'workbench.view.search'"
+    },
+    {
+        "key": "meta+s meta+d",
+        "command": "workbench.action.closePanel",
+        "when" : "activePanel == 'workbench.view.search'"
     },
 
 /* ---------------------------------------------------- */
@@ -2055,6 +2324,11 @@
         "command": "editor.action.webvieweditor.hideFind",
         "when": "webviewEditorFocus && webviewFindWidgetVisible"
     },
+    {
+        "key": "ctrl+g",
+        "command": "search.action.clearSearchResults",
+        "when": "searchInputBoxFocus"
+    },
 
 /* ---------------------------------------------------- */
 
@@ -2164,6 +2438,11 @@
     {
         "key": "ctrl+m",
         "command": "-editor.action.toggleTabFocusMode"
+    },
+    {
+        "key": "ctrl+shift+r",
+        "command": "-editor.action.refactor",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
     },
 
 /* ---------------------------------------------------- */
