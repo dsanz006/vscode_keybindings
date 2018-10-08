@@ -13,6 +13,9 @@
         · Breadcrumbs
         · Refactoring/code actions ??
 
+    Some commands are custom macros, which allow concatenating multiple commands. This is done with
+    an extension: https://marketplace.visualstudio.com/items?itemName=geddski.macros
+
     ----------------------------------------------------------
 
     Keys:
