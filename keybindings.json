@@ -10,7 +10,6 @@
     Todo:
         · Text edition
         · IntelliSense (Code completion & navigation)
-        · Breadcrumbs
         · Refactoring/code actions ??
 
     Some commands are custom macros, which allow concatenating multiple commands. This is done with
@@ -31,15 +30,16 @@
      · BkSpc/Supr       : Delete/Remove
 
     General MAJOR-KEY meanings - Used with Meta (Super) key:
-     · A        : IntelliSense (Code completion & navigation)
      · F        : Menu & Sidebar
-     · E        : Editor
      · W        : Explorer
      · D        : Debug
      · G        : Panel
      · S        : Search
      · R        : Problems panel
      · T        : Terminal
+     · E        : Editor
+     · B        : BreadCrumbs
+     · A        : IntelliSense (Code completion & navigation)
      · C        : Compare editor
 
     General MINOR-KEY meanings:
@@ -60,10 +60,10 @@
      · Meta+F A             : Focus on sidebar (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+W A             : Focus on file explorer (toggle)
      · Meta+D A             : Focus on debug bar (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+E A             : Focus on active editor (from anywhere)
      · Meta+S A             : Focus on search panel (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+R A             : Focus on problems panel (XXX toggle not suported yet, focus needed: issue #59084)
      · Meta+T A             : Focus on terminal (toggle)
+     · Meta+E A             : Focus on active editor (from anywhere)
     
     Menu & Sidebar (Meta+F):
      · Meta+F A             : Focus on sidebar (XXX toggle not suported yet, focus needed: issue #59084)
@@ -108,27 +108,6 @@
      · Meta+D C             : Focus on call stack view
      · Meta+D D             : Hide debug bar 
      · F5, F6, F10, F11     : Debugging keys
-
-    Editor (Meta+E / Ctrl+E):
-     · Meta+E A             : Focus on active editor (from anywhere)
-     · Meta+E D             : Close active file editor
-     · Meta+Shft+E D        : Close all other files in group
-     · Meta+E F             : Close active editor group
-     · Meta+Shft+E F        : Close all other editor groups
-     · Meta+E X             : Split editor vertically
-     · Meta+E T             : Toggle layout (horiz./vert.)
-     · Meta+E E             : Expand editor group
-     · Meta+Shft+E E        : Reset editor group sizes
-     · Meta+E W             : Focus on next file of group
-     · Meta+E Q             : Focus on previous file of group
-     · Meta+Shft+E W        : Focus on next editor group
-     · Meta+Shft+E Q        : Focus on previous editor group
-     · Meta+E R             : Focus on recent file on history
-     · Ctrl+E 1-9           : Focus on file index 1-9 of group
-     · Ctrl+Shift+E 1-9     : Focus on editor group index 1-9
-     · Ctrl+E <a>           : Move editor to above/below/left/right group
-     · Ctrl+Shft+E <a>      : Move editor left/right in froup
-     · Ctrl+Alt+Shft+E <a>  : Move editor group to above/below/left/right
 
     Panel (Meta+G):
      · Meta+G D             : Hide Panel
@@ -176,22 +155,43 @@
      · Meta+T F             : Open new terminal in location of current file
      · Meta+T D             : Hide terminal panel
 
+    Editor (Meta+E / Ctrl+E):
+     · Meta+E A             : Focus on active editor (from anywhere)
+     · Meta+E D             : Close active file editor
+     · Meta+Shft+E D        : Close all other files in group
+     · Meta+E F             : Close active editor group
+     · Meta+Shft+E F        : Close all other editor groups
+     · Meta+E X             : Split editor vertically
+     · Meta+E T             : Toggle layout (horiz./vert.)
+     · Meta+E E             : Expand editor group
+     · Meta+Shft+E E        : Reset editor group sizes
+     · Meta+E W             : Focus on next file of group
+     · Meta+E Q             : Focus on previous file of group
+     · Meta+Shft+E W        : Focus on next editor group
+     · Meta+Shft+E Q        : Focus on previous editor group
+     · Meta+E R             : Focus on recent file on history
+     · Ctrl+E 1-9           : Focus on file index 1-9 of group
+     · Ctrl+Shift+E 1-9     : Focus on editor group index 1-9
+     · Ctrl+E <a>           : Move editor to above/below/left/right group
+     · Ctrl+Shft+E <a>      : Move editor left/right in froup
+     · Ctrl+Alt+Shft+E <a>  : Move editor group to above/below/left/right
+
+    Breadcrumbs:
+     · Ctrl+B               : Focus on breadcrumbs
+
     Compare Editor (Meta+C):
      · Meta+C W             : Go to next change
      · Meta+C Q             : Go to previous change
+
+    Building tasks:
+     · Ctrl+Shft+B          : Run default build task
+     · Ctrl+Shft+Alt+B      : Run non-default task (choose)
 
     Text Edition (XXX todo):
      · Ctrl+X S             : Save file
      · Ctrl+Shft+X S        : Save file as...
      · Ctrl+X C             : Cut text
      · Ctrl+, E             : Focus on active editor (from anywhere)
-
-    Building tasks:
-     · Ctrl+Shift+B         : Run default build task
-     · Ctrl+Shift+Alt+B     : Run non-default task (choose)
-
-    BreadCrumbs:
-     · Ctrl+Shift+I:        : Shows BreadCrumbs view of current file
 
     ----------------------------------------------------------
 
@@ -558,367 +558,6 @@
         "key": "meta+d meta+d",
         "command": "workbench.action.toggleSidebarVisibility",
         "when" : "activeViewlet == 'workbench.view.debug'"
-    },
-
-/* ---------------------------------------------------- */
-
-/****  Editor (Meta+E / Ctrl+E) ****/
-
-{
-        "key": "meta+e a",
-        "command": "workbench.action.focusActiveEditorGroup",
-    },
-    {
-        "key": "meta+e meta+a",
-        "command": "workbench.action.focusActiveEditorGroup",
-    },
-    {
-        "key": "meta+e d",
-        "command": "workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "meta+e meta+d",
-        "command": "workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "shift+meta+e d",
-        "command": "workbench.action.closeOtherEditors"
-    },
-    {
-        "key": "shift+meta+e shift+meta+d",
-        "command": "workbench.action.closeOtherEditors"
-    },
-    {
-        "key": "meta+e f",
-        "command": "workbench.action.closeEditorsInGroup"
-    },
-    {
-        "key": "meta+e meta+f",
-        "command": "workbench.action.closeEditorsInGroup"
-    },
-    {
-        "key": "shift+meta+e f",
-        "command": "workbench.action.closeEditorsInOtherGroups"
-    },
-    {
-        "key": "shift+meta+e shift+meta+f",
-        "command": "workbench.action.closeEditorsInOtherGroups"
-    },
-    {
-        "key": "meta+e x",
-        "command": "workbench.action.splitEditorRight"
-    },
-    {
-        "key": "meta+e meta+x",
-        "command": "workbench.action.splitEditorRight"
-    },
-    {
-        "key": "meta+e t",
-        "command": "workbench.action.toggleEditorGroupLayout"
-    },
-    {
-        "key": "meta+e meta+t",
-        "command": "workbench.action.toggleEditorGroupLayout"
-    },
-    {
-        "key": "meta+e e",
-        "command": "workbench.action.minimizeOtherEditors"
-    },
-    {
-        "key": "meta+e meta+e",
-        "command": "workbench.action.minimizeOtherEditors"
-    },
-    {
-        "key": "shift+meta+e e",
-        "command": "workbench.action.evenEditorWidths"
-    },
-    {
-        "key": "shift+meta+e shift+meta+e",
-        "command": "workbench.action.evenEditorWidths"
-    },
-    {
-        "key": "meta+e w",
-        "command": "workbench.action.nextEditorInGroup"
-    },
-    {
-        "key": "meta+e meta+w",
-        "command": "workbench.action.nextEditorInGroup"
-    },
-    {
-        "key": "meta+e q",
-        "command": "workbench.action.previousEditorInGroup"
-    },
-    {
-        "key": "meta+e meta+q",
-        "command": "workbench.action.previousEditorInGroup"
-    },
-    {
-        "key": "meta+shift+e w",
-        "command": "workbench.action.focusNextGroup"
-    },
-    {
-        "key": "meta+shift+e meta+shift+w",
-        "command": "workbench.action.focusNextGroup"
-    },
-    {
-        "key": "meta+shift+e q",
-        "command": "workbench.action.focusPreviousGroup"
-    },
-    {
-        "key": "meta+shift+e meta+shift+q",
-        "command": "workbench.action.focusPreviousGroup"
-    },
-    {
-        "key": "meta+e r",
-        "command": "workbench.action.openPreviousEditorFromHistory"
-    },
-    {
-        "key": "meta+e meta+r",
-        "command": "workbench.action.openPreviousEditorFromHistory"
-    },
-    {
-        "key": "meta+shift+e 1",
-        "command": "workbench.action.focusFirstEditorGroup"
-    },
-    {
-        "key": "meta+shift+e meta+shift+1",
-        "command": "workbench.action.focusFirstEditorGroup"
-    },
-    {
-        "key": "meta+shift+e 2",
-        "command": "workbench.action.focusSecondEditorGroup"
-    },
-    {
-        "key": "meta+shift+e meta+shift+2",
-        "command": "workbench.action.focusSecondEditorGroup"
-    },
-    {
-        "key": "meta+shift+e 3",
-        "command": "workbench.action.focusThirdEditorGroup"
-    },
-    {
-        "key": "meta+shift+e meta+shift+3",
-        "command": "workbench.action.focusThirdEditorGroup"
-    },
-    {
-        "key": "meta+shift+e 4",
-        "command": "workbench.action.focusFourthEditorGroup"
-    },
-    {
-        "key": "meta+shift+e meta+shift+4",
-        "command": "workbench.action.focusFourthEditorGroup"
-    },
-    {
-        "key": "meta+shift+e 5",
-        "command": "workbench.action.focusFifthEditorGroup"
-    },
-    {
-        "key": "meta+shift+e meta+shift+5",
-        "command": "workbench.action.focusFifthEditorGroup"
-    },
-    {
-        "key": "meta+shift+e 6",
-        "command": "workbench.action.focusSixthEditorGroup"
-    },
-    {
-        "key": "meta+shift+e meta+shift+6",
-        "command": "workbench.action.focusSixthEditorGroup"
-    },
-    {
-        "key": "meta+shift+e 7",
-        "command": "workbench.action.focusSeventhEditorGroup"
-    },
-    {
-        "key": "meta+shift+e meta+shift+7",
-        "command": "workbench.action.focusSeventhEditorGroup"
-    },
-    {
-        "key": "meta+shift+e 8",
-        "command": "workbench.action.focusEighthEditorGroup"
-    },
-    {
-        "key": "meta+shift+e meta+shift+8",
-        "command": "workbench.action.focusEighthEditorGroup"
-    },
-    {
-        "key": "meta+shift+e 9",
-        "command": "workbench.action.lastEditorInGroup"
-    },
-    {
-        "key": "meta+shift+e meta+shift+9",
-        "command": "workbench.action.lastEditorInGroup"
-    },
-    {
-        "key": "meta+e 1",
-        "command": "workbench.action.openEditorAtIndex1"
-    },
-    {
-        "key": "meta+e meta+1",
-        "command": "workbench.action.openEditorAtIndex1"
-    },
-    {
-        "key": "meta+e 2",
-        "command": "workbench.action.openEditorAtIndex2"
-    },
-    {
-        "key": "meta+e meta+2",
-        "command": "workbench.action.openEditorAtIndex2"
-    },
-    {
-        "key": "meta+e 3",
-        "command": "workbench.action.openEditorAtIndex3"
-    },
-    {
-        "key": "meta+e meta+3",
-        "command": "workbench.action.openEditorAtIndex3"
-    },
-    {
-        "key": "meta+e 4",
-        "command": "workbench.action.openEditorAtIndex4"
-    },
-    {
-        "key": "meta+e meta+4",
-        "command": "workbench.action.openEditorAtIndex4"
-    },
-    {
-        "key": "meta+e 5",
-        "command": "workbench.action.openEditorAtIndex5"
-    },
-    {
-        "key": "meta+e meta+5",
-        "command": "workbench.action.openEditorAtIndex5"
-    },
-    {
-        "key": "meta+e 6",
-        "command": "workbench.action.openEditorAtIndex6"
-    },
-    {
-        "key": "meta+e meta+6",
-        "command": "workbench.action.openEditorAtIndex6"
-    },
-    {
-        "key": "meta+e 7",
-        "command": "workbench.action.openEditorAtIndex7"
-    },
-    {
-        "key": "meta+e meta+7",
-        "command": "workbench.action.openEditorAtIndex7"
-    },
-    {
-        "key": "meta+e 8",
-        "command": "workbench.action.openEditorAtIndex8"
-    },
-    {
-        "key": "meta+e meta+8",
-        "command": "workbench.action.openEditorAtIndex8"
-    },
-    {
-        "key": "meta+e 9",
-        "command": "workbench.action.openEditorAtIndex9"
-    },
-    {
-        "key": "meta+e meta+9",
-        "command": "workbench.action.openEditorAtIndex9"
-    },
-    {
-        "key": "ctrl+e right",
-        "command": "workbench.action.moveEditorToRightGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+e ctrl+right",
-        "command": "workbench.action.moveEditorToRightGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+e left",
-        "command": "workbench.action.moveEditorToLeftGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+e ctrl+left",
-        "command": "workbench.action.moveEditorToLeftGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+e up",
-        "command": "workbench.action.moveEditorToAboveGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+e ctrl+up",
-        "command": "workbench.action.moveEditorToAboveGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+e down",
-        "command": "workbench.action.moveEditorToBelowGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+e ctrl+down",
-        "command": "workbench.action.moveEditorToBelowGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+e left",
-        "command": "workbench.action.moveEditorLeftInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+e ctrl+shift+left",
-        "command": "workbench.action.moveEditorLeftInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+e right",
-        "command": "workbench.action.moveEditorRightInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+e ctrl+shift+right",
-        "command": "workbench.action.moveEditorRightInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+alt+e up",
-        "command": "workbench.action.moveActiveEditorGroupUp",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+alt+e ctrl+shift+alt+up",
-        "command": "workbench.action.moveActiveEditorGroupUp",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+alt+e down",
-        "command": "workbench.action.moveActiveEditorGroupDown",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+alt+e ctrl+shift+alt+down",
-        "command": "workbench.action.moveActiveEditorGroupDown",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+alt+e left",
-        "command": "workbench.action.moveActiveEditorGroupLeft",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+alt+e ctrl+shift+alt+left",
-        "command": "workbench.action.moveActiveEditorGroupLeft",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+alt+e right",
-        "command": "workbench.action.moveActiveEditorGroupRight",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+alt+e ctrl+shift+alt+right",
-        "command": "workbench.action.moveActiveEditorGroupRight",
-        "when": "editorFocus"
     },
 
 /* ---------------------------------------------------- */
@@ -1505,9 +1144,366 @@
         "command": "workbench.action.closePanel",
         "when": "activePanel == 'workbench.panel.terminal'" //when terminal is visible
     },
+
+/* ---------------------------------------------------- */
+
+/****  Editor (Meta+E / Ctrl+E) ****/
+
     {
-        "key": "ctrl+shift+m",
-        "command": "-workbench.actions.view.problems"
+        "key": "meta+e a",
+        "command": "workbench.action.focusActiveEditorGroup",
+    },
+    {
+        "key": "meta+e meta+a",
+        "command": "workbench.action.focusActiveEditorGroup",
+    },
+    {
+        "key": "meta+e d",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "meta+e meta+d",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "shift+meta+e d",
+        "command": "workbench.action.closeOtherEditors"
+    },
+    {
+        "key": "shift+meta+e shift+meta+d",
+        "command": "workbench.action.closeOtherEditors"
+    },
+    {
+        "key": "meta+e f",
+        "command": "workbench.action.closeEditorsInGroup"
+    },
+    {
+        "key": "meta+e meta+f",
+        "command": "workbench.action.closeEditorsInGroup"
+    },
+    {
+        "key": "shift+meta+e f",
+        "command": "workbench.action.closeEditorsInOtherGroups"
+    },
+    {
+        "key": "shift+meta+e shift+meta+f",
+        "command": "workbench.action.closeEditorsInOtherGroups"
+    },
+    {
+        "key": "meta+e x",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "meta+e meta+x",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "meta+e t",
+        "command": "workbench.action.toggleEditorGroupLayout"
+    },
+    {
+        "key": "meta+e meta+t",
+        "command": "workbench.action.toggleEditorGroupLayout"
+    },
+    {
+        "key": "meta+e e",
+        "command": "workbench.action.minimizeOtherEditors"
+    },
+    {
+        "key": "meta+e meta+e",
+        "command": "workbench.action.minimizeOtherEditors"
+    },
+    {
+        "key": "shift+meta+e e",
+        "command": "workbench.action.evenEditorWidths"
+    },
+    {
+        "key": "shift+meta+e shift+meta+e",
+        "command": "workbench.action.evenEditorWidths"
+    },
+    {
+        "key": "meta+e w",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "meta+e meta+w",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "meta+e q",
+        "command": "workbench.action.previousEditorInGroup"
+    },
+    {
+        "key": "meta+e meta+q",
+        "command": "workbench.action.previousEditorInGroup"
+    },
+    {
+        "key": "meta+shift+e w",
+        "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+w",
+        "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "meta+shift+e q",
+        "command": "workbench.action.focusPreviousGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+q",
+        "command": "workbench.action.focusPreviousGroup"
+    },
+    {
+        "key": "meta+e r",
+        "command": "workbench.action.openPreviousEditorFromHistory"
+    },
+    {
+        "key": "meta+e meta+r",
+        "command": "workbench.action.openPreviousEditorFromHistory"
+    },
+    {
+        "key": "meta+shift+e 1",
+        "command": "workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+1",
+        "command": "workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "meta+shift+e 2",
+        "command": "workbench.action.focusSecondEditorGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+2",
+        "command": "workbench.action.focusSecondEditorGroup"
+    },
+    {
+        "key": "meta+shift+e 3",
+        "command": "workbench.action.focusThirdEditorGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+3",
+        "command": "workbench.action.focusThirdEditorGroup"
+    },
+    {
+        "key": "meta+shift+e 4",
+        "command": "workbench.action.focusFourthEditorGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+4",
+        "command": "workbench.action.focusFourthEditorGroup"
+    },
+    {
+        "key": "meta+shift+e 5",
+        "command": "workbench.action.focusFifthEditorGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+5",
+        "command": "workbench.action.focusFifthEditorGroup"
+    },
+    {
+        "key": "meta+shift+e 6",
+        "command": "workbench.action.focusSixthEditorGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+6",
+        "command": "workbench.action.focusSixthEditorGroup"
+    },
+    {
+        "key": "meta+shift+e 7",
+        "command": "workbench.action.focusSeventhEditorGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+7",
+        "command": "workbench.action.focusSeventhEditorGroup"
+    },
+    {
+        "key": "meta+shift+e 8",
+        "command": "workbench.action.focusEighthEditorGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+8",
+        "command": "workbench.action.focusEighthEditorGroup"
+    },
+    {
+        "key": "meta+shift+e 9",
+        "command": "workbench.action.lastEditorInGroup"
+    },
+    {
+        "key": "meta+shift+e meta+shift+9",
+        "command": "workbench.action.lastEditorInGroup"
+    },
+    {
+        "key": "meta+e 1",
+        "command": "workbench.action.openEditorAtIndex1"
+    },
+    {
+        "key": "meta+e meta+1",
+        "command": "workbench.action.openEditorAtIndex1"
+    },
+    {
+        "key": "meta+e 2",
+        "command": "workbench.action.openEditorAtIndex2"
+    },
+    {
+        "key": "meta+e meta+2",
+        "command": "workbench.action.openEditorAtIndex2"
+    },
+    {
+        "key": "meta+e 3",
+        "command": "workbench.action.openEditorAtIndex3"
+    },
+    {
+        "key": "meta+e meta+3",
+        "command": "workbench.action.openEditorAtIndex3"
+    },
+    {
+        "key": "meta+e 4",
+        "command": "workbench.action.openEditorAtIndex4"
+    },
+    {
+        "key": "meta+e meta+4",
+        "command": "workbench.action.openEditorAtIndex4"
+    },
+    {
+        "key": "meta+e 5",
+        "command": "workbench.action.openEditorAtIndex5"
+    },
+    {
+        "key": "meta+e meta+5",
+        "command": "workbench.action.openEditorAtIndex5"
+    },
+    {
+        "key": "meta+e 6",
+        "command": "workbench.action.openEditorAtIndex6"
+    },
+    {
+        "key": "meta+e meta+6",
+        "command": "workbench.action.openEditorAtIndex6"
+    },
+    {
+        "key": "meta+e 7",
+        "command": "workbench.action.openEditorAtIndex7"
+    },
+    {
+        "key": "meta+e meta+7",
+        "command": "workbench.action.openEditorAtIndex7"
+    },
+    {
+        "key": "meta+e 8",
+        "command": "workbench.action.openEditorAtIndex8"
+    },
+    {
+        "key": "meta+e meta+8",
+        "command": "workbench.action.openEditorAtIndex8"
+    },
+    {
+        "key": "meta+e 9",
+        "command": "workbench.action.openEditorAtIndex9"
+    },
+    {
+        "key": "meta+e meta+9",
+        "command": "workbench.action.openEditorAtIndex9"
+    },
+    {
+        "key": "ctrl+e right",
+        "command": "workbench.action.moveEditorToRightGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+e ctrl+right",
+        "command": "workbench.action.moveEditorToRightGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+e left",
+        "command": "workbench.action.moveEditorToLeftGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+e ctrl+left",
+        "command": "workbench.action.moveEditorToLeftGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+e up",
+        "command": "workbench.action.moveEditorToAboveGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+e ctrl+up",
+        "command": "workbench.action.moveEditorToAboveGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+e down",
+        "command": "workbench.action.moveEditorToBelowGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+e ctrl+down",
+        "command": "workbench.action.moveEditorToBelowGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+e left",
+        "command": "workbench.action.moveEditorLeftInGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+e ctrl+shift+left",
+        "command": "workbench.action.moveEditorLeftInGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+e right",
+        "command": "workbench.action.moveEditorRightInGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+e ctrl+shift+right",
+        "command": "workbench.action.moveEditorRightInGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+e up",
+        "command": "workbench.action.moveActiveEditorGroupUp",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+e ctrl+shift+alt+up",
+        "command": "workbench.action.moveActiveEditorGroupUp",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+e down",
+        "command": "workbench.action.moveActiveEditorGroupDown",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+e ctrl+shift+alt+down",
+        "command": "workbench.action.moveActiveEditorGroupDown",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+e left",
+        "command": "workbench.action.moveActiveEditorGroupLeft",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+e ctrl+shift+alt+left",
+        "command": "workbench.action.moveActiveEditorGroupLeft",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+e right",
+        "command": "workbench.action.moveActiveEditorGroupRight",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+e ctrl+shift+alt+right",
+        "command": "workbench.action.moveActiveEditorGroupRight",
+        "when": "editorFocus"
     },
 
 /* ---------------------------------------------------- */
@@ -1515,21 +1511,8 @@
 /**** BreadCrumbs ****/
     
     {
-        "key": "ctrl+shift+i",
-        "command": "-editor.action.formatDocument",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+shift+[Period]",
-        "command": "-breadcrumbs.focus"
-    },
-    {
-        "key": "ctrl+shift+i",
+        "key": "ctrl+b",
         "command": "breadcrumbs.focusAndSelect"
-    },
-    {
-        "key": "ctrl+shift+[IntlBackslash]",
-        "command": "-breadcrumbs.focusAndSelect"
     },
 
 /* ---------------------------------------------------- */
@@ -1563,10 +1546,6 @@
 
     {
         "key": "ctrl+shift+alt+b",
-        "command": "-xmlTools.formatAsXml"
-    },
-    {
-        "key": "ctrl+shift+alt+b",
         "command": "workbench.action.tasks.runTask"
     },
 
@@ -1577,11 +1556,6 @@
     {
         "key": "Ctrl+tab",
         "command": "editor.action.formatSelection",
-        "when": "editorHasSelection && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+k ctrl+f",
-        "command": "-editor.action.formatSelection",
         "when": "editorHasSelection && editorTextFocus && !editorReadonly"
     },
     /*
@@ -1638,37 +1612,11 @@
         "key": "ctrl+l",
         "command": "workbench.action.gotoLine"
     },
-    {
-        "key": "ctrl+g",
-        "command": "-workbench.action.gotoLine"
-    },
 
 /* ---------------------------------------------------- */
     
 /**** Code Completion and suggestions ****/
 
-    //removed keybindings
-    {
-        "key": "ctrl+space",
-        "command": "-toggleSuggestionDetails",
-        "when": "suggestWidgetVisible && textInputFocus"
-    },
-    {
-        "key": "ctrl+space",
-        "command": "-editor.action.triggerSuggest",
-        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+alt+space",
-        "command": "-toggleSuggestionFocus",
-        "when": "suggestWidgetVisible && textInputFocus"
-    },
-    {
-        "key": "ctrl+shift+space",
-        "command": "-editor.action.triggerParameterHints",
-        "when": "editorHasSignatureHelpProvider && editorTextFocus"
-    },
-    //added keybindings
     {
         "key": "meta+space",
         "command": "toggleSuggestionDetails",
@@ -1693,22 +1641,7 @@
 /* ---------------------------------------------------- */
         
 /**** Text Edition (XXX todo) ****/
-    
-    //removed keybindings
-    {
-        "key": "ctrl+s",
-        "command": "-workbench.action.files.save"
-    },
-    {
-        "key": "ctrl+shift+s",
-        "command": "-workbench.action.files.saveAs"
-    },
-    {
-        "key": "ctrl+x",
-        "command": "-editor.action.clipboardCutAction",
-        "when": "textInputFocus && !editorReadonly"
-    },
-    //added keybindings
+
     {
         "key": "ctrl+x s",
         "command": "workbench.action.files.save"
@@ -2697,10 +2630,103 @@
         "command": "-editor.action.webvieweditor.showFind",
         "when": "!editorFocus && activeEditor == 'workbench.editor.htmlPreviewPart'"
     },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-editor.action.formatDocument",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+[Period]",
+        "command": "-breadcrumbs.focus"
+    },
+    {
+        "key": "ctrl+shift+[IntlBackslash]",
+        "command": "-breadcrumbs.focusAndSelect"
+    },
+    {
+        "key": "ctrl+shift+m",
+        "command": "-workbench.actions.view.problems"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "-workbench.action.files.save"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "-workbench.action.files.saveAs"
+    },
+    {
+        "key": "ctrl+x",
+        "command": "-editor.action.clipboardCutAction",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+space",
+        "command": "-toggleSuggestionDetails",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+space",
+        "command": "-editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+space",
+        "command": "-toggleSuggestionFocus",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+space",
+        "command": "-editor.action.triggerParameterHints",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "-workbench.action.gotoLine"
+    },
+    {
+        "key": "ctrl+shift+alt+b",
+        "command": "-xmlTools.formatAsXml"
+    },
+    {
+        "key": "ctrl+k ctrl+f",
+        "command": "-editor.action.formatSelection",
+        "when": "editorHasSelection && editorTextFocus && !editorReadonly"
+    },
 
 /* ---------------------------------------------------- */
 
 /**** Automatic additions (should be empty) ****/
 
     {},
+    {
+        "key": "ctrl+s",
+        "command": "editor.action.extensioneditor.showfind",
+        "when": "activeEditor == 'workbench.editor.extension'"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-editor.action.extensioneditor.showfind",
+        "when": "activeEditor == 'workbench.editor.extension'"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "keybindings.editor.searchKeybindings",
+        "when": "inKeybindings && !inKeybindingsSearch"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-keybindings.editor.searchKeybindings",
+        "when": "inKeybindings && !inKeybindingsSearch"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "problems.action.focusFilter",
+        "when": "problemsViewFocus"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-problems.action.focusFilter",
+        "when": "problemsViewFocus"
+    },
 ]

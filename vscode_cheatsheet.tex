@@ -60,8 +60,6 @@
 \node [mybox] (box){%
     \begin{minipage}{0.3\textwidth}
 
-        Pending issues: \#59084 \\
-
         \textit{Keys:} \\
 
         \begin{vwcol}[widths={0.5,0.5},
@@ -101,18 +99,19 @@
             sep=.2cm, rule=0pt,indent=1em]
             \begin{tabular}{ll}
                 \hline
-                \textbf{A} & IntelliSense \\ \hline
                 \textbf{F} & Menu \& Sidebar \\ \hline
-                \textbf{E} & Editor \\ \hline
                 \textbf{W} & Explorer \\ \hline
                 \textbf{D} & Debug \\ \hline
-            \end{tabular}
-            \begin{tabular}{ll}
-                \hline
                 \textbf{G} & Panel \\ \hline
                 \textbf{S} & Search \\ \hline
                 \textbf{R} & Problems panel \\ \hline
+            \end{tabular}
+            \begin{tabular}{ll}
+                \hline
                 \textbf{T} & Terminal \\ \hline
+                \textbf{E} & Editor \\ \hline
+                \textbf{B} & Breadcrumbs \\ \hline
+                \textbf{A} & IntelliSense \\ \hline
                 \textbf{C} & Compare editor \\ \hline
             \end{tabular}
         \end{vwcol}
@@ -147,10 +146,10 @@
             \textbf{\textit{Mt}$+$F A} & Focus on sidebar \\ \hline
             \textbf{\textit{Mt}$+$W A} & Focus on file explorer (toggle) \\ \hline
             \textbf{\textit{Mt}$+$D A} & Focus on debug bar \\ \hline
-            \textbf{\textit{Mt}$+$E A} & Focus on active editor \\ \hline
             \textbf{\textit{Mt}$+$S A} & Focus on search panel \\ \hline
             \textbf{\textit{Mt}$+$R A} & Focus on problems panel \\ \hline
             \textbf{\textit{Mt}$+$T A} & Focus terminal (toggle) \\ \hline
+            \textbf{\textit{Mt}$+$E A} & Focus on active editor \\ \hline
         \end{tabular}
         \end{center}
 
@@ -241,40 +240,6 @@
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {Debug (\textit{Mt}$+$D)};
-\end{tikzpicture}
-
-%------------ EDITOR ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Mt}$+$E A} & Focus on editor \\ \hline
-            \textbf{\textit{Mt}$+$E D} & Close active file editor \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$E D} & Close all other files in group \\ \hline
-            \textbf{\textit{Mt}$+$E F} & Close active editor group \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$E F} & Close all other editor groups \\ \hline
-            \textbf{\textit{Mt}$+$E X} & Split editor vertically \\ \hline
-            \textbf{\textit{Mt}$+$E T} & Toggle layout (horiz./vertic.) \\ \hline
-            \textbf{\textit{Mt}$+$E E} & Expand editor group \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$E E} & Reset editor group sizes \\ \hline
-            \textbf{\textit{Mt}$+$E W} & Focus on next file of group \\ \hline
-            \textbf{\textit{Mt}$+$E Q} & Focus on previous file of group \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$E W} & Focus on next editor group \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$E Q} & Focus on previous editor group \\ \hline
-            \textbf{\textit{Mt}$+$E R} & Focus on recent file on history \\ \hline
-            \textbf{\textit{Mt}$+$E <1-9>} & Focus on file <1-9> of group \\ \hline
-            \textbf{\textit{Mt}$+$\textit{Sh}$+$E <1-9>} & Focus on group index <1-9> \\ \hline
-            \textbf{\textit{Ct}$+$E \textit{<a>}} & Move editor to <u/d/l/r> gr. \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$E \textit{<a>}} & Move editor to <l/r> in group \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Al}$+$\textit{Sh}$+$E \textit{<a>}} & Move group <u/d/l/r> \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Editor (\textit{Mt}$+$E / \textit{Ct}$+$E)};
 \end{tikzpicture}
 
 %------------ PANEL ---------------
@@ -379,6 +344,56 @@
 
 \columnbreak
 
+%------------ EDITOR ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Mt}$+$E A} & Focus on editor \\ \hline
+            \textbf{\textit{Mt}$+$E D} & Close active file editor \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E D} & Close all other files in group \\ \hline
+            \textbf{\textit{Mt}$+$E F} & Close active editor group \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E F} & Close all other editor groups \\ \hline
+            \textbf{\textit{Mt}$+$E X} & Split editor vertically \\ \hline
+            \textbf{\textit{Mt}$+$E T} & Toggle layout (horiz./vertic.) \\ \hline
+            \textbf{\textit{Mt}$+$E E} & Expand editor group \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E E} & Reset editor group sizes \\ \hline
+            \textbf{\textit{Mt}$+$E W} & Focus on next file of group \\ \hline
+            \textbf{\textit{Mt}$+$E Q} & Focus on previous file of group \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E W} & Focus on next editor group \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E Q} & Focus on previous editor group \\ \hline
+            \textbf{\textit{Mt}$+$E R} & Focus on recent file on history \\ \hline
+            \textbf{\textit{Mt}$+$E <1-9>} & Focus on file <1-9> of group \\ \hline
+            \textbf{\textit{Mt}$+$\textit{Sh}$+$E <1-9>} & Focus on group index <1-9> \\ \hline
+            \textbf{\textit{Ct}$+$E \textit{<a>}} & Move editor to <u/d/l/r> gr. \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$E \textit{<a>}} & Move editor to <l/r> in group \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$\textit{Sh}$+$E \textit{<a>}} & Move group <u/d/l/r> \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Editor (\textit{Mt}$+$E / \textit{Ct}$+$E)};
+\end{tikzpicture}
+
+%------------ BREADCRUMBS ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Ct}$+$B} & Focus on breadcrumbs \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Breadcrumbs (\textit{Ct}$+$B)};
+\end{tikzpicture}
+
 %------------ COMPARE EDITOR ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
@@ -394,6 +409,23 @@
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {Compare Editor (\textit{Mt}$+$C)};
+\end{tikzpicture}
+
+%------------ TASKS ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$B} & Run default build task \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$\textit{Al}$+$B} & Run non-default build task \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Tasks};
 \end{tikzpicture}
 
 \end{multicols*}
