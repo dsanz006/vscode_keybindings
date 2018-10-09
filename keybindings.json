@@ -962,6 +962,16 @@
     },
     {
         "key": "ctrl+s",
+        "command": "editor.action.webvieweditor.showFind",
+        "when": "!editorFocus && activeEditor == 'WebviewEditor'"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "editor.action.webvieweditor.showFind",
+        "when": "!editorFocus && activeEditor == 'workbench.editor.htmlPreviewPart'"
+    },
+    {
+        "key": "ctrl+s",
         "command": "keybindings.editor.searchKeybindings",
         "when": "inKeybindings && keybindingFocus"
     },
@@ -1044,6 +1054,46 @@
         "key": "ctrl+alt+[Comma] ctrl+alt+s",
         "command": "editor.action.selectHighlights",
         "when": "editorTextFocus && findWidgetVisible"
+    },
+    {
+        "key": "ctrl+[Comma] s",
+        "command": "workbench.action.terminal.findNext",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "ctrl+[Comma] ctrl+s",
+        "command": "workbench.action.terminal.findNext",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "ctrl+[Comma] s",
+        "command": "workbench.action.terminal.findNextTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+[Comma] ctrl+s",
+        "command": "workbench.action.terminal.findNextTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+[Comma] s",
+        "command": "workbench.action.terminal.findPrevious",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "ctrl+shift+[Comma] ctrl+shift+s",
+        "command": "workbench.action.terminal.findPrevious",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "ctrl+shift+[Comma] s",
+        "command": "workbench.action.terminal.findPreviousTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+[Comma] ctrl+shift+s",
+        "command": "workbench.action.terminal.findPreviousTerminalFocus",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+r",
@@ -1230,6 +1280,66 @@
         "key": "meta+s meta+w",
         "command": "toggleSearchWholeWord",
         "when": "searchInputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "meta+s c",
+        "command": "workbench.action.terminal.toggleFindCaseSensitive",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "meta+s meta+c",
+        "command": "workbench.action.terminal.toggleFindCaseSensitive",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "meta+s c",
+        "command": "workbench.action.terminal.toggleFindCaseSensitiveTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "meta+s meta+c",
+        "command": "workbench.action.terminal.toggleFindCaseSensitiveTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "meta+s x",
+        "command": "workbench.action.terminal.toggleFindRegex",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "meta+s meta+x",
+        "command": "workbench.action.terminal.toggleFindRegex",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "meta+s x",
+        "command": "workbench.action.terminal.toggleFindRegexTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "meta+s meta+x",
+        "command": "workbench.action.terminal.toggleFindRegexTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "meta+s w",
+        "command": "workbench.action.terminal.toggleFindWholeWord",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "meta+s meta+w",
+        "command": "workbench.action.terminal.toggleFindWholeWord",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "meta+s w",
+        "command": "workbench.action.terminal.toggleFindWholeWordTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "meta+s meta+w",
+        "command": "workbench.action.terminal.toggleFindWholeWordTerminalFocus",
+        "when": "terminalFocus"
     },
     {
         "key": "meta+s e",
@@ -2527,11 +2637,70 @@
         "command": "-workbench.action.compareEditor.previousChange",
         "when": "textCompareEditorVisible"
     },
+    {
+        "key": "f3",
+        "command": "-workbench.action.terminal.findNext",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "f3",
+        "command": "-workbench.action.terminal.findNextTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "shift+f3",
+        "command": "-workbench.action.terminal.findPrevious",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "shift+f3",
+        "command": "-workbench.action.terminal.findPreviousTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+c",
+        "command": "-workbench.action.terminal.toggleFindCaseSensitive",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "alt+c",
+        "command": "-workbench.action.terminal.toggleFindCaseSensitiveTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+r",
+        "command": "-workbench.action.terminal.toggleFindRegex",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "alt+r",
+        "command": "-workbench.action.terminal.toggleFindRegexTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+w",
+        "command": "-workbench.action.terminal.toggleFindWholeWord",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "alt+w",
+        "command": "-workbench.action.terminal.toggleFindWholeWordTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-editor.action.webvieweditor.showFind",
+        "when": "!editorFocus && activeEditor == 'WebviewEditor'"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-editor.action.webvieweditor.showFind",
+        "when": "!editorFocus && activeEditor == 'workbench.editor.htmlPreviewPart'"
+    },
 
 /* ---------------------------------------------------- */
 
 /**** Automatic additions (should be empty) ****/
 
-    {},
-
+    {}
 ]
