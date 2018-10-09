@@ -176,8 +176,9 @@
      · Ctrl+Shft+E <a>      : Move editor left/right in froup
      · Ctrl+Alt+Shft+E <a>  : Move editor group to above/below/left/right
 
-    Breadcrumbs:
-     · Ctrl+B               : Focus on breadcrumbs
+    Breadcrumbs (Meta+B):
+     · Meta+B               : Focus on breadcrumbs (toggle)
+     · <a>                  : Navigate breadcrumbs
 
     Compare Editor (Meta+C):
      · Meta+C W             : Go to next change
@@ -623,6 +624,21 @@
         "key": "ctrl+s",
         "command": "workbench.action.terminal.focusFindWidget",
         "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "editor.action.extensioneditor.showfind",
+        "when": "activeEditor == 'workbench.editor.extension'"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "keybindings.editor.searchKeybindings",
+        "when": "inKeybindings && !inKeybindingsSearch"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "problems.action.focusFilter",
+        "when": "problemsViewFocus"
     },
     {
         "key": "ctrl+[Comma] s",
@@ -1508,17 +1524,23 @@
 
 /* ---------------------------------------------------- */
 
-/**** BreadCrumbs ****/
-    
+/**** BreadCrumbs (Meta+B) ****/
+
     {
-        "key": "ctrl+b",
-        "command": "breadcrumbs.focusAndSelect"
+        "key": "meta+b",
+        "command": "breadcrumbs.focus",
+        "when": "!breadcrumbsActive"
+    },
+    {
+        "key": "meta+b",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "breadcrumbsActive"
     },
 
 /* ---------------------------------------------------- */
     
 /**** Compare editor (Meta+C) ****/
-
+    
     {
         "key": "meta+c w",
         "command": "workbench.action.compareEditor.nextChange",
@@ -2693,26 +2715,10 @@
         "command": "-editor.action.formatSelection",
         "when": "editorHasSelection && editorTextFocus && !editorReadonly"
     },
-
-/* ---------------------------------------------------- */
-
-/**** Automatic additions (should be empty) ****/
-
-    {},
-    {
-        "key": "ctrl+s",
-        "command": "editor.action.extensioneditor.showfind",
-        "when": "activeEditor == 'workbench.editor.extension'"
-    },
     {
         "key": "ctrl+f",
         "command": "-editor.action.extensioneditor.showfind",
         "when": "activeEditor == 'workbench.editor.extension'"
-    },
-    {
-        "key": "ctrl+s",
-        "command": "keybindings.editor.searchKeybindings",
-        "when": "inKeybindings && !inKeybindingsSearch"
     },
     {
         "key": "ctrl+f",
@@ -2720,13 +2726,19 @@
         "when": "inKeybindings && !inKeybindingsSearch"
     },
     {
-        "key": "ctrl+s",
-        "command": "problems.action.focusFilter",
-        "when": "problemsViewFocus"
-    },
-    {
         "key": "ctrl+f",
         "command": "-problems.action.focusFilter",
         "when": "problemsViewFocus"
     },
+    {
+        "key": "ctrl+shift+[IntlBackslash]",
+        "command": "-breadcrumbs.toggleToOn",
+        "when": "!config.breadcrumbs.enabled"
+    },
+
+/* ---------------------------------------------------- */
+
+/**** Automatic additions (should be empty) ****/
+
+    {},
 ]
