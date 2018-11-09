@@ -98,6 +98,8 @@
      · Meta+D V             : Focus on variables view
      · Meta+D Z             : Focus on watch view
      · Meta+D C             : Focus on call stack view
+     · F7                   : Run default build task
+     · Shft+F7              : Run non-default task (choose) 
      · F5, F6, F10, F11     : Debugging keys
 
     Panel & Sidebar:
@@ -169,10 +171,6 @@
     Compare Editor (Meta+C):
      · Meta+C W             : Go to next change
      · Meta+C Q             : Go to previous change
-
-    Building tasks:
-     · Ctrl+Shft+B          : Run default build task
-     · Ctrl+Shft+Alt+B      : Run non-default task (choose)
 
     Text Edition (XXX todo):
      · Ctrl+X S             : Save file
@@ -508,6 +506,14 @@
     {
         "key": "meta+d meta+c",
         "command": "workbench.debug.action.focusCallStackView"
+    },
+    {
+        "key": "f7",
+        "command": "workbench.action.tasks.build"
+    },
+    {
+        "key": "shift+f7",
+        "command": "workbench.action.tasks.runTask"
     },
 
 /* ---------------------------------------------------- */
@@ -1270,15 +1276,6 @@
         "key": "meta+c meta+q",
         "command": "workbench.action.compareEditor.previousChange",
         "when": "textCompareEditorVisible"
-    },
-
-/* ---------------------------------------------------- */
-
-/****  Running non-default tasks  ****/
-
-    {
-        "key": "ctrl+shift+alt+b",
-        "command": "workbench.action.tasks.runTask"
     },
 
 /* ---------------------------------------------------- */
@@ -2530,6 +2527,30 @@
         "key": "ctrl+l ctrl+u",
         "command": "-latex-workshop.shortcut.underline",
         "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+shift+b",
+        "command": "-workbench.action.tasks.build"
+    },
+    {
+        "key": "f7",
+        "command": "-editor.action.diffReview.next",
+        "when": "isInDiffEditor"
+    },
+    {
+        "key": "f7",
+        "command": "-editor.action.wordHighlight.next",
+        "when": "editorTextFocus && hasWordHighlights"
+    },
+    {
+        "key": "shift+f7",
+        "command": "-editor.action.diffReview.prev",
+        "when": "isInDiffEditor"
+    },
+    {
+        "key": "shift+f7",
+        "command": "-editor.action.wordHighlight.prev",
+        "when": "editorTextFocus && hasWordHighlights"
     },
 
 /* ---------------------------------------------------- */
