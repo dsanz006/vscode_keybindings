@@ -58,7 +58,6 @@
 
     Focus on views:
      · Meta+D A             : Focus on debug bar (XXX toggle not suported yet, focus needed: issue #59084)
-     · Meta+S A             : Focus on search panel (XXX toggle not suported yet, focus needed: issue #59084)
     
     Menu & Sidebar (Meta+F):
      · Meta+F G             : Quick open...
@@ -72,7 +71,7 @@
      · Meta+F BkSp/Supr     : Close window
 
     File explorer:
-     · Ctrl+W               : Focus on file explorer
+     · Ctrl+J               : Focus on file explorer
      · Meta+W N             : New file
      · Meta+Shft+W N        : New folder
      · Meta+W E             : Collapse all folders in file explorer
@@ -106,29 +105,28 @@
      · Ctrl+H C             : Toggle Panel
      · Ctrl+H S             : Toggle sidebar
 
-    Search & Replace (Meta+S / Ctrl+S / Ctrl+R):
-     · Ctrl+S               : Focus on find widget
-     · Ctrl+, S             : Show next match (from widget or selected)
-     · Ctrl+Shft+, S        : Show previous match (from widget or selected)
-     · Ctrl+Alt+, S         : Select all matches (from widget or selected)
+    Search & Replace:
+     · Ctrl+F               : Focus on find widget
+     · Ctrl+- F             : Select and find / Show next match
+     · Ctrl+Shft+- F        : Show previous match (from widget or selected)
+     · Ctrl+Alt+- F         : Select all matches (from widget or selected)
      · Ctrl+R               : Focus on replace widget
-     · Ctrl+, R             : Replace current match (widget replace)
-     · Ctrl+Alt+, R         : Replace all matches (widget replace)
-     · Ctrl+Shft+S          : Search on search panel
+     · Ctrl+- R             : Replace current match (widget replace)
+     · Ctrl+Alt+- R         : Replace all matches (widget replace)
+     · Ctrl+Shft+F          : Search on search panel
      · Ctrl+<down>          : Focus on search/replace results
      · Ctrl+<up>            : Focus on search input box
-     · Ctrl+. S             : Show next search panel match / search selected
-     · Ctrl+Shft+. S        : Show previous search panel match
+     · Ctrl+. F             : Show next search panel match / Search selected
+     · Ctrl+Shft+. F        : Show previous search panel match
      · Ctrl+Shft+R          : Replace on search panel
      · Ctrl+. R             : Replace current match (search panel replace)
      · Ctrl+Shft+. R        : Replace all file matches (search panel replace)
      · Ctrl+Alt+. R         : Replace all matches (search panel replace)
-     · Meta+S A             : Focus on search panel (same as Ctrl+Shft+S)
-     · Meta+S E             : Collapse search results
-     · Meta+S C             : Toggle search case sensitive
-     · Meta+S X             : Toggle search regex
-     · Meta+S W             : Toggle search whole word
-     · Meta+S D             : Finish search
+     · Ctrl+M               : Toggle search panel expand/collapse
+     · Alt+F E              : Collapse search results
+     · Alt+F C              : Toggle search case sensitive
+     · Alt+F R              : Toggle search regex
+     · Alt+F W              : Toggle search whole word
 
     Problems panel:
      · Ctrl+P               : Focus on problems panel
@@ -137,12 +135,12 @@
     Terminal:
      · Ctrl+T               : Focus on terminal
      · Ctrl+N               : Add new terminal (another window) and focus
-     · Ctrl+H X             : Split terminal (add a pane and focus)
+     · Ctrl+Q X             : Split terminal (add a pane and focus)
      · Ctrl+A <u,d>         : Switch focus to next/prev. terminal window
      · Ctrl+A <l,r>         : Switch focus to next/prev. terminal pane
      · Ctrl+Shift+C         : (terminalFocus) Copy
      · Ctrl+Shift+V         : (terminalFocus) Paste
-     · Ctrl+M               : Toggle terminal Expand/collapse
+     · Ctrl+M               : Toggle terminal expand/collapse
      · Meta+T F             : Open new terminal in location of current file
 
     Editor:
@@ -151,18 +149,18 @@
      · Meta+Shft+E D        : Close all other files in group
      · Meta+E F             : Close active editor group
      · Meta+Shft+E F        : Close all other editor groups
-     · Ctrl+H X             : Split editor vertically
-     · Ctrl+H T             : Toggle layout (horiz./vert.)
-     · Ctrl+M               : Expand editor group
-     · Ctrl+Shft+M          : Reset editor group sizes
      · Ctrl+A <l,r>         : Focus on next/prev. file of group
      · Ctrl+A <u,d>         : Focus on next/prev. editor group
      · Meta+E R             : Focus on recent file on history
      · Ctrl+{1-9}           : Focus on file index 1-9 of group
      · Alt+{1-9}            : Open editor in position 1-9
+     · Ctrl+Q X             : Split editor vertically
+     · Ctrl+Q T             : Toggle layout (horiz./vert.)
      · Ctrl+Q <l,r>         : Move editor left/right in group
      · Ctrl+Q <u,d>         : Move editor to next/prev. group
      · Ctrl+Shft+Q <a>      : Move editor group to above/below/left/right
+     · Ctrl+M               : Expand editor group
+     · Ctrl+Shft+M          : Reset editor group sizes
 
     Breadcrumbs:
      · Ctrl+B               : Focus on breadcrumbs (toggle)
@@ -173,9 +171,6 @@
      · Meta+C Q             : Go to previous change
 
     Text Edition (XXX todo):
-     · Ctrl+X S             : Save file
-     · Ctrl+Shft+X S        : Save file as...
-     · Ctrl+X C             : Cut text
      · Alt+A                : Select all
 
     ----------------------------------------------------------
@@ -308,7 +303,7 @@
 /**** File Explorer ****/
 
     {
-        "key": "ctrl+w",
+        "key": "ctrl+j",
         "command": "workbench.files.action.focusFilesExplorer",
         "when": "!filesExplorerFocus"
     },
@@ -518,62 +513,63 @@
 
 /* ---------------------------------------------------- */
         
-/**** Search & Replace (Meta+S / Ctrl+S / Ctrl+R) ****/
+/**** Search & Replace ****/
 
     {
-        "key": "ctrl+s",
+        "key": "ctrl+f",
         "command": "actions.find"
     },
     {
-        "key": "ctrl+s",
+        "key": "ctrl+f",
         "command": "editor.action.extensioneditor.showfind",
         "when": "extensionEditorWebviewFocus"
     },
     {
-        "key": "ctrl+s",
+        "key": "ctrl+f",
         "command": "editor.action.webvieweditor.showFind",
         "when": "webviewEditorFocus"
     },
     {
-        "key": "ctrl+s",
+        "key": "ctrl+f",
         "command": "editor.action.webvieweditor.showFind",
         "when": "!editorFocus && activeEditor == 'WebviewEditor'"
     },
     {
-        "key": "ctrl+s",
+        "key": "ctrl+f",
         "command": "editor.action.webvieweditor.showFind",
         "when": "!editorFocus && activeEditor == 'workbench.editor.htmlPreviewPart'"
     },
     {
-        "key": "ctrl+s",
+        "key": "ctrl+f",
         "command": "keybindings.editor.searchKeybindings",
         "when": "inKeybindings && keybindingFocus"
     },
     {
-        "key": "ctrl+s",
+        "key": "ctrl+f",
         "command": "settings.action.search",
         "when": "inSettingsEditor"
     },
     {
-        "key": "ctrl+s",
+        "key": "ctrl+f",
         "command": "workbench.action.terminal.focusFindWidget",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+s",
+        "key": "ctrl+f",
         "command": "editor.action.extensioneditor.showfind",
         "when": "activeEditor == 'workbench.editor.extension'"
     },
     {
-        "key": "ctrl+s",
+        "key": "ctrl+f",
         "command": "keybindings.editor.searchKeybindings",
         "when": "inKeybindings && !inKeybindingsSearch"
     },
     {
-        "key": "ctrl+s",
+        "key": "ctrl+f",
         "command": "problems.action.focusFilter",
         "when": "problemsViewFocus"
     },
+    /*
     {
         "key": "ctrl+[Comma] s",
         "command": "workbench.action.focusActiveEditorGroup",
@@ -594,93 +590,104 @@
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus && findWidgetVisible"
     },
+    */
     {
-        "key": "ctrl+[Comma] s",
+        "key": "ctrl+- f",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+- ctrl+f",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+- f",
         "command": "editor.action.nextMatchFindAction",
         "when": "editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+[Comma] ctrl+s",
+        "key": "ctrl+- ctrl+f",
         "command": "editor.action.nextMatchFindAction",
         "when": "editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+shift+[Comma] s",
+        "key": "ctrl+shift+- f",
         "command": "editor.action.previousMatchFindAction",
         "when": "editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+shift+[Comma] ctrl+shift+s",
+        "key": "ctrl+shift+- ctrl+shift+f",
         "command": "editor.action.previousMatchFindAction",
         "when": "editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+[Comma] s",
+        "key": "ctrl+- f",
         "command": "editor.action.nextSelectionMatchFindAction",
         "when": "editorTextFocus && !findWidgetVisible"
     },
     {
-        "key": "ctrl+[Comma] ctrl+s",
+        "key": "ctrl+- ctrl+f",
         "command": "editor.action.nextSelectionMatchFindAction",
         "when": "editorTextFocus && !findWidgetVisible"
     },
     {
-        "key": "ctrl+shift+[Comma] s",
+        "key": "ctrl+shift+- f",
         "command": "editor.action.previousSelectionMatchFindAction",
         "when": "editorTextFocus && !findWidgetVisible"
     },
     {
-        "key": "ctrl+shift+[Comma] ctrl+shift+s",
+        "key": "ctrl+shift+- ctrl+shift+f",
         "command": "editor.action.previousSelectionMatchFindAction",
         "when": "editorTextFocus && !findWidgetVisible"
     },
     {
-        "key": "ctrl+alt+[Comma] s",
+        "key": "ctrl+alt+- f",
         "command": "editor.action.selectHighlights",
         "when": "editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+alt+[Comma] ctrl+alt+s",
+        "key": "ctrl+alt+- ctrl+alt+f",
         "command": "editor.action.selectHighlights",
         "when": "editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+[Comma] s",
+        "key": "ctrl+- f",
         "command": "workbench.action.terminal.findNext",
         "when": "terminalFindWidgetFocused"
     },
     {
-        "key": "ctrl+[Comma] ctrl+s",
+        "key": "ctrl+- ctrl+f",
         "command": "workbench.action.terminal.findNext",
         "when": "terminalFindWidgetFocused"
     },
     {
-        "key": "ctrl+[Comma] s",
+        "key": "ctrl+- f",
         "command": "workbench.action.terminal.findNextTerminalFocus",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+[Comma] ctrl+s",
+        "key": "ctrl+- ctrl+f",
         "command": "workbench.action.terminal.findNextTerminalFocus",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+shift+[Comma] s",
+        "key": "ctrl+shift+- f",
         "command": "workbench.action.terminal.findPrevious",
         "when": "terminalFindWidgetFocused"
     },
     {
-        "key": "ctrl+shift+[Comma] ctrl+shift+s",
+        "key": "ctrl+shift+- ctrl+shift+f",
         "command": "workbench.action.terminal.findPrevious",
         "when": "terminalFindWidgetFocused"
     },
     {
-        "key": "ctrl+shift+[Comma] s",
+        "key": "ctrl+shift+- f",
         "command": "workbench.action.terminal.findPreviousTerminalFocus",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+shift+[Comma] ctrl+shift+s",
+        "key": "ctrl+shift+- ctrl+shift+f",
         "command": "workbench.action.terminal.findPreviousTerminalFocus",
         "when": "terminalFocus"
     },
@@ -689,6 +696,7 @@
         "command": "editor.action.startFindReplaceAction",
         "when": "editorFocus"
     },
+    /*
     {
         "key": "ctrl+[Comma] r",
         "command": "workbench.action.focusActiveEditorGroup",
@@ -709,65 +717,58 @@
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus && findWidgetVisible"
     },
+    */
     {
-        "key": "ctrl+[Comma] r",
+        "key": "ctrl+- r",
         "command": "editor.action.replaceOne",
         "when": "editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+[Comma] ctrl+r",
+        "key": "ctrl+- ctrl+r",
         "command": "editor.action.replaceOne",
         "when": "editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+alt+[Comma] r",
+        "key": "ctrl+alt+- r",
         "command": "editor.action.replaceAll",
         "when": "editorFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+alt+[Comma] ctrl+alt+r",
+        "key": "ctrl+alt+- ctrl+alt+r",
         "command": "editor.action.replaceAll",
         "when": "editorFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+shift+s",
+        "key": "ctrl+shift+f",
         "command": "workbench.action.findInFiles"
     },
     {
-        "key": "meta+s a",
-        "command": "workbench.action.findInFiles"
-    },
-    {
-        "key": "meta+s meta+a",
-        "command": "workbench.action.findInFiles"
-    },
-    {
-        "key": "ctrl+[Period] s",
+        "key": "ctrl+[Period] f",
         "command": "workbench.action.findInFiles",
         "when": "editorFocus && !hasSearchResult"
     },
     {
-        "key": "ctrl+[Period] ctrl+s",
+        "key": "ctrl+[Period] ctrl+f",
         "command": "workbench.action.findInFiles",
         "when": "editorFocus && !hasSearchResult"
     },
     {
-        "key": "ctrl+[Period] s",
+        "key": "ctrl+[Period] f",
         "command": "search.action.focusNextSearchResult",
         "when": "hasSearchResult"
     },
     {
-        "key": "ctrl+[Period] ctrl+s",
+        "key": "ctrl+[Period] ctrl+f",
         "command": "search.action.focusNextSearchResult",
         "when": "hasSearchResult"
     },
     {
-        "key": "ctrl+shift+[Period] s",
+        "key": "ctrl+shift+[Period] f",
         "command": "search.action.focusPreviousSearchResult",
         "when": "hasSearchResult"
     },
     {
-        "key": "ctrl+shift+[Period] ctrl+shift+s",
+        "key": "ctrl+shift+[Period] ctrl+shift+f",
         "command": "search.action.focusPreviousSearchResult",
         "when": "hasSearchResult"
     },
@@ -811,141 +812,138 @@
         "when": "fileMatchFocus && replaceActive && searchViewletVisible"
     },
     {
-        "key": "meta+s c",
+        "key": "ctrl+m",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "searchInputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "alt+f c",
         "command": "toggleFindCaseSensitive",
         "when": "editorFocus"
     },
     {
-        "key": "meta+s meta+c",
+        "key": "alt+f alt+c",
         "command": "toggleFindCaseSensitive",
         "when": "editorFocus"
     },
     {
-        "key": "meta+s x",
+        "key": "alt+f r",
         "command": "toggleFindRegex",
         "when": "editorFocus"
     },
     {
-        "key": "meta+s meta+x",
+        "key": "alt+f alt+r",
         "command": "toggleFindRegex",
         "when": "editorFocus"
     },
     {
-        "key": "meta+s w",
+        "key": "alt+f w",
         "command": "toggleFindWholeWord",
         "when": "editorFocus"
     },
     {
-        "key": "meta+s meta+w",
+        "key": "alt+f alt+w",
         "command": "toggleFindWholeWord",
         "when": "editorFocus"
     },
     {
-        "key": "meta+s c",
+        "key": "alt+f c",
         "command": "toggleSearchCaseSensitive",
         "when": "searchInputBoxFocus && searchViewletVisible"
     },
     {
-        "key": "meta+s meta+c",
+        "key": "alt+f alt+c",
         "command": "toggleSearchCaseSensitive",
         "when": "searchInputBoxFocus && searchViewletVisible"
     },
     {
-        "key": "meta+s x",
+        "key": "alt+f r",
         "command": "toggleSearchRegex",
         "when": "searchInputBoxFocus && searchViewletVisible"
     },
     {
-        "key": "meta+s meta+x",
+        "key": "alt+f alt+r",
         "command": "toggleSearchRegex",
         "when": "searchInputBoxFocus && searchViewletVisible"
     },
     {
-        "key": "meta+s w",
+        "key": "alt+f w",
         "command": "toggleSearchWholeWord",
         "when": "searchInputBoxFocus && searchViewletVisible"
     },
     {
-        "key": "meta+s meta+w",
+        "key": "alt+f alt+w",
         "command": "toggleSearchWholeWord",
         "when": "searchInputBoxFocus && searchViewletVisible"
     },
     {
-        "key": "meta+s c",
+        "key": "alt+f c",
         "command": "workbench.action.terminal.toggleFindCaseSensitive",
         "when": "terminalFindWidgetFocused"
     },
     {
-        "key": "meta+s meta+c",
+        "key": "alt+f alt+c",
         "command": "workbench.action.terminal.toggleFindCaseSensitive",
         "when": "terminalFindWidgetFocused"
     },
     {
-        "key": "meta+s c",
+        "key": "alt+f c",
         "command": "workbench.action.terminal.toggleFindCaseSensitiveTerminalFocus",
         "when": "terminalFocus"
     },
     {
-        "key": "meta+s meta+c",
+        "key": "alt+f alt+c",
         "command": "workbench.action.terminal.toggleFindCaseSensitiveTerminalFocus",
         "when": "terminalFocus"
     },
     {
-        "key": "meta+s x",
+        "key": "alt+f r",
         "command": "workbench.action.terminal.toggleFindRegex",
         "when": "terminalFindWidgetFocused"
     },
     {
-        "key": "meta+s meta+x",
+        "key": "alt+f alt+r",
         "command": "workbench.action.terminal.toggleFindRegex",
         "when": "terminalFindWidgetFocused"
     },
     {
-        "key": "meta+s x",
+        "key": "alt+f r",
         "command": "workbench.action.terminal.toggleFindRegexTerminalFocus",
         "when": "terminalFocus"
     },
     {
-        "key": "meta+s meta+x",
+        "key": "alt+f alt+r",
         "command": "workbench.action.terminal.toggleFindRegexTerminalFocus",
         "when": "terminalFocus"
     },
     {
-        "key": "meta+s w",
+        "key": "alt+f w",
         "command": "workbench.action.terminal.toggleFindWholeWord",
         "when": "terminalFindWidgetFocused"
     },
     {
-        "key": "meta+s meta+w",
+        "key": "alt+f alt+w",
         "command": "workbench.action.terminal.toggleFindWholeWord",
         "when": "terminalFindWidgetFocused"
     },
     {
-        "key": "meta+s w",
+        "key": "alt+f w",
         "command": "workbench.action.terminal.toggleFindWholeWordTerminalFocus",
         "when": "terminalFocus"
     },
     {
-        "key": "meta+s meta+w",
+        "key": "alt+f alt+w",
         "command": "workbench.action.terminal.toggleFindWholeWordTerminalFocus",
         "when": "terminalFocus"
     },
     {
-        "key": "meta+s e",
-        "command": "search.action.collapseSearchResults"
-    },
-    {
-        "key": "meta+s meta+e",
-        "command": "search.action.collapseSearchResults"
-    },
-    {
-        "key": "meta+s d",
-        "command": "macros.finishSearch",
+        "key": "alt+f e",
+        "command": "search.action.collapseSearchResults",
         "when": "searchViewletVisible"
     },
     {
-        "key": "meta+s meta+d",
-        "command": "macros.finishSearch",
+        "key": "alt+f alt+e",
+        "command": "search.action.collapseSearchResults",
         "when": "searchViewletVisible"
     },
 
@@ -980,12 +978,12 @@
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+h x",
+        "key": "ctrl+q x",
         "command": "workbench.action.terminal.splitInActiveWorkspace",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+h ctrl+x",
+        "key": "ctrl+q ctrl+x",
         "command": "workbench.action.terminal.splitInActiveWorkspace",
         "when": "terminalFocus"
     },
@@ -1085,22 +1083,22 @@
         "command": "workbench.action.closeEditorsInOtherGroups"
     },
     {
-        "key": "ctrl+h x",
+        "key": "ctrl+q x",
         "command": "workbench.action.splitEditorRight",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+h ctrl+x",
+        "key": "ctrl+q ctrl+x",
         "command": "workbench.action.splitEditorRight",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+h t",
+        "key": "ctrl+q t",
         "command": "workbench.action.toggleEditorGroupLayout",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+h ctrl+t",
+        "key": "ctrl+q ctrl+t",
         "command": "workbench.action.toggleEditorGroupLayout",
         "when": "editorFocus"
     },
@@ -1371,32 +1369,6 @@
         
 /**** Text Edition (XXX todo) ****/
 
-    {
-        "key": "ctrl+x s",
-        "command": "workbench.action.files.save"
-    },
-    {
-        "key": "ctrl+x ctrl+s",
-        "command": "workbench.action.files.save"
-    },
-    {
-        "key": "ctrl+shift+x s",
-        "command": "workbench.action.files.saveAs"
-    },
-    {
-        "key": "ctrl+shift+x ctrl+shift+s",
-        "command": "workbench.action.files.saveAs"
-    },
-    {
-        "key": "ctrl+x c",
-        "command": "editor.action.clipboardCutAction",
-        "when": "textInputFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+x ctrl+c",
-        "command": "editor.action.clipboardCutAction",
-        "when": "textInputFocus && !editorReadonly"
-    },
     {
         "key": "alt+a",
         "command": "editor.action.selectAll",
@@ -2304,19 +2276,6 @@
         "command": "-workbench.actions.view.problems"
     },
     {
-        "key": "ctrl+s",
-        "command": "-workbench.action.files.save"
-    },
-    {
-        "key": "ctrl+shift+s",
-        "command": "-workbench.action.files.saveAs"
-    },
-    {
-        "key": "ctrl+x",
-        "command": "-editor.action.clipboardCutAction",
-        "when": "textInputFocus && !editorReadonly"
-    },
-    {
         "key": "ctrl+space",
         "command": "-toggleSuggestionDetails",
         "when": "suggestWidgetVisible && textInputFocus"
@@ -2551,6 +2510,11 @@
         "key": "shift+f7",
         "command": "-editor.action.wordHighlight.prev",
         "when": "editorTextFocus && hasWordHighlights"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
     },
 
 /* ---------------------------------------------------- */

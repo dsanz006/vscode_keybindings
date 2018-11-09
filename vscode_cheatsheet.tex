@@ -144,7 +144,6 @@
         \begin{tabular}{ll}
             \hline
             \textbf{\textit{Mt}$+$D A} & Focus on debug bar \\ \hline
-            \textbf{\textit{Mt}$+$S A} & Focus on search panel \\ \hline
         \end{tabular}
         \end{center}
 
@@ -187,7 +186,7 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Ct}$+$W} & Focus on file explorer \\ \hline
+            \textbf{\textit{Ct}$+$J} & Focus on file explorer \\ \hline
             \textbf{\textit{Mt}$+$W N} & New file \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$W N} & New folder \\ \hline
             \textbf{\textit{Mt}$+$W E} & Collapse all folders in file explorer \\ \hline
@@ -262,33 +261,32 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Ct}$+$S} & Focus on find widget \\ \hline
-            \textbf{\textit{Ct}$+$, S} & Show next match (from widget or sel.) \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$, S} & Show prev. match (from widget or sel.) \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Al}$+$, S} & Sel. all matches (from widget or sel.) \\ \hline
+            \textbf{\textit{Ct}$+$F} & Focus on find widget \\ \hline
+            \textbf{\textit{Ct}$+$- F} & Select and find / Show next match \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$- F} & Show prev. match (from widget or sel.) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$- F} & Sel. all matches (from widget or sel.) \\ \hline
             \textbf{\textit{Ct}$+$R} & Focus on replace widget \\ \hline
-            \textbf{\textit{Ct}$+$, R} & Replace current match (widget repl.)\\ \hline
-            \textbf{\textit{Ct}$+$\textit{Al}$+$, R} & Replace all matches (widget repl.) \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$S} & Search on panel \\ \hline
+            \textbf{\textit{Ct}$+$- R} & Replace current match (widget repl.)\\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$- R} & Replace all matches (widget repl.) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$F} & Search on search panel \\ \hline
             \textbf{\textit{Ct}$+$\textit{down}} & Focus on search/replace results \\ \hline
             \textbf{\textit{Ct}$+$\textit{up}} & Focus on search input box \\ \hline
-            \textbf{\textit{Ct}$+$. S} & Show next search match / search sel. \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$. S} & Show previous search match \\ \hline
+            \textbf{\textit{Ct}$+$. F} & Show next search match / search sel. \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$. F} & Show previous search match \\ \hline
             \textbf{\textit{Ct}$+$R} & Replace on search panel \\ \hline
             \textbf{\textit{Ct}$+$. R} & Replace current match (search pan.) \\ \hline
             \textbf{\textit{Ct}$+$\textit{Sh}$+$. R} & Replace all file matches (search pan.) \\ \hline
             \textbf{\textit{Ct}$+$\textit{Al}$+$. R} & Replace all matches (search pan.) \\ \hline
-            \textbf{\textit{Mt}$+$S A} & Focus on search panel (as \textit{Ct}$+$\textit{Sh}$+$S) \\ \hline
-            \textbf{\textit{Mt}$+$S E} & Collapse search results \\ \hline
-            \textbf{\textit{Mt}$+$S C} & Toggle search/find case sensitive \\ \hline
-            \textbf{\textit{Mt}$+$S X} & Toggle search/find regex. \\ \hline
-            \textbf{\textit{Mt}$+$S W} & Toggle search/find whole word \\ \hline
-            \textbf{\textit{Mt}$+$S D} & Finish search \\ \hline
+            \textbf{\textit{Ct}$+$M} & Toggle search panel expand/collapse \\ \hline
+            \textbf{\textit{Al}$+$F E} & Collapse search results \\ \hline
+            \textbf{\textit{Al}$+$F C} & Toggle search/find case sensitive \\ \hline
+            \textbf{\textit{Al}$+$F R} & Toggle search/find regex. \\ \hline
+            \textbf{\textit{Al}$+$F W} & Toggle search/find whole word \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Search \& Replace (\textit{Mt}$+$S / \textit{Ct}$+$S / \textit{Ct}$+$R)};
+\node[fancytitle, right=10pt] at (box.north west) {Search \& Replace};
 \end{tikzpicture}
 
 %------------ PROBLEMS PANEL ---------------
@@ -318,7 +316,7 @@
             \hline
             \textbf{\textit{Ct}$+$T} & Focus terminal \\ \hline
             \textbf{\textit{Ct}$+$N} & New terminal window, focus \\ \hline
-            \textbf{\textit{Ct}$+$H X} & Split terminal into panes \\ \hline
+            \textbf{\textit{Ct}$+$Q X} & Split terminal into panes \\ \hline
             \textbf{\textit{Ct}$+$A <u,d>} & Focus to next/prev. terminal window \\ \hline
             \textbf{\textit{Ct}$+$A <l,r>} & Focus to next/prev. terminal pane \\ \hline
             \textbf{\quad \textit{Ct}$+$\textit{Sh}$+$C} & (termFocus) copy text \\ \hline
@@ -347,18 +345,18 @@
             \textbf{\textit{Mt}$+$\textit{Sh}$+$E D} & Close all other files in group \\ \hline
             \textbf{\textit{Mt}$+$E F} & Close active editor group \\ \hline
             \textbf{\textit{Mt}$+$\textit{Sh}$+$E F} & Close all other editor groups \\ \hline
-            \textbf{\textit{Ct}$+$H X} & Split editor vertically \\ \hline
-            \textbf{\textit{Ct}$+$H T} & Toggle layout (horiz./vertic.) \\ \hline
-            \textbf{\textit{Ct}$+$M} & Expand editor group \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$M} & Reset editor group sizes \\ \hline
             \textbf{\textit{Ct}$+$A <l,r>} & Focus on next/prev. file of group \\ \hline
             \textbf{\textit{Ct}$+$A <u,d>} & Focus on next/prev. editor group \\ \hline
             \textbf{\textit{Mt}$+$E R} & Focus on recent file on history \\ \hline
             \textbf{\textit{Ct}$+$<1-9>} & Focus on file <1-9> of group \\ \hline
             \textbf{\textit{Al}$+$<1-9>} & Open editor in pos. <1-9> \\ \hline
+            \textbf{\textit{Ct}$+$Q X} & Split editor vertically \\ \hline
+            \textbf{\textit{Ct}$+$Q T} & Toggle layout (horiz./vertic.) \\ \hline
             \textbf{\textit{Ct}$+$Q \textit{<l,r>}} & Move editor left/right in group \\ \hline
             \textbf{\textit{Ct}$+$Q \textit{<u,d>}} & Move editor to next/prev. group \\ \hline
             \textbf{\textit{Ct}$+$\textit{Sh}$+$Q \textit{<a>}} & Move editor group <u/d/l/r> \\ \hline
+            \textbf{\textit{Ct}$+$M} & Expand editor group \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$M} & Reset editor group sizes \\ \hline
         \end{tabular}
 
     \end{minipage}
@@ -398,23 +396,6 @@
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {Compare Editor (\textit{Mt}$+$C)};
-\end{tikzpicture}
-
-%------------ TASKS ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$B} & Run default build task \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$\textit{Al}$+$B} & Run non-default build task \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Tasks};
 \end{tikzpicture}
 
 \end{multicols*}
