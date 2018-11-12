@@ -20,7 +20,6 @@
     Keys:
 
     <a>     : Arrows
-    Meta    : Super key
 
     General commands:
      · Ctrl+G           : Leave, cancel, exit... (depends on context)
@@ -76,27 +75,26 @@
      · Alt+J F              : Reveal current file in file explorer (if in workspace)
 
     Debug:
-     · Ctrl+D               : Focus on debug bar
-     · Meta+Shft+D A        : Choose debug configuration and start debuging
-     · Meta+D B             : Toggle breakpoint
-     · Meta+Shft+D B        : Add conditional breakpoint
-     · Meta+Ctrl+Shft+D B   : Add function breakpoint
-     · Meta+D T             : Add tracepoint (logpoint)
-     · Meta+D E             : Enable/disable breakpoint
-     · Meta+D W             : Go to next breakpoint
-     · Meta+D Q             : Go to previous breakpoint
-     · Meta+D R             : Focus on breakpoints view
+     · Ctrl+D B             : Toggle breakpoint
+     · Ctrl+D C             : Add conditional breakpoint
+     · Ctrl+D F             : Add function breakpoint
+     · Ctrl+D L             : Add logpoint
+     · Ctrl+D E             : Enable/disable breakpoint
+     · Ctrl+D <a>           : Go to next/prev. breakpoint
+     · Alt+D D              : Focus on debug bar
+     · Alt+D B              : Focus on breakpoints view
        · Supr/BkSp          : (breakpointsFocused) Remove breakpoint
-       · E                  : (breakpointsFocused) Enable/Disable breakpoint
+       · Ctrl+D E           : (breakpointsFocused) Enable/Disable breakpoint
        · Enter (Ctrl+Enter) : (breakpointsFocused) Open breakpoint (to side)
-       · Alt+E              : (breakpointsFocused) enable all breakpoints
-       · Ctrl+Shft+E        : (breakpointsFocused) disable all breakpoints
-       · Ctrl+Shft+BkSp     : (breakpointsFocused) remove all breakpoints
-     · Meta+D V             : Focus on variables view
-     · Meta+D Z             : Focus on watch view
-     · Meta+D C             : Focus on call stack view
+       · Ctrl+D A           : (breakpointsFocused) enable all breakpoints
+       · Ctrl+Shft+D A      : (breakpointsFocused) disable all breakpoints
+       · Ctrl+Supr/BkSp     : (breakpointsFocused) remove all breakpoints
+     · Alt+D V              : Focus on variables view
+     · Alt+D W              : Focus on watch view
+     · Alt+D C              : Focus on call stack view
      · F7                   : Run default build task
      · Shft+F7              : Run non-default task (choose) 
+     · Shift+Alt+F5         : Choose debug configuration and start debuging
      · F5, F6, F10, F11     : Debugging keys
 
     Panel & Sidebar:
@@ -351,89 +349,101 @@
 /**** Debug ****/
 
     {
-        "key": "ctrl+d",
-        "command": "workbench.view.debug"
-    },
-    {
-        "key": "shift+meta+d a",
-        "command": "workbench.action.debug.selectandstart"
-    },
-    {
-        "key": "shift+meta+d shift+meta+a",
-        "command": "workbench.action.debug.selectandstart"
-    },
-    {
-        "key": "meta+d b",
+        "key": "ctrl+d b",
         "command": "editor.debug.action.toggleBreakpoint",
         "when": "editorTextFocus"
     },
     {
-        "key": "meta+d meta+b",
+        "key": "ctrl+d ctrl+b",
         "command": "editor.debug.action.toggleBreakpoint",
         "when": "editorTextFocus"
     },
     {
-        "key": "shift+meta+d b",
+        "key": "ctrl+d c",
         "command": "editor.debug.action.conditionalBreakpoint",
         "when": "editorTextFocus"
     },
     {
-        "key": "shift+meta+d shift+meta+b",
+        "key": "ctrl+d ctrl+c",
         "command": "editor.debug.action.conditionalBreakpoint",
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+shift+meta+d b",
+        "key": "ctrl+d f",
         "command": "workbench.debug.viewlet.action.addFunctionBreakpointAction",
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+shift+meta+d ctrl+shift+meta+b",
+        "key": "ctrl+d ctrl+f",
         "command": "workbench.debug.viewlet.action.addFunctionBreakpointAction",
         "when": "editorTextFocus"
     },
     {
-        "key": "meta+d t",
+        "key": "ctrl+d l",
         "command": "editor.debug.action.toggleLogPoint",
         "when": "editorTextFocus"
     },
     {
-        "key": "meta+d meta+t",
+        "key": "ctrl+d alt+l",
         "command": "editor.debug.action.toggleLogPoint",
         "when": "editorTextFocus"
     },
     {
-        "key": "meta+d e",
+        "key": "ctrl+d e",
         "command": "debug.enableOrDisableBreakpoint",
         "when": "!breakpointsFocused"
     },
     {
-        "key": "meta+d meta+e",
+        "key": "ctrl+d alt+e",
         "command": "debug.enableOrDisableBreakpoint",
         "when": "!breakpointsFocused"
     },
     {
-        "key": "meta+d w",
+        "key": "ctrl+d down",
         "command": "editor.debug.action.goToNextBreakpoint",
     },
     {
-        "key": "meta+d meta+w",
+        "key": "ctrl+d ctrl+down",
         "command": "editor.debug.action.goToNextBreakpoint"
     },
     {
-        "key": "meta+d q",
+        "key": "ctrl+d right",
+        "command": "editor.debug.action.goToNextBreakpoint",
+    },
+    {
+        "key": "ctrl+d ctrl+right",
+        "command": "editor.debug.action.goToNextBreakpoint"
+    },
+    {
+        "key": "ctrl+d up",
         "command": "editor.debug.action.goToPreviousBreakpoint"
     },
     {
-        "key": "meta+d meta+q",
+        "key": "ctrl+d ctrl+up",
         "command": "editor.debug.action.goToPreviousBreakpoint"
     },
     {
-        "key": "meta+d r",
+        "key": "ctrl+d left",
+        "command": "editor.debug.action.goToPreviousBreakpoint"
+    },
+    {
+        "key": "ctrl+d ctrl+left",
+        "command": "editor.debug.action.goToPreviousBreakpoint"
+    },
+    {
+        "key": "alt+d d",
+        "command": "workbench.view.debug"
+    },
+    {
+        "key": "alt+d alt+d",
+        "command": "workbench.view.debug"
+    },
+    {
+        "key": "alt+d b",
         "command": "workbench.debug.action.focusBreakpointsView"
     },
     {
-        "key": "meta+d meta+r",
+        "key": "alt+d alt+b",
         "command": "workbench.debug.action.focusBreakpointsView"
     },
     {
@@ -447,39 +457,59 @@
         "when": "breakpointsFocused"
     },
     {
-        "key": "e",
+        "key": "ctrl+d e",
         "command": "debug.toggleBreakpoint",
         "when": "breakpointsFocused"
     },
     {
-        "key": "alt+e",
+        "key": "ctrl+d ctrl+e",
+        "command": "debug.toggleBreakpoint",
+        "when": "breakpointsFocused"
+    },
+    {
+        "key": "ctrl+d a",
         "command": "workbench.debug.viewlet.action.enableAllBreakpoints",
         "when": "breakpointsFocused"
     },
     {
-        "key": "ctrl+shift+e",
+        "key": "ctrl+d ctrl+a",
+        "command": "workbench.debug.viewlet.action.enableAllBreakpoints",
+        "when": "breakpointsFocused"
+    },
+    {
+        "key": "ctrl+shift+d a",
         "command": "workbench.debug.viewlet.action.disableAllBreakpoints",
         "when": "breakpointsFocused"
     },
     {
-        "key": "ctrl+shift+backspace",
+        "key": "ctrl+shift+d ctrl+shift+a",
+        "command": "workbench.debug.viewlet.action.disableAllBreakpoints",
+        "when": "breakpointsFocused"
+    },
+    {
+        "key": "ctrl+backspace",
         "command": "workbench.debug.viewlet.action.removeAllBreakpoints",
         "when": "breakpointsFocused"
     },
     {
-        "key": "meta+d v",
+        "key": "ctrl+delete",
+        "command": "workbench.debug.viewlet.action.removeAllBreakpoints",
+        "when": "breakpointsFocused"
+    },
+    {
+        "key": "alt+d v",
         "command": "workbench.debug.action.focusVariablesView"
     },
     {
-        "key": "meta+d meta+v",
+        "key": "alt+d alt+v",
         "command": "workbench.debug.action.focusVariablesView"
     },
     {
-        "key": "meta+d z",
+        "key": "alt+d w",
         "command": "workbench.debug.action.focusWatchView"
     },
     {
-        "key": "meta+d meta+z",
+        "key": "alt+d alt+w",
         "command": "workbench.debug.action.focusWatchView"
     },
     {
@@ -493,11 +523,11 @@
         "when": "watchExpressionsFocused"
     },
     {
-        "key": "meta+d c",
+        "key": "alt+d c",
         "command": "workbench.debug.action.focusCallStackView"
     },
     {
-        "key": "meta+d meta+c",
+        "key": "alt+d alt+c",
         "command": "workbench.debug.action.focusCallStackView"
     },
     {
@@ -507,6 +537,10 @@
     {
         "key": "shift+f7",
         "command": "workbench.action.tasks.runTask"
+    },
+    {
+        "key": "shift+alt+F5",
+        "command": "workbench.action.debug.selectandstart"
     },
 
 /* ---------------------------------------------------- */
@@ -2517,6 +2551,21 @@
     {
         "key": "ctrl+shift+o",
         "command": "-workbench.action.gotoSymbol"
+    },
+    {
+        "key": "ctrl+f5",
+        "command": "-workbench.action.debug.run",
+        "when": "!inDebugMode"
+    },
+    {
+        "key": "alt+f5",
+        "command": "-workbench.action.editor.nextChange",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+f5",
+        "command": "-workbench.action.editor.previousChange",
+        "when": "editorTextFocus"
     },
 
 /* ---------------------------------------------------- */
