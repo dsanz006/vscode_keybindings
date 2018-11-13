@@ -215,6 +215,26 @@
         "key": "ctrl+h ctrl+s",
         "command": "workbench.action.toggleSidebarVisibility"
     },
+    {
+        "key": "ctrl+m",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "panelFocus"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "workbench.files.action.collapseExplorerFolders",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "workbench.action.minimizeOtherEditors",
+        "when" : "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+m",
+        "command": "workbench.action.evenEditorWidths",
+        "when" : "editorFocus"
+    },
 
 /* ---------------------------------------------------- */
         
@@ -319,11 +339,6 @@
         "key": "ctrl+j",
         "command": "workbench.files.action.focusFilesExplorer",
         "when": "!filesExplorerFocus"
-    },
-    {
-        "key": "ctrl+m",
-        "command": "workbench.files.action.collapseExplorerFolders",
-        "when": "filesExplorerFocus"
     },
     {
         "key": "ctrl+n",
@@ -601,28 +616,26 @@
         "command": "problems.action.focusFilter",
         "when": "problemsViewFocus"
     },
-    /*
     {
-        "key": "ctrl+[Comma] s",
+        "key": "ctrl+- f",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+[Comma] ctrl+s",
+        "key": "ctrl+- ctrl+f",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+shift+[Comma] s",
+        "key": "ctrl+shift+- f",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+shift+[Comma] ctrl+shift+s",
+        "key": "ctrl+shift+- ctrl+shift+f",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus && findWidgetVisible"
     },
-    */
     {
         "key": "ctrl+- f",
         "command": "editor.action.addSelectionToNextFindMatch",
@@ -728,28 +741,26 @@
         "command": "editor.action.startFindReplaceAction",
         "when": "editorFocus"
     },
-    /*
     {
-        "key": "ctrl+[Comma] r",
+        "key": "ctrl+- r",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+[Comma] ctrl+r",
+        "key": "ctrl+- ctrl+r",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+shift+[Comma] r",
+        "key": "ctrl+shift+- r",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus && findWidgetVisible"
     },
     {
-        "key": "ctrl+shift+[Comma] ctrl+shift+r",
+        "key": "ctrl+shift+- ctrl+shift+r",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus && findWidgetVisible"
     },
-    */
     {
         "key": "ctrl+- r",
         "command": "editor.action.replaceOne",
@@ -807,7 +818,7 @@
     {
         "key": "ctrl+up",
         "command": "search.action.focusSearchFromResults",
-        "when": "searchViewletVisible"
+        "when": "panelFocus && searchViewletVisible"
     },
     {
         "key": "ctrl+shift+r",
@@ -842,11 +853,6 @@
         "key": "ctrl+shift+[Period] ctrl+shift+r",
         "command": "search.action.replaceAllInFile",
         "when": "fileMatchFocus && replaceActive && searchViewletVisible"
-    },
-    {
-        "key": "ctrl+m",
-        "command": "workbench.action.toggleMaximizedPanel",
-        "when": "searchInputBoxFocus && searchViewletVisible"
     },
     {
         "key": "alt+f c",
@@ -971,12 +977,12 @@
     {
         "key": "alt+f e",
         "command": "search.action.collapseSearchResults",
-        "when": "searchViewletVisible"
+        "when": "panelFocus && searchViewletVisible"
     },
     {
         "key": "alt+f alt+e",
         "command": "search.action.collapseSearchResults",
-        "when": "searchViewletVisible"
+        "when": "panelFocus && searchViewletVisible"
     },
 
 /* ---------------------------------------------------- */
@@ -987,7 +993,7 @@
     {
         "key": "ctrl+p",
         "command": "workbench.action.problems.focus",
-        //"when": "!problemsViewFocus" //XXX doesn't work
+        //"when": "!(panelFocus && activePanel == 'workbench.panel.markers')" //XXX should be same as "!problemsViewFocus"
     },
     {
         "key": "ctrl+shift+p",
@@ -1060,11 +1066,6 @@
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+m",
-        "command": "workbench.action.toggleMaximizedPanel",
-        "when": "terminalFocus"
-    },
-    {
         "key": "alt+t f",
         "command": "openInTerminal"
     },
@@ -1121,16 +1122,6 @@
         "key": "ctrl+q ctrl+t",
         "command": "workbench.action.toggleEditorGroupLayout",
         "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+m",
-        "command": "workbench.action.minimizeOtherEditors",
-        "when" : "editorFocus"
-    },
-    {
-        "key": "ctrl+shift+m",
-        "command": "workbench.action.evenEditorWidths",
-        "when" : "editorFocus"
     },
     {
         "key": "ctrl+a right",
@@ -1315,7 +1306,7 @@
     {
         "key": "Ctrl+tab",
         "command": "editor.action.formatSelection",
-        "when": "editorHasSelection && editorTextFocus && !editorReadonly"
+        "when": /*"editorHasSelection && */"editorTextFocus && !editorReadonly"
     },
     /*
     {
