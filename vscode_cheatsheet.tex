@@ -46,8 +46,8 @@
 %\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
 \begin{document}
 
-\begin{center}{\huge{\textbf{VS Code Keybindings}}}\\
-{\large By Dani Sanz}
+\begin{center}{\huge{\textbf{VS Code C/C++ Keybindings}}}\\
+{\large by Dani Sanz}
 \end{center}
 \begin{multicols*}{3}
 
@@ -60,82 +60,71 @@
 \node [mybox] (box){%
     \begin{minipage}{0.3\textwidth}
 
-        \textit{Keys:} \\
+        \textit{Key naming:} \\
 
-        \begin{vwcol}[widths={0.5,0.5},
-            sep=.2cm, rule=0pt,indent=1em]
-            \begin{tabular}{ll}
-                \hline
-                \textbf{\textit{Ct}} & Control \\ \hline
-                \textbf{\textit{Sh}} & Shift \\ \hline
-                \textbf{\textit{Al}} & Alt \\ \hline
-                \textbf{\textit{En}} & Enter \\ \hline
-            \end{tabular}
-            \begin{tabular}{ll}
-                \hline
-                \textbf{\textit{Bs}} & BackSpace \\ \hline
-                \textbf{\textit{Su}} & Supr \\ \hline
-                \textbf{\textit{<a>}} & Arrows \\ \hline
-            \end{tabular}
-        \end{vwcol}
+        \textbf{\textit{Ct}} (Control), \textbf{\textit{Sh}} (Shift), \textbf{\textit{Al}} (Alt), \textbf{\textit{En}} (Enter), 
+        \textbf{\textit{Bs}} (Back space), \textbf{\textit{Su}}, (Supr), \textbf{\textit{<a>}}, (Arrows), \textbf{\textit{<u,d,l,r>}} (Arrows) \\
+
+%        \begin{vwcol}[widths={0.5,0.5},
+%            sep=.2cm, rule=0pt,indent=1em]
+%            \begin{tabular}{ll}
+%                \hline
+%                \textbf{\textit{Ct}} & Control \\ \hline
+%                \textbf{\textit{Sh}} & Shift \\ \hline
+%                \textbf{\textit{Al}} & Alt \\ \hline
+%                \textbf{\textit{En}} & Enter \\ \hline
+%            \end{tabular}
+%            \begin{tabular}{ll}
+%                \hline
+%                \textbf{\textit{Bs}} & BackSpace \\ \hline
+%                \textbf{\textit{Su}} & Supr \\ \hline
+%                \textbf{\textit{<a>}} & Arrows \\ \hline
+%                \textbf{\textit{<u,d,l,r>}} & Arrows \\ \hline
+%            \end{tabular}
+%        \end{vwcol}
         
         \textit{General commands:}
 
         \begin{center}
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Ct}$+$G} & Leave, cancel, exit... (Esc) \\ \hline
-            \textbf{\textit{En}} & Open file, expand/collapse folder \\ \hline
+            \textbf{\textit{En}} & Open file \\ \hline
             \textbf{\textit{Ct}$+$\textit{En}} & Open to side editor \\ \hline
-            \textbf{\textit{Lft}/\textit{Rght}} & Expand/collapse \\ \hline
+            \textbf{\textit{Lft}/\textit{Rght}} & Exp./coll. folders, search results... \\ \hline
             \textbf{\textit{Bs}/\textit{Su}} & Delete/remove \\ \hline
+            \textbf{\textit{Ct}$+$G} & Leave, cancel, exit... (Esc) \\ \hline
+            \textbf{\textit{Ct}$+$N} & New... \\
+            \quad \textit{terminal:} & \quad new terminal window \\
+            \quad \textit{file expl.:} & \quad new file \\
+            \quad                      & \quad $+$\textit{Sh}: new folder \\ \hline
+            \textbf{\textit{Ct}$+$M} & Maximize... \\
+            \quad \textit{panel:} & \quad maximize panel \\
+            \quad \textit{editor:} & \quad maximize editor \\
+            \quad                  & \quad $+$\textit{Sh}: reset size \\
+            \quad \textit{file expl.:} & \quad collapse all folders \\ \hline
+            \textbf{\textit{Ct}$+$Q <a>} & Focus next/previous... \\
+            \quad \textit{editor:} & \quad <l,r> within group \\
+            \quad                  & \quad <u,d> other group \\
+            \quad \textit{terminal:} & \quad <l,r> for panes \\
+            \quad                    & \quad <u,d> for windows \\ \hline
+            \textbf{\textit{Ct}$+$< <a>} & Move... \\
+            \quad \textit{editor:} & \quad <l,r> within group \\
+            \quad                  & \quad <u,d> to other group \\
+            \quad                  & \quad $+$\textit{Sh}: move full group \\ \hline
+            \textbf{\textit{Ct}$+$H X} & Split... \\
+            \quad \textit{editor:} & \quad into new group \\
+            \quad \textit{terminal:} & \quad into new pane \\ \hline
+            \textbf{\textit{Ct}$+$H T} & Toggle... \\
+            \quad \textit{editor:} & \quad horizontal/vertical split \\ \hline
+            \textbf{\textit{Ct}$+$H C} & Toggle panel view \\ \hline
+            \textbf{\textit{Ct}$+$H S} & Toggle sidebar view \\ \hline
+            \textbf{\textit{Ct}$+$W} & Close... \\
+            \quad \textit{editor:} & \quad current editor \\
+            \quad                  & \quad $+$\textit{Sh}: others in group \\ 
+            \quad                  & \quad $+$\textit{Al}: current group \\
+            \quad                  & \quad $+$\textit{Al}$+$\textit{Sh}: other groups \\ \hline
         \end{tabular}
         \end{center}
-        
-        \textit{General MAJOR-KEY meanings - Used with \textbf{Mt} or \textbf{Ct}:} \\
-        
-        \begin{vwcol}[widths={0.5,0.5},
-            sep=.2cm, rule=0pt,indent=1em]
-            \begin{tabular}{ll}
-                \hline
-                \textbf{F} & Menu \& Sidebar \\ \hline
-                \textbf{W} & Explorer \\ \hline
-                \textbf{D} & Debug \\ \hline
-                \textbf{G} & Panel \\ \hline
-                \textbf{S} & Search \\ \hline
-                \textbf{R} & Problems panel \\ \hline
-            \end{tabular}
-            \begin{tabular}{ll}
-                \hline
-                \textbf{T} & Terminal \\ \hline
-                \textbf{E} & Editor \\ \hline
-                \textbf{B} & Breadcrumbs \\ \hline
-                \textbf{A} & IntelliSense \\ \hline
-                \textbf{C} & Compare editor \\ \hline
-            \end{tabular}
-        \end{vwcol}
-
-        \textit{General MINOR-KEY meanings:} \\
-        
-        \begin{vwcol}[widths={0.5,0.5},
-            sep=.2cm, rule=0pt,indent=1em]
-            \begin{tabular}{ll}
-                \hline
-                \textbf{A} & Focus (toggle) \\ \hline
-                \textbf{X} & Split \\ \hline
-                \textbf{W} & Next/Other \\ \hline
-                \textbf{Q} & Previous \\ \hline
-                \textbf{E} & Expand (toggle) \\ \hline
-            \end{tabular}
-            \begin{tabular}{ll}
-                \hline
-                \textbf{F} & Show file \\ \hline
-                \textbf{N} & New/create \\ \hline
-                \textbf{T} & Toggle \\ \hline
-                \textbf{D} & Close/hide \\ \hline
-                \textbf{\textit{<a>}} & Move \\ \hline
-            \end{tabular}
-        \end{vwcol}
 
     \end{minipage}
 };

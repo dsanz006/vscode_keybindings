@@ -3,8 +3,6 @@
 
     More info here: https://code.visualstudio.com/docs/getstarted/keybindings
 
-    Pending issues: #59084
-
     Some more can be found on VS Code source code. Under src/vs/ search for "new RawContextKey<"
 
     Todo:
@@ -19,39 +17,44 @@
 
     Keys:
 
-    <a>     : Arrows
+        · <a>           : Arrows
+        · <u,d,l,r>     : Up, Down, Left, Right
+        · En            : Enter
+        · Su            : Supr (delete)
+        · Bs            : Backspace
+
+    ----------------------------------------------------------
 
     General commands:
-     · Ctrl+G           : Leave, cancel, exit... (depends on context)
-     · Enter            : Open file (on quick open, problems panel, file explorer...), expand/collapse folder
-     · Ctrl+Enter       : Open file to side editor
-     · Left/Right       : Expand/Collapse
-     · BkSpc/Supr       : Delete/Remove
 
-    General MAJOR-KEY meanings - Used with Meta (Super) key:
-     · F        : Menu & Sidebar
-     · W        : Explorer
-     · D        : Debug
-     · G        : Panel
-     · S        : Search
-     · R        : Problems panel
-     · T        : Terminal
-     · E        : Editor
-     · B        : BreadCrumbs
-     · A        : IntelliSense (Code completion & navigation)
-     · C        : Compare editor
-
-    General MINOR-KEY meanings:
-     · A        : Focus/View (Toggle)
-     · X        : Split
-     · W        : Next/other
-     · Q        : Previous
-     · E        : Expand/Contract
-     · F        : File (open, show...)
-     · N        : New/Create
-     · T        : Toggle
-     · D        : Close
-     · <a>      : Move
+        · En            : Open file (on quick open, problems panel, file explorer...)
+        · Ct+En         : Open file to side editor
+        · <l,r>         : Expand/Collapse folders, search results...
+        · Su/Bs         : Delete/Remove
+        · Ct+G          : Leave, cancel, exit... (depends on context)
+        · Ct+N          : New...
+                            - on terminalFocus: New terminal window
+                            - on fileExplorerFocus: New file, +Sh for new folder
+        · Ct+M          : Maximize current view...
+                            - on panelFocus: panel
+                            - on editorFocus: editor, +Sh to reset size
+                            - on fileExplorerFocus: collapse all folders
+        · Ct+Q <a>      : Focus next/previous...
+                            - on editorFocus: <l,r> within group, <u,d> other group
+                            - on terminalFocus: <l,r> for panes, <u,d> for windows
+        · Ct+< <a>      : Move...
+                            - on editorFocus: <l,r> within group,<u,d> to other group
+                            - on editorFocus: +Sh to move full group
+        · Ct+H X        : Split...
+                            - on editorFocus: into new group
+                            - on terminalFocus: into new pane
+        · Ct+H T        : Toggle...
+                            - on editorFocus: toggle horiz./vert. split
+        · Ct+H C        : Toggle panel view
+        · Ct+H S        : Toggle sidebar view
+        · Ct+W          : Close...
+                            - on editorFocus: curr. editor, +Sh others in group
+                            - on editorFocus: +Al curr. group, +Al+Sh other groups
 
     ----------------------------------------------------------
 
