@@ -132,93 +132,81 @@
     ----------------------------------------------------------
 
     Search & Replace:
-    
-     · Ctrl+F               : Focus on find widget
-     · Ctrl+- F             : Select and find / Show next match
-     · Ctrl+Shft+- F        : Show previous match (from widget or selected)
-     · Ctrl+Alt+- F         : Select all matches (from widget or selected)
-     · Ctrl+R               : Focus on replace widget
-     · Ctrl+- R             : Replace current match (widget replace)
-     · Ctrl+Alt+- R         : Replace all matches (widget replace)
-     · Ctrl+Shft+F          : Search on search panel
-     · Ctrl+<down>          : Focus on search/replace results
-     · Ctrl+<up>            : Focus on search input box
-     · Ctrl+. F             : Show next search panel match / Search selected
-     · Ctrl+Shft+. F        : Show previous search panel match
-     · Ctrl+Shft+R          : Replace on search panel
-     · Ctrl+. R             : Replace current match (search panel replace)
-     · Ctrl+Shft+. R        : Replace all file matches (search panel replace)
-     · Ctrl+Alt+. R         : Replace all matches (search panel replace)
-     · Ctrl+M               : Toggle search panel expand/collapse
-     · Alt+F E              : Collapse search results
-     · Alt+F C              : Toggle search case sensitive
-     · Alt+F R              : Toggle search regex
-     · Alt+F W              : Toggle search whole word
 
-    Problems panel:
-     · Ctrl+P               : Focus on problems panel
-     · Ctrl+Shft+P          : Go to next problem
-
-    Terminal:
-     · Ctrl+T               : Focus on terminal
-     · Ctrl+N               : Add new terminal (another window) and focus
-     · Ctrl+Q X             : Split terminal (add a pane and focus)
-     · Ctrl+A <u,d>         : Switch focus to next/prev. terminal window
-     · Ctrl+A <l,r>         : Switch focus to next/prev. terminal pane
-     · Ctrl+Shift+C         : (terminalFocus) Copy
-     · Ctrl+Shift+V         : (terminalFocus) Paste
-     · Ctrl+M               : Toggle terminal expand/collapse
-     · Alt+T F              : Open new terminal in location of current file
-
-    Editor:
-     · Ctrl+E               : Focus on active editor (from anywhere)
-     · Ctrl+W               : Close active file editor
-     · Ctrl+Shft+W          : Close all other files in group
-     · Ctrl+Alt+W           : Close active editor group
-     · Ctrl+Shft+Alt+W      : Close all other editor groups
-     · Ctrl+A <l,r>         : Focus on next/prev. file of group
-     · Ctrl+A <u,d>         : Focus on next/prev. editor group
-     · Ctrl+{1-9}           : Focus on file index 1-9 of group
-     · Alt+{1-9}            : Open editor in position 1-9
-     · Ctrl+Q X             : Split editor vertically
-     · Ctrl+Q T             : Toggle layout (horiz./vert.)
-     · Ctrl+Q <l,r>         : Move editor left/right in group
-     · Ctrl+Q <u,d>         : Move editor to next/prev. group
-     · Ctrl+Shft+Q <a>      : Move editor group to above/below/left/right
-     · Ctrl+M               : Expand editor group
-     · Ctrl+Shft+M          : Reset editor group sizes
-
-    Breadcrumbs:
-     · Ctrl+B               : Focus on breadcrumbs
-     · <a>                  : Navigate breadcrumbs
-
-    Compare Editor (Alt+C):
-     · Alt+C <l,d>          : Go to next change
-     · Alt+C <r,u>          : Go to previous change
-
-    Text Edition (XXX todo):
-     · Alt+A                : Select all
+        · Ct+F          : Focus on find widget
+        · Ct+- F        : Select and find / Show next match
+        · Ct+Sh+- F     : Show previous match (from widget or selected)
+        · Ct+Al+- F     : Select all matches (from widget or selected)
+        · Ct+R          : Focus on replace widget
+        · Ct+- R        : Replace current match (widget replace)
+        · Ct+Al+- R     : Replace all matches (widget replace)
+        · Ct+Sh+F       : Search on search panel
+        · Ct+<d>        : Focus on search/replace results
+        · Ct+<u>        : Focus on search input box
+        · Ct+. F        : Show next search panel match / Search selected
+        · Ct+Sh+. F     : Show previous search panel match
+        · Ct+Sh+R       : Replace on search panel
+        · Ct+. R        : Replace current match (search panel replace)
+        · Ct+Sh+. R     : Replace all file matches (search panel replace)
+        · Ct+Al+. R     : Replace all matches (search panel replace)
+        · Al+F          : Others...
+                            · E : Collapse search results
+                            · C : Toggle search/find case sensitive
+                            · R : Toggle search/find regex
+                            · W : Toggle search/find whole word
 
     ----------------------------------------------------------
 
+    Terminal:
+        · Ct+T          : Focus on terminal
+        · Al+T F        : Open new terminal in location of current file
+        · terminalFocus:
+                            · Ct+Sh+C : Copy
+                            · Ct+Sh+V : Paste
+
+    ----------------------------------------------------------
+
+    Code completion & navigation:
+
+        · Ct+A F        : Go to symbol in file...
+        · Ct+Sh+A F     : Go to symbol in workspace...
+        · Ct+A <u,d>    : Go to next/prev. symbol highlight
+        · Ct+A <l,r>    : Navigate cursor location backwards/forwards
+        · Ct+A L        : Navigate to last cursor location
+        · Ct+A P        : Peek definition
+        · Ct+Sh+A P     : Peek declaration
+        · Ct+A D        : Go to definition
+        · Ct+Al+A D     : Go to definition (to side)
+        · Ct+Sh+A D     : Go to declaration
+        · Ct+A S        : Trigger completion suggestion
+
+    ----------------------------------------------------------
+
+    Text Edition (XXX todo):
+    
+        · Al+A          : Select all
+
     Editor :: Multiple Cursors:
-     · Ctrl+Shift+Up/Down           : Add cursor on next/previous line
-     · Alt+Click                    : Add cursor on mouse click
+
+        · Ct+Sh+<u,d>   : Add cursor on next/previous line
+        · Al+Clk        : Add cursor on mouse click
 
     Editor :: Text Selection:
-     · Ctrl+I                       : Select current line
-     · Shift+Left/Right             : Select next/previous char
-     · Ctrl+Shift+Left/Right        : Select next/previous word
-     · Ctrl+Shift+Alt+Left/Right    : Select next/previous sub-word
-     · Shift+Up/Down                : Select/deselect next/previous line
-     · Ctrl+Shift+Up/Down           : Add next/previous line to selection
-     · Ctrl+D                       : Select current word, or select next word occurrence
-     · Ctrl+U                       : Soft undo: deselect last selection added with Ctrl+D
-     · Ctrl+Shift+L                 : Select all occurrences of currently selected text
-     · Alt+Up/Down                  : Move selected text up/down
+
+        · Ct+I          : Select current line
+        · Sh+<l,r>      : Select next/previous char
+        · Ct+Sh+<l,r>   : Select next/previous word
+        · Ct+Sh+Al+<l,r>: Select next/previous sub-word
+        · Sh+<u,d>      : Select/deselect next/previous line
+        · Ct+Sh+<u,d>   : Add next/previous line to selection
+        · Ct+D          : Select current word, or select next word occurrence
+        · Ct+U          : Soft undo: deselect last selection added with Ctrl+D
+        · Ct+Sh+L       : Select all occurrences of currently selected text
+        · Al+<u,d>      : Move selected text up/down
 
     Editor :: Navigation:
-     · Ctrl+L                       : Go to Line
+
+        · Ct+L                       : Go to Line
 
     ---------------------------------------------------------- 
     
@@ -1027,8 +1015,43 @@
         //"when": "!(panelFocus && activePanel == 'workbench.panel.markers')" //XXX should be same as "!problemsViewFocus"
     },
     {
-        "key": "ctrl+shift+p",
+        "key": "alt+p down",
         "command": "editor.action.marker.nextInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+p alt+down",
+        "command": "editor.action.marker.nextInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+p right",
+        "command": "editor.action.marker.nextInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+p alt+right",
+        "command": "editor.action.marker.nextInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+p up",
+        "command": "editor.action.marker.prevInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+p alt+up",
+        "command": "editor.action.marker.prevInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+p left",
+        "command": "editor.action.marker.prevInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+p alt+left",
+        "command": "editor.action.marker.prevInFiles",
         "when": "editorFocus && !editorReadonly"
     },
 
@@ -1047,52 +1070,52 @@
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+q x",
+        "key": "ctrl+h x",
         "command": "workbench.action.terminal.splitInActiveWorkspace",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+q ctrl+x",
+        "key": "ctrl+h ctrl+x",
         "command": "workbench.action.terminal.splitInActiveWorkspace",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+a down",
+        "key": "ctrl+q down",
         "command": "workbench.action.terminal.focusNext",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+a ctrl+down",
+        "key": "ctrl+q ctrl+down",
         "command": "workbench.action.terminal.focusNext",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+a up",
+        "key": "ctrl+q up",
         "command": "workbench.action.terminal.focusPrevious",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+a ctrl+up",
+        "key": "ctrl+q ctrl+up",
         "command": "workbench.action.terminal.focusPrevious",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+a left",
+        "key": "ctrl+q left",
         "command": "workbench.action.terminal.focusNextPane",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+a ctrl+left",
+        "key": "ctrl+q ctrl+left",
         "command": "workbench.action.terminal.focusNextPane",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+a right",
+        "key": "ctrl+q right",
         "command": "workbench.action.terminal.focusPreviousPane",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+a ctrl+right",
+        "key": "ctrl+q ctrl+right",
         "command": "workbench.action.terminal.focusPreviousPane",
         "when": "terminalFocus"
     },
@@ -1135,142 +1158,142 @@
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+q x",
+        "key": "ctrl+h x",
         "command": "workbench.action.splitEditorRight",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+q ctrl+x",
+        "key": "ctrl+h ctrl+x",
         "command": "workbench.action.splitEditorRight",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+q t",
+        "key": "ctrl+h t",
         "command": "workbench.action.toggleEditorGroupLayout",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+q ctrl+t",
+        "key": "ctrl+h ctrl+t",
         "command": "workbench.action.toggleEditorGroupLayout",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+a right",
-        "command": "workbench.action.nextEditorInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+a ctrl+right",
-        "command": "workbench.action.nextEditorInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+a left",
-        "command": "workbench.action.previousEditorInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+a ctrl+left",
-        "command": "workbench.action.previousEditorInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+a down",
-        "command": "workbench.action.focusNextGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+a ctrl+down",
-        "command": "workbench.action.focusNextGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+a up",
-        "command": "workbench.action.focusPreviousGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+a ctrl+up",
-        "command": "workbench.action.focusPreviousGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+q left",
-        "command": "workbench.action.moveEditorLeftInGroup",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+q ctrl+left",
-        "command": "workbench.action.moveEditorLeftInGroup",
         "when": "editorFocus"
     },
     {
         "key": "ctrl+q right",
-        "command": "workbench.action.moveEditorRightInGroup",
+        "command": "workbench.action.nextEditorInGroup",
         "when": "editorFocus"
     },
     {
         "key": "ctrl+q ctrl+right",
-        "command": "workbench.action.moveEditorRightInGroup",
+        "command": "workbench.action.nextEditorInGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+q left",
+        "command": "workbench.action.previousEditorInGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+q ctrl+left",
+        "command": "workbench.action.previousEditorInGroup",
         "when": "editorFocus"
     },
     {
         "key": "ctrl+q down",
-        "command": "workbench.action.moveEditorToNextGroup",
+        "command": "workbench.action.focusNextGroup",
         "when": "editorFocus"
     },
     {
         "key": "ctrl+q ctrl+down",
-        "command": "workbench.action.moveEditorToNextGroup",
+        "command": "workbench.action.focusNextGroup",
         "when": "editorFocus"
     },
     {
         "key": "ctrl+q up",
-        "command": "workbench.action.moveEditorToPreviousGroup",
+        "command": "workbench.action.focusPreviousGroup",
         "when": "editorFocus"
     },
     {
         "key": "ctrl+q ctrl+up",
+        "command": "workbench.action.focusPreviousGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+[IntlBackslash] left",
+        "command": "workbench.action.moveEditorLeftInGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+[IntlBackslash] ctrl+left",
+        "command": "workbench.action.moveEditorLeftInGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+[IntlBackslash] right",
+        "command": "workbench.action.moveEditorRightInGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+[IntlBackslash] ctrl+right",
+        "command": "workbench.action.moveEditorRightInGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+[IntlBackslash] down",
+        "command": "workbench.action.moveEditorToNextGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+[IntlBackslash] ctrl+down",
+        "command": "workbench.action.moveEditorToNextGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+[IntlBackslash] up",
         "command": "workbench.action.moveEditorToPreviousGroup",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+shift+q up",
+        "key": "ctrl+[IntlBackslash] ctrl+up",
+        "command": "workbench.action.moveEditorToPreviousGroup",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+[IntlBackslash] up",
         "command": "workbench.action.moveActiveEditorGroupUp",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+shift+q ctrl+shift+up",
+        "key": "ctrl+shift+[IntlBackslash] ctrl+shift+up",
         "command": "workbench.action.moveActiveEditorGroupUp",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+shift+q down",
+        "key": "ctrl+shift+[IntlBackslash] down",
         "command": "workbench.action.moveActiveEditorGroupDown",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+shift+q ctrl+shift+down",
+        "key": "ctrl+shift+[IntlBackslash] ctrl+shift+down",
         "command": "workbench.action.moveActiveEditorGroupDown",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+shift+q left",
+        "key": "ctrl+shift+[IntlBackslash] left",
         "command": "workbench.action.moveActiveEditorGroupLeft",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+shift+q ctrl+shift+left",
+        "key": "ctrl+shift+[IntlBackslash] ctrl+shift+left",
         "command": "workbench.action.moveActiveEditorGroupLeft",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+shift+q right",
+        "key": "ctrl+shift+[IntlBackslash] right",
         "command": "workbench.action.moveActiveEditorGroupRight",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+shift+q ctrl+shift+right",
+        "key": "ctrl+shift+[IntlBackslash] ctrl+shift+right",
         "command": "workbench.action.moveActiveEditorGroupRight",
         "when": "editorFocus"
     },
@@ -1320,12 +1343,12 @@
         "when": "textCompareEditorVisible"
     },
     {
-        "key": "alt+c down",
+        "key": "alt+c up",
         "command": "workbench.action.compareEditor.previousChange",
         "when": "textCompareEditorVisible"
     },
     {
-        "key": "alt+c alt+down",
+        "key": "alt+c alt+up",
         "command": "workbench.action.compareEditor.previousChange",
         "when": "textCompareEditorVisible"
     },
@@ -1395,19 +1418,156 @@
     },
 
 /* ---------------------------------------------------- */
-    
-/**** Code Completion and suggestions ****/
+
+/**** Code completion & navigation ****/
 
     {
-        "key": "meta+space",
+        "key": "ctrl+a f",
+        "command": "workbench.action.gotoSymbol"
+    },
+    {
+        "key": "ctrl+a ctrl+f",
+        "command": "workbench.action.gotoSymbol"
+    },
+    {
+        "key": "ctrl+shift+a f",
+        "command": "workbench.action.showAllSymbols"
+    },
+    {
+        "key": "ctrl+shift+a ctrl+shift+f",
+        "command": "workbench.action.showAllSymbols"
+    },
+    {
+        "key": "ctrl+a down",
+        "command": "editor.action.wordHighlight.next"
+    },
+    {
+        "key": "ctrl+a ctrl+down",
+        "command": "editor.action.wordHighlight.next"
+    },
+    {
+        "key": "ctrl+a up",
+        "command": "editor.action.wordHighlight.prev"
+    },
+    {
+        "key": "ctrl+a ctrl+up",
+        "command": "editor.action.wordHighlight.prev"
+    },
+    {
+        "key": "ctrl+a right",
+        "command": "workbench.action.navigateForward"
+    },
+    {
+        "key": "ctrl+a ctrl+right",
+        "command": "workbench.action.navigateForward"
+    },
+    {
+        "key": "ctrl+a left",
+        "command": "workbench.action.navigateBack"
+    },
+    {
+        "key": "ctrl+a ctrl+left",
+        "command": "workbench.action.navigateBack"
+    },
+    {
+        "key": "ctrl+a l",
+        "command": "workbench.action.navigateLast"
+    },
+    {
+        "key": "ctrl+a ctrl+l",
+        "command": "workbench.action.navigateLast"
+    },
+    {
+        "key": "ctrl+a p",
+        "command": "editor.action.previewDeclaration",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+a ctrl+p",
+        "command": "editor.action.previewDeclaration",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+shift+a p",
+        "command": "C_Cpp.PeekDeclaration",
+        "when": "editorTextFocus && editorLangId == 'cpp'"
+    },
+    {
+        "key": "ctrl+shift+a ctrl+shift+p",
+        "command": "C_Cpp.PeekDeclaration",
+        "when": "editorTextFocus && editorLangId == 'cpp'"
+    },
+    {
+        "key": "ctrl+shift+a p",
+        "command": "C_Cpp.PeekDeclaration",
+        "when": "editorTextFocus && editorLangId == 'c'"
+    },
+    {
+        "key": "ctrl+shift+a ctrl+shift+p",
+        "command": "C_Cpp.PeekDeclaration",
+        "when": "editorTextFocus && editorLangId == 'c'"
+    },
+    {
+        "key": "ctrl+a d",
+        "command": "editor.action.goToDeclaration",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+a ctrl+d",
+        "command": "editor.action.goToDeclaration",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+alt+a d",
+        "command": "editor.action.openDeclarationToTheSide",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+alt+a ctrl+alt+d",
+        "command": "editor.action.openDeclarationToTheSide",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+shift+a d",
+        "command": "C_Cpp.GoToDeclaration",
+        "when": "editorTextFocus && editorLangId == 'cpp'"
+    },
+    {
+        "key": "ctrl+shift+a ctrl+shift+d",
+        "command": "C_Cpp.GoToDeclaration",
+        "when": "editorTextFocus && editorLangId == 'cpp'"
+    },
+    {
+        "key": "ctrl+shift+a d",
+        "command": "C_Cpp.GoToDeclaration",
+        "when": "editorTextFocus && editorLangId == 'c'"
+    },
+    {
+        "key": "ctrl+shift+a ctrl+shift+d",
+        "command": "C_Cpp.GoToDeclaration",
+        "when": "editorTextFocus && editorLangId == 'c'"
+    },
+    {
+        "key": "ctrl+a s",
         "command": "toggleSuggestionDetails",
         "when": "suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "meta+space",
+        "key": "ctrl+a ctrl+s",
+        "command": "toggleSuggestionDetails",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+a s",
         "command": "editor.action.triggerSuggest",
         "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
     },
+    {
+        "key": "ctrl+a ctrl+s",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    /*
     {
         "key": "alt+meta+space",
         "command": "toggleSuggestionFocus",
@@ -1418,6 +1578,7 @@
         "command": "editor.action.triggerParameterHints",
         "when": "editorHasSignatureHelpProvider && editorTextFocus"
     },
+    */
 
 /* ---------------------------------------------------- */
         
@@ -1432,6 +1593,16 @@
         "key": "alt+a",
         "command": "list.selectAll",
         "when": "listFocus && listSupportsMultiselect && !inputFocus"
+    },
+    {
+        "key": "alt+a",
+        "command": "editor.action.webvieweditor.selectAll",
+        "when": "!editorFocus && !inputFocus && activeEditor == 'WebviewEditor'"
+    },
+    {
+        "key": "alt+a",
+        "command": "editor.action.webvieweditor.selectAll",
+        "when": "!editorFocus && !inputFocus && activeEditor == 'workbench.editor.htmlPreviewPart'"
     },
 
 /* ---------------------------------------------------- */
@@ -2588,6 +2759,88 @@
         "key": "shift+alt+f5",
         "command": "-workbench.action.editor.previousChange",
         "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+f10",
+        "command": "-editor.action.previewDeclaration",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+alt+f12",
+        "command": "-C_Cpp.PeekDeclaration",
+        "when": "editorTextFocus && editorLangId == 'cpp'"
+    },
+    {
+        "key": "f12",
+        "command": "-editor.action.goToDeclaration",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+k f12",
+        "command": "-editor.action.openDeclarationToTheSide",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+f12",
+        "command": "-C_Cpp.GoToDeclaration",
+        "when": "editorTextFocus && editorLangId == 'cpp'"
+    },
+    {
+        "key": "ctrl+f12",
+        "command": "-C_Cpp.GoToDeclaration",
+        "when": "editorTextFocus && editorLangId == 'c'"
+    },
+    {
+        "key": "ctrl+alt+f12",
+        "command": "-C_Cpp.PeekDeclaration",
+        "when": "editorTextFocus && editorLangId == 'c'"
+    },
+    {
+        "key": "ctrl+shift+-",
+        "command": "-workbench.action.navigateForward"
+    },
+    {
+        "key": "ctrl+alt+-",
+        "command": "-workbench.action.navigateBack"
+    },
+    {
+        "key": "ctrl+k ctrl+q",
+        "command": "-workbench.action.navigateToLastEditLocation"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "-editor.action.webvieweditor.selectAll",
+        "when": "!editorFocus && !inputFocus && activeEditor == 'WebviewEditor'"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "-editor.action.webvieweditor.selectAll",
+        "when": "!editorFocus && !inputFocus && activeEditor == 'workbench.editor.htmlPreviewPart'"
+    },
+    {
+        "key": "alt+n",
+        "command": "-C_Cpp.Navigate",
+        "when": "editorTextFocus && editorLangId == 'c'"
+    },
+    {
+        "key": "alt+n",
+        "command": "-C_Cpp.Navigate",
+        "when": "editorTextFocus && editorLangId == 'cpp'"
+    },
+    {
+        "key": "f2",
+        "command": "-editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+f8",
+        "command": "-editor.action.marker.prevInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+f2",
+        "command": "-editor.action.changeAll",
+        "when": "editorTextFocus && !editorReadonly"
     },
 
 /* ---------------------------------------------------- */

@@ -65,6 +65,7 @@
         \textbf{\textit{Ct}} (Control), \textbf{\textit{Sh}} (Shift), \textbf{\textit{Al}} (Alt), \textbf{\textit{En}} (Enter), 
         \textbf{\textit{Bs}} (Back space), \textbf{\textit{Su}}, (Supr), \textbf{\textit{<a>}}, (Arrows), \textbf{\textit{<u,d,l,r>}} (Arrows) \\
 
+        %TWO COLUMNS:
 %        \begin{vwcol}[widths={0.5,0.5},
 %            sep=.2cm, rule=0pt,indent=1em]
 %            \begin{tabular}{ll}
@@ -103,13 +104,13 @@
             \quad                  & \quad $+$\textit{Sh}: reset size \\
             \quad \textit{file expl.:} & \quad collapse all folders \\ \hline
             \textbf{\textit{Ct}$+$Q <a>} & Focus next/previous... \\
-            \quad \textit{editor:} & \quad <l,r> within group \\
-            \quad                  & \quad <u,d> other group \\
-            \quad \textit{terminal:} & \quad <l,r> for panes \\
-            \quad                    & \quad <u,d> for windows \\ \hline
+            \quad \textit{editor:} & \quad \textit{<l,r>} within group \\
+            \quad                  & \quad \textit{<u,d>} other group \\
+            \quad \textit{terminal:} & \quad \textit{<l,r>} for panes \\
+            \quad                    & \quad \textit{<u,d>} for windows \\ \hline
             \textbf{\textit{Ct}$+$< <a>} & Move... \\
-            \quad \textit{editor:} & \quad <l,r> within group \\
-            \quad                  & \quad <u,d> to other group \\
+            \quad \textit{editor:} & \quad \textit{<l,r>} within group \\
+            \quad                  & \quad \textit{<u,d>} to other group \\
             \quad                  & \quad $+$\textit{Sh}: move full group \\ \hline
             \textbf{\textit{Ct}$+$H X} & Split... \\
             \quad \textit{editor:} & \quad into new group \\
@@ -142,15 +143,15 @@
         \begin{tabular}{ll}
             \hline
             \textbf{\textit{Ct}$+$O...} & Open/menu/command modifier key... \\
-            \quad \textit{O} & \quad quick open... \\
-            \quad \textit{C} & \quad Command palette... \\
-            \quad \textit{R} & \quad Open recent... \\
-            \quad \textit{R ($+$\textit{Sh})} & \quad Focus on recent file on history... \\
-            \quad \textit{W} & \quad Open workspace... \\
-            \quad \textit{D} & \quad Open directory... \\
-            \quad \textit{F} & \quad Open file... \\
-            \quad \textit{N} & \quad Open active file in new window \\
-            \quad \textit{N ($+$\textit{Sh})} & \quad Duplicate workspace in new window \\
+            \quad O & \quad quick open... \\
+            \quad C & \quad Command palette... \\
+            \quad R & \quad Open recent... \\
+            \quad R ($+$\textit{Sh}) & \quad Focus on recent file on history... \\
+            \quad W & \quad Open workspace... \\
+            \quad D & \quad Open directory... \\
+            \quad F & \quad Open file... \\
+            \quad N & \quad Open active file in new window \\
+            \quad N ($+$\textit{Sh}) & \quad Duplicate workspace in new window \\
             \quad \textit{Bs}/\textit{Su} & \quad Close window \\ \hline
         \end{tabular}
 
@@ -245,6 +246,26 @@
 \node[fancytitle, right=10pt] at (box.north west) {Compare editor};
 \end{tikzpicture}
 
+%------------ TERMINAL ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Ct}$+$T} & Focus terminal \\ \hline
+            \textbf{\textit{Al}$+$T F} & Open terminal in file path \\ \hline
+            \textbf{On terminal:} &  \\
+            \quad \textit{Ct}$+$\textit{Sh}$+$C & \quad copy text \\
+            \quad \textit{Ct}$+$\textit{Sh}$+$V & \quad paste text \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Terminal};
+\end{tikzpicture}
+
 \columnbreak
 
 %------------ DEBUG ---------------
@@ -256,18 +277,18 @@
         \begin{tabular}{ll}
             \hline
             \textbf{\textit{Ct}$+$D...} & Adding breakpoints in editor... \\
-            \quad \textit{B} & \quad Toggle breakpoint \\
-            \quad \textit{C} & \quad Add conditional breakpoint \\
-            \quad \textit{F} & \quad Add function breakpoint \\
-            \quad \textit{L} & \quad Add logpoint \\
-            \quad \textit{E} & \quad Enable/Disable breakpoint \\
+            \quad B & \quad Toggle breakpoint \\
+            \quad C & \quad Add conditional breakpoint \\
+            \quad F & \quad Add function breakpoint \\
+            \quad L & \quad Add logpoint \\
+            \quad E & \quad Enable/Disable breakpoint \\
             \quad \textit{<a>} & \quad Go to next/prev. breakpoint \\ \hline
             \textbf{\textit{Al}$+$D...} & Focus on ... \\
-            \quad \textit{D} & \quad debug bar \\
-            \quad \textit{B} & \quad breakpoints window \\
-            \quad \textit{V} & \quad variables window \\
-            \quad \textit{W} & \quad watch window \\
-            \quad \textit{C} & \quad call stack window \\ \hline
+            \quad D & \quad debug bar \\
+            \quad B & \quad breakpoints window \\
+            \quad V & \quad variables window \\
+            \quad W & \quad watch window \\
+            \quad C & \quad call stack window \\ \hline
 
             \textbf{breakpoints view:} &  \\
             \quad \textit{Bs}/\textit{Su} & \quad Remove breakpoint \\
@@ -287,25 +308,6 @@
 };
 \node[fancytitle, right=10pt] at (box.north west) {Debug};
 \end{tikzpicture}
-
-%------------ PANEL & SIDEBAR ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Ct}$+$H C} & Toggle panel \\ \hline
-            \textbf{\textit{Ct}$+$H S} & Toggle sidebar \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Panel \& Sidebar};
-\end{tikzpicture}
-
-\columnbreak
 
 %------------ SEARCH & REPLACE ---------------
 \begin{tikzpicture}
@@ -331,11 +333,11 @@
             \textbf{\textit{Ct}$+$. R} & Replace current match (search pan.) \\ \hline
             \textbf{\textit{Ct}$+$\textit{Sh}$+$. R} & Replace all file matches (search pan.) \\ \hline
             \textbf{\textit{Ct}$+$\textit{Al}$+$. R} & Replace all matches (search pan.) \\ \hline
-            \textbf{\textit{Ct}$+$M} & Toggle search panel expand/collapse \\ \hline
-            \textbf{\textit{Al}$+$F E} & Collapse search results \\ \hline
-            \textbf{\textit{Al}$+$F C} & Toggle search/find case sensitive \\ \hline
-            \textbf{\textit{Al}$+$F R} & Toggle search/find regex. \\ \hline
-            \textbf{\textit{Al}$+$F W} & Toggle search/find whole word \\ \hline
+            \textbf{\textit{Al}$+$F...} & Others... \\ \hline
+            \quad E & \quad Collapse search results \\ \hline
+            \quad C & \quad Toggle search/find case sensitive \\ \hline
+            \quad R & \quad Toggle search/find regex. \\ \hline
+            \quad W & \quad Toggle search/find whole word \\ \hline
         \end{tabular}
 
     \end{minipage}
@@ -343,7 +345,7 @@
 \node[fancytitle, right=10pt] at (box.north west) {Search \& Replace};
 \end{tikzpicture}
 
-%------------ PROBLEMS PANEL ---------------
+%------------ CODE COMPLETION & NAVIGATION ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
     \begin{minipage}{0.3\textwidth}
@@ -351,105 +353,23 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Ct}$+$P} & Focus on problems panel \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$P} & Go to next problem \\ \hline
+            \textbf{\textit{Ct}$+$A F} & Go to symbol in file... \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$A F} & Go to symbol in workspace... \\ \hline
+            \textbf{\textit{Ct}$+$A...} & Navigate... \\
+            \quad \textit{<u,d>} & \quad to next/previous symbol highlight \\
+            \quad \textit{<l,r>} & \quad cursor backwards/forwards \\
+            \quad L & \quad to last cursor location \\ \hline
+            \textbf{\textit{Ct}$+$A P} & Peek definition \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$A P} & Peek declaration \\ \hline
+            \textbf{\textit{Ct}$+$A D} & Go to definition \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$A D} & Go to definition (to side) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$A D} & Go to declaration \\ \hline
+            \textbf{\textit{Ct}$+$A S} & Trigger completion suggestion \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Problems panel};
-\end{tikzpicture}
-
-%------------ TERMINAL ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Ct}$+$T} & Focus terminal \\ \hline
-            \textbf{\textit{Ct}$+$N} & New terminal window, focus \\ \hline
-            \textbf{\textit{Ct}$+$Q X} & Split terminal into panes \\ \hline
-            \textbf{\textit{Ct}$+$A <u,d>} & Focus to next/prev. terminal window \\ \hline
-            \textbf{\textit{Ct}$+$A <l,r>} & Focus to next/prev. terminal pane \\ \hline
-            \textbf{\quad \textit{Ct}$+$\textit{Sh}$+$C} & (termFocus) copy text \\ \hline
-            \textbf{\quad \textit{Ct}$+$\textit{Sh}$+$V} & (termFocus) paste text \\ \hline
-            \textbf{\textit{Ct}$+$M} & Expand terminal (toggle) \\ \hline
-            \textbf{\textit{Al}$+$T F} & Open terminal in file path \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Terminal};
-\end{tikzpicture}
-
-\columnbreak
-
-%------------ EDITOR ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Ct}$+$E} & Focus on editor (from anywhere)\\ \hline
-            \textbf{\textit{Ct}$+$W} & Close active file editor \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$W} & Close all other files in group \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Al}$+$W} & Close active editor group \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$\textit{Al}$+$W} & Close all other editor groups \\ \hline
-            \textbf{\textit{Ct}$+$A <l,r>} & Focus on next/prev. file of group \\ \hline
-            \textbf{\textit{Ct}$+$A <u,d>} & Focus on next/prev. editor group \\ \hline
-            \textbf{\textit{Mt}$+$E R} & Focus on recent file on history \\ \hline
-            \textbf{\textit{Ct}$+$<1-9>} & Focus on file <1-9> of group \\ \hline
-            \textbf{\textit{Al}$+$<1-9>} & Open editor in pos. <1-9> \\ \hline
-            \textbf{\textit{Ct}$+$Q X} & Split editor vertically \\ \hline
-            \textbf{\textit{Ct}$+$Q T} & Toggle layout (horiz./vertic.) \\ \hline
-            \textbf{\textit{Ct}$+$Q \textit{<l,r>}} & Move editor left/right in group \\ \hline
-            \textbf{\textit{Ct}$+$Q \textit{<u,d>}} & Move editor to next/prev. group \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$Q \textit{<a>}} & Move editor group <u/d/l/r> \\ \hline
-            \textbf{\textit{Ct}$+$M} & Expand editor group \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$M} & Reset editor group sizes \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Editor};
-\end{tikzpicture}
-
-%------------ BREADCRUMBS ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Ct}$+$B} & Focus on breadcrumbs \\ \hline
-            \textbf{\textit{<a>}} & Navigate breadcrumbs \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Breadcrumbs};
-\end{tikzpicture}
-
-%------------ COMPARE EDITOR ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Al}$+$<r,d>} & Go to next change \\ \hline
-            \textbf{\textit{Al}$+$<l,u>} & Go to previous change \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Compare Editor (\textit{Mt}$+$C)};
+\node[fancytitle, right=10pt] at (box.north west) {Code completion \& navigation};
 \end{tikzpicture}
 
 \end{multicols*}
