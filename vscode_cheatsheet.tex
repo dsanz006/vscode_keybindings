@@ -135,27 +135,28 @@
 
 %------------ MENU, OPEN, COMMANDS... ---------------
 \begin{tikzpicture}
-\node [mybox] (box){%
+\node [mybox] (box){
     \begin{minipage}{0.3\textwidth}
         
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Ct}$+$O Q} & Quick open... \\ \hline
-            \textbf{\textit{Ct}$+$O C} & Command palette... \\ \hline
-            \textbf{\textit{Ct}$+$O R} & Open recent... \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$O R} & Focus on recent file on history... \\ \hline
-            \textbf{\textit{Ct}$+$O W} & Open workspace... \\ \hline
-            \textbf{\textit{Ct}$+$O D} & Open directory... \\ \hline
-            \textbf{\textit{Ct}$+$O F} & Open file... \\ \hline
-            \textbf{\textit{Ct}$+$O N} & Open active file in new window \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$O N} & Duplicate worksp. in new window \\ \hline
-            \textbf{\textit{Ct}$+$O \textit{Bs}/\textit{Su}} & Close window \\ \hline
+            \textbf{\textit{Ct}$+$O...} & Open/menu/command modifier key... \\
+            \quad \textit{O} & \quad quick open... \\
+            \quad \textit{C} & \quad Command palette... \\
+            \quad \textit{R} & \quad Open recent... \\
+            \quad \textit{R ($+$\textit{Sh})} & \quad Focus on recent file on history... \\
+            \quad \textit{W} & \quad Open workspace... \\
+            \quad \textit{D} & \quad Open directory... \\
+            \quad \textit{F} & \quad Open file... \\
+            \quad \textit{N} & \quad Open active file in new window \\
+            \quad \textit{N ($+$\textit{Sh})} & \quad Duplicate workspace in new window \\
+            \quad \textit{Bs}/\textit{Su} & \quad Close window \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Menu, open, commands... (\textit{Ct}$+$O)};
+\node[fancytitle, right=10pt] at (box.north west) {Menu, open, commands...};
 \end{tikzpicture}
 
 %------------ FILE EXPLORER ---------------
@@ -167,16 +168,84 @@
         \begin{tabular}{ll}
             \hline
             \textbf{\textit{Ct}$+$J} & Focus on file explorer \\ \hline
-            \textbf{\textit{Ct}$+$N} & New file \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$N} & New folder \\ \hline
-            \textbf{\textit{Ct}$+$M} & Collapse all folders in file explorer \\ \hline
-            \textbf{\textit{Al}$+$J F} & Reveal file in explorer (worksp.) \\ \hline
+            \textbf{\textit{Al}$+$J F} & Reveal file in explorer (if in workspace) \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {File Explorer};
 \end{tikzpicture}
+
+%------------ PROBLEMS PANEL ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Ct}$+$P} & Focus on problems panel \\ \hline
+            \textbf{\textit{Al}$+$P <a>} & Focus on next/previous problem \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Problems panel};
+\end{tikzpicture}
+
+%------------ EDITOR ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Ct}$+$E} & Focus on active editor \\ \hline
+            \textbf{\textit{Ct}$+$\{1-9\}} & Focus on file index 1-9 of group \\ \hline
+            \textbf{\textit{Al}$+$\{1-9\}} & Open editor in position 1-9 \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Editor};
+\end{tikzpicture}
+
+%------------ BREADCRUMBS ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Ct}$+$B} & Focus on breadcrumbs \\ \hline
+            \textbf{<a>} & Navigate breadcrumbs \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Breadcrumbs};
+\end{tikzpicture}
+
+%------------ COMPARE EDITOR ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Al}$+$C <l,d>} & Go to next change \\ \hline
+            \textbf{\textit{Al}$+$C <r,u>} & Go to previous change \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Compare editor};
+\end{tikzpicture}
+
+\columnbreak
 
 %------------ DEBUG ---------------
 \begin{tikzpicture}
@@ -186,26 +255,32 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Ct}$+$D B} & Toggle breakpoint \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$D B} & Add conditional breakpoint \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Ct}$+$\textit{Sh}$+$D B} & Add function breakpoint \\ \hline
-            \textbf{\textit{Ct}$+$D L} & Add logpoint \\ \hline
-            \textbf{\textit{Ct}$+$D E} & Enable/Disable breakpoint \\ \hline
-            \textbf{\textit{Ct}$+$D <a>} & Go to next/prev. breakpoint \\ \hline
-            \textbf{\textit{Al}$+$D D} & Focus on debug bar \\ \hline
-            \textbf{\textit{Al}$+$D B} & Focus on breakpoints view \\ \hline
-            \textbf{\quad \textit{Bs}/\textit{Su}} & (bpFocus) Remove breakpoint \\ \hline
-            \textbf{\quad \textit{Ct}$+$D E} & (bpFocus) En./dis. breakpoint \\ \hline
-            \textbf{\quad \textit{Ct}$+$D A} & (bpFocus) En. all breakpoints \\ \hline
-            \textbf{\quad \textit{Ct}$+$\textit{Sh}$+$D A} & (bpFocus) Dis. all breakpoints \\ \hline
-            \textbf{\quad \textit{Ct}$+$\textit{Su}/\textit{Bs}} & (bpFocus) Rem. all breakpoints \\ \hline
-            \textbf{\textit{Al}$+$D V} & Focus on variables view \\ \hline
-            \textbf{\textit{Al}$+$D W} & Focus on watch view \\ \hline
-            \textbf{\textit{Al}$+$D C} & Focus on call stack view \\ \hline
-            \textbf{F7} & Run default build task \\ \hline
+            \textbf{\textit{Ct}$+$D...} & Adding breakpoints in editor... \\
+            \quad \textit{B} & \quad Toggle breakpoint \\
+            \quad \textit{C} & \quad Add conditional breakpoint \\
+            \quad \textit{F} & \quad Add function breakpoint \\
+            \quad \textit{L} & \quad Add logpoint \\
+            \quad \textit{E} & \quad Enable/Disable breakpoint \\
+            \quad \textit{<a>} & \quad Go to next/prev. breakpoint \\ \hline
+            \textbf{\textit{Al}$+$D...} & Focus on ... \\
+            \quad \textit{D} & \quad debug bar \\
+            \quad \textit{B} & \quad breakpoints window \\
+            \quad \textit{V} & \quad variables window \\
+            \quad \textit{W} & \quad watch window \\
+            \quad \textit{C} & \quad call stack window \\ \hline
+
+            \textbf{breakpoints view:} &  \\
+            \quad \textit{Bs}/\textit{Su} & \quad Remove breakpoint \\
+            \quad \textit{Ct}$+$D E & Enable/disable breakpoint \\
+            \quad \textit{En} & \quad Open breakpoint \\
+            \quad             & \quad $+$\textit{Sh}: open to side \\
+            \quad \textit{Ct}$+$D A & \quad Enable all breakpoints \\
+            \quad \textit{Ct}$+$\textit{Sh}$+$D A & \quad Disable all breakpoints \\
+            \quad \textit{Ct}$+$\textit{Su}/\textit{Bs} & \quad Remove all breakpoints \\ \hline
+            \textbf{F7} & Run default task \\ \hline
             \textbf{\textit{Sh}$+$F7} & Run non-default task (choose) \\ \hline
-            \textbf{\textit{Sh}$+$\textit{Al}$+$F5} & Choose configuration and debug \\ \hline
-            \textbf{F5, F6, F10, F11} & Common debugging keys \\ \hline
+            \textbf{\textit{Sh}$+$\textit{Al}$+$F5} & Choose debug config., start \\ \hline
+            \textbf{F5, F6, F10, F11} & Debugging keys \\ \hline
         \end{tabular}
 
     \end{minipage}

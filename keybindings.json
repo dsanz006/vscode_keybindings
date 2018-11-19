@@ -58,53 +58,81 @@
 
     ----------------------------------------------------------
 
-    Menu, open, commands.. (ctrl+O):
-     · Ctrl+O O             : Quick open...
-     · Ctrl+O C             : Command palette...
-     · Ctrl+O R             : Open recent...
-     · Ctrl+Shft+O R        : Focus on recent file on history...
-     · Ctrl+O W             : Open workspace...
-     · Ctrl+O D             : Open directory...
-     · Ctrl+O F             : Open file...
-     · Ctrl+O N             : Open active file in new window
-     · Ctrl+Shft+O N        : Duplicate workspace in new window
-     · Ctrl+O BkSp/Supr     : Close window
+    Menu, open, commands...:
+
+        · Ct+O          : Open...
+                            · O       : Quick open...
+                            · C       : Command palette...
+                            · R       : Open recent... 
+                            · R (+sh) : Focus on recent file on history...
+                            · W       : Open workspace...
+                            · D       : Open directory...
+                            · F       : Open file...
+                            · N       : Open active file in new window
+                            · N (+sh) : Duplicate workspace in new window
+                            · Su/Bs   : Close window
+
+    ----------------------------------------------------------
 
     File explorer:
-     · Ctrl+J               : Focus on file explorer
-     · Ctrl+N               : New file
-     · Ctrl+Shft+N          : New folder
-     · Ctrl+M               : Collapse all folders in file explorer
-     · Alt+J F              : Reveal current file in file explorer (if in workspace)
+
+        · Ct+J          : Focus on file explorer
+        · Al+J F        : Reveal current file in file explorer (if in workspace)
+
+    Problems panel:
+
+        · Ct+P          : Focus on problems panel
+        · Alt+P <a>     : Focus on next/prev. problem
+
+    Editor:
+
+        · Ct+E          : Focus on active editor (from anywhere)
+        · Ct+{1-9}      : Focus on file index 1-9 of group
+        · Al+{1-9}      : Open editor in position 1-9
+
+    Breadcrumbs:
+
+        · Ct+B          : Focus on breadcrumbs
+        · <a>           : Navigate breadcrumbs
+
+    Compare Editor:
+
+        · Al+C <l,d>    : Go to next change
+        · Al+C <r,u>    : Go to previous change
+
+    ----------------------------------------------------------
 
     Debug:
-     · Ctrl+D B             : Toggle breakpoint
-     · Ctrl+D C             : Add conditional breakpoint
-     · Ctrl+D F             : Add function breakpoint
-     · Ctrl+D L             : Add logpoint
-     · Ctrl+D E             : Enable/disable breakpoint
-     · Ctrl+D <a>           : Go to next/prev. breakpoint
-     · Alt+D D              : Focus on debug bar
-     · Alt+D B              : Focus on breakpoints view
-       · Supr/BkSp          : (breakpointsFocused) Remove breakpoint
-       · Ctrl+D E           : (breakpointsFocused) Enable/Disable breakpoint
-       · Enter (Ctrl+Enter) : (breakpointsFocused) Open breakpoint (to side)
-       · Ctrl+D A           : (breakpointsFocused) enable all breakpoints
-       · Ctrl+Shft+D A      : (breakpointsFocused) disable all breakpoints
-       · Ctrl+Supr/BkSp     : (breakpointsFocused) remove all breakpoints
-     · Alt+D V              : Focus on variables view
-     · Alt+D W              : Focus on watch view
-     · Alt+D C              : Focus on call stack view
-     · F7                   : Run default build task
-     · Shft+F7              : Run non-default task (choose) 
-     · Shift+Alt+F5         : Choose debug configuration and start debuging
-     · F5, F6, F10, F11     : Debugging keys
 
-    Panel & Sidebar:
-     · Ctrl+H C             : Toggle Panel
-     · Ctrl+H S             : Toggle sidebar
+        · Ct+D          : Adding breakpoints in editor...
+                            · B   : Toggle breakpoint
+                            · C   : Add conditional breakpoint
+                            · F   : Add function breakpoint
+                            · L   : Add logpoint
+                            · E   : Enable/disable breakpoint
+                            · <a> : Go to next/prev. breakpoint
+        · Al+D          : Focus... 
+                            · D : Focus on debug bar
+                            · B : Focus on breakpoints window
+                            · V : Focus on variables window
+                            · W : Focus on watch window
+                            · C : Focus on call stack window
+        · breakpointsFocus:
+                            · Su/Bs      : Remove breakpoint
+                            · Ct+D E     : Enable/Disable breakpoint
+                            · En (Ct+En) : Open breakpoint (to side)
+                            · Ct+D A     : enable all breakpoints
+                            · Ct+Sh+D A  : disable all breakpoints
+                            · Ct+Su/Bs   : remove all breakpoints
+        · F7            : Run default task
+        · Sh+F7         : Run non-default task (choose) 
+        · Sh+Al+F5      : Choose debug configuration and start debuging
+        · F5/F6/F10/F11 : Debugging keys
+
+    ----------------------------------------------------------
 
     Search & Replace:
+    
      · Ctrl+F               : Focus on find widget
      · Ctrl+- F             : Select and find / Show next match
      · Ctrl+Shft+- F        : Show previous match (from widget or selected)
