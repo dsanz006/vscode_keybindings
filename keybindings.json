@@ -168,6 +168,7 @@
 
     Code completion & navigation:
 
+        · Tab           : Auto-complete best suggestion
         · Ct+A F        : Go to symbol in file...
         · Ct+Sh+A F     : Go to symbol in workspace...
         · Ct+A <u,d>    : Go to next/prev. symbol highlight
@@ -2842,6 +2843,15 @@
         "command": "-editor.action.changeAll",
         "when": "editorTextFocus && !editorReadonly"
     },
+    {
+        "key": "alt+f1",
+        "command": "-editor.action.showAccessibilityHelp",
+        "when": "editorFocus"
+    },
+    {
+        "key": "f1",
+        "command": "-workbench.action.showCommands"
+    }
 
 /* ---------------------------------------------------- */
 
