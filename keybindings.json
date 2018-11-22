@@ -111,6 +111,7 @@
                             · L   : Add logpoint
                             · E   : Enable/disable breakpoint
                             · <a> : Go to next/prev. breakpoint
+                            · H   : Show debug hover
         · Al+D          : Focus... 
                             · D : Focus on debug bar
                             · B : Focus on breakpoints window
@@ -180,6 +181,7 @@
         · Ct+Al+A D     : Go to definition (to side)
         · Ct+Sh+A D     : Go to declaration
         · Ct+A S        : Trigger completion suggestion
+        · Ct+A H        : Show Hover
 
     ----------------------------------------------------------
 
@@ -203,11 +205,16 @@
         · Ct+D          : Select current word, or select next word occurrence
         · Ct+U          : Soft undo: deselect last selection added with Ctrl+D
         · Ct+Sh+L       : Select all occurrences of currently selected text
-        · Al+<u,d>      : Move selected text up/down
+        · Al+<u,d>      : Move selected text up/down (if no selection, move line)
 
     Editor :: Navigation:
 
         · Ct+L                       : Go to Line
+
+    Last added:
+
+        · Ct+En         : Insert line below
+        · Ct+Sh+En      : Insert line above
 
     ---------------------------------------------------------- 
     
@@ -464,6 +471,14 @@
     {
         "key": "ctrl+d ctrl+left",
         "command": "editor.debug.action.goToPreviousBreakpoint"
+    },
+    {
+        "key": "ctrl+d h",
+        "command": "editor.debug.action.showDebugHover"
+    },
+    {
+        "key": "ctrl+d ctrl+h",
+        "command": "editor.debug.action.showDebugHover"
     },
     {
         "key": "alt+d d",
@@ -1580,6 +1595,16 @@
         "when": "editorHasSignatureHelpProvider && editorTextFocus"
     },
     */
+    {
+        "key": "ctrl+a h",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+a ctrl+h",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus"
+    },
 
 /* ---------------------------------------------------- */
         
@@ -2851,7 +2876,57 @@
     {
         "key": "f1",
         "command": "-workbench.action.showCommands"
-    }
+    },
+    {
+        "key": "ctrl+k ctrl+i",
+        "command": "-editor.action.showHover",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+l alt+c",
+        "command": "-latex-workshop.clean",
+        "when": "editorTextFocus && latex-workshop:altkeymap"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-latex-workshop.build",
+        "when": "editorTextFocus && !latex-workshop:altkeymap"
+    },
+    {
+        "key": "ctrl+l alt+b",
+        "command": "-latex-workshop.build",
+        "when": "editorTextFocus && latex-workshop:altkeymap"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "-latex-workshop.clean",
+        "when": "editorTextFocus && !latex-workshop:altkeymap"
+    },
+    {
+        "key": "ctrl+l alt+x",
+        "command": "-workbench.view.extension.latex",
+        "when": "editorTextFocus && latex-workshop:altkeymap"
+    },
+    {
+        "key": "ctrl+l alt+j",
+        "command": "-latex-workshop.synctex",
+        "when": "editorTextFocus && latex-workshop:altkeymap"
+    },
+    {
+        "key": "ctrl+alt+j",
+        "command": "-latex-workshop.synctex",
+        "when": "editorTextFocus && !latex-workshop:altkeymap"
+    },
+    {
+        "key": "ctrl+l alt+v",
+        "command": "-latex-workshop.view",
+        "when": "editorTextFocus && latex-workshop:altkeymap"
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "-latex-workshop.view",
+        "when": "editorTextFocus && !latex-workshop:altkeymap"
+    },
 
 /* ---------------------------------------------------- */
 
