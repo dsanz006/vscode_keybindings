@@ -17,11 +17,12 @@
 
     Keys:
 
-        · <a>           : Arrows
-        · <u,d,l,r>     : Up, Down, Left, Right
-        · En            : Enter
-        · Su            : Supr (delete)
-        · Bs            : Backspace
+        · <a1>              : Primary Arrows ( <u,d,l,r> Up, Down, Left, Right )
+        · <a2>	            : Secondary Arrows ( <I,K,J,L> )
+        · <a3>	            : Tertiary Arrows ( <`,´,Ñ,Ç> )
+        · En                : Enter
+        · Su                : Supr (delete)
+        · Bs                : Backspace
 
     ----------------------------------------------------------
 
