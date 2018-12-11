@@ -85,8 +85,6 @@
 %                \textbf{\textit{<u,d,l,r>}} & Arrows \\ \hline
 %            \end{tabular}
 %        \end{vwcol}
-        
-        \textit{General commands:}
 
         \begin{center}
         \begin{tabular}{ll}
@@ -105,27 +103,27 @@
             \quad \textit{editor:} & \quad maximize editor \\
             \quad                  & \quad $+$\textit{Sh}: reset size \\
             \quad \textit{file expl.:} & \quad collapse all folders \\ \hline
-            \textbf{\textit{Ct}$+$Q <a>} & Focus next/previous... \\
-            \quad \textit{editor:} & \quad \textit{<l,r>} within group \\
-            \quad                  & \quad \textit{<u,d>} other group \\
-            \quad \textit{terminal:} & \quad \textit{<l,r>} for panes \\
-            \quad                    & \quad \textit{<u,d>} for windows \\ \hline
-            \textbf{\textit{Ct}$+$< <a>} & Move... \\
-            \quad \textit{editor:} & \quad \textit{<l,r>} within group \\
-            \quad                  & \quad \textit{<u,d>} to other group \\
+            \textbf{\textit{Ct}$+$Q <a2>} & Focus next/previous... \\
+            \quad \textit{editor:} & \quad \textit{<J,L>} within group \\
+            \quad                  & \quad \textit{<I,K>} other group \\
+            \quad \textit{terminal:} & \quad \textit{<J,L>} for panes \\
+            \quad                    & \quad \textit{<I,K>} for windows \\ \hline
+            \textbf{\textit{Ct}$+$Q <a3>} & Move... \\
+            \quad \textit{editor:} & \quad \textit{<Ñ,Ç>} within group \\
+            \quad                  & \quad \textit{<`,\textceltpal>} to other group \\
             \quad                  & \quad $+$\textit{Sh}: move full group \\ \hline
-            \textbf{\textit{Ct}$+$H X} & Split... \\
+            \textbf{\textit{Ct}$+$Q X} & Split... \\
             \quad \textit{editor:} & \quad into new group \\
             \quad \textit{terminal:} & \quad into new pane \\ \hline
-            \textbf{\textit{Ct}$+$H T} & Toggle... \\
+            \textbf{\textit{Ct}$+$Q T} & Toggle... \\
             \quad \textit{editor:} & \quad horizontal/vertical split \\ \hline
-            \textbf{\textit{Ct}$+$H C} & Toggle panel view \\ \hline
-            \textbf{\textit{Ct}$+$H S} & Toggle sidebar view \\ \hline
             \textbf{\textit{Ct}$+$W} & Close... \\
             \quad \textit{editor:} & \quad current editor \\
             \quad                  & \quad $+$\textit{Sh}: others in group \\ 
             \quad                  & \quad $+$\textit{Al}: current group \\
             \quad                  & \quad $+$\textit{Al}$+$\textit{Sh}: other groups \\ \hline
+            \textbf{\textit{Ct}$+$-} & Toggle panel view \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$-} & Toggle sidebar view \\ \hline
         \end{tabular}
         \end{center}
 
@@ -136,7 +134,7 @@
 
 \columnbreak
 
-%------------ MENU, OPEN, COMMANDS... ---------------
+%------------ MENU, OPEN, FILE EXPLORER, COMMANDS... ---------------
 \begin{tikzpicture}
 \node [mybox] (box){
     \begin{minipage}{0.3\textwidth}
@@ -149,6 +147,8 @@
             \quad C & \quad Command palette... \\
             \quad R & \quad Open recent... \\
             \quad R ($+$\textit{Sh}) & \quad Focus on recent file on history... \\
+            \quad E & \quad Focus on file explorer \\
+            \quad E ($+$\textit{Sh}) & \quad Reveal current file in explorer (wrksp.) \\
             \quad W & \quad Open workspace... \\
             \quad D & \quad Open directory... \\
             \quad F & \quad Open file... \\
@@ -159,24 +159,7 @@
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Menu, open, commands...};
-\end{tikzpicture}
-
-%------------ FILE EXPLORER ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Ct}$+$J} & Focus on file explorer \\ \hline
-            \textbf{\textit{Al}$+$J F} & Reveal file in explorer (if in workspace) \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {File Explorer};
+\node[fancytitle, right=10pt] at (box.north west) {Menu, open, file explorer, commands...};
 \end{tikzpicture}
 
 %------------ PROBLEMS PANEL ---------------
@@ -188,7 +171,7 @@
         \begin{tabular}{ll}
             \hline
             \textbf{\textit{Ct}$+$P} & Focus on problems panel \\ \hline
-            \textbf{\textit{Al}$+$P <a>} & Focus on next/previous problem \\ \hline
+            \textbf{\textit{Al}$+$P <a2>} & Focus on next/previous problem \\ \hline
         \end{tabular}
 
     \end{minipage}
@@ -214,23 +197,6 @@
 \node[fancytitle, right=10pt] at (box.north west) {Editor};
 \end{tikzpicture}
 
-%------------ BREADCRUMBS ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Ct}$+$B} & Focus on breadcrumbs \\ \hline
-            \textbf{<a>} & Navigate breadcrumbs \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Breadcrumbs};
-\end{tikzpicture}
-
 %------------ COMPARE EDITOR ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
@@ -239,8 +205,7 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Al}$+$C <l,d>} & Go to next change \\ \hline
-            \textbf{\textit{Al}$+$C <r,u>} & Go to previous change \\ \hline
+            \textbf{\textit{Al}$+$C <a2>} & Go to next/previous change \\ \hline
         \end{tabular}
 
     \end{minipage}
@@ -259,8 +224,7 @@
             \textbf{\textit{Ct}$+$T} & Focus terminal \\ \hline
             \textbf{\textit{Al}$+$T F} & Open terminal in file path \\ \hline
             \textbf{On terminal:} &  \\
-            \quad \textit{Ct}$+$\textit{Sh}$+$C & \quad copy text \\
-            \quad \textit{Ct}$+$\textit{Sh}$+$V & \quad paste text \\ \hline
+            \quad \textit{Ct}$+$\textit{Sh}$+$C/X/V & \quad copy/cut/paste text \\ \hline
         \end{tabular}
 
     \end{minipage}
@@ -282,9 +246,9 @@
             \quad B & \quad Toggle breakpoint \\
             \quad C & \quad Add conditional breakpoint \\
             \quad F & \quad Add function breakpoint \\
-            \quad L & \quad Add logpoint \\
+            \quad T & \quad Add tracepoint (logpoint) \\
             \quad E & \quad Enable/Disable breakpoint \\
-            \quad \textit{<a>} & \quad Go to next/prev. breakpoint \\
+            \quad \textit{<a2>} & \quad Go to next/prev. breakpoint \\
             \quad H & \quad Show debug hover \\ \hline
             \textbf{\textit{Al}$+$D...} & Focus on ... \\
             \quad D & \quad debug bar \\
@@ -321,15 +285,15 @@
         \begin{tabular}{ll}
             \hline
             \textbf{\textit{Ct}$+$F} & Focus on find widget \\ \hline
-            \textbf{\textit{Ct}$+$- F} & Select and find / Show next match \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$- F} & Show prev. match (from widget or sel.) \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Al}$+$- F} & Sel. all matches (from widget or sel.) \\ \hline
+            \textbf{\textit{Ct}$+$, F} & Select and find / Show next match \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$, F} & Show prev. match (from widget or sel.) \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$, F} & Sel. all matches (from widget or sel.) \\ \hline
             \textbf{\textit{Ct}$+$R} & Focus on replace widget \\ \hline
-            \textbf{\textit{Ct}$+$- R} & Replace current match (widget repl.)\\ \hline
-            \textbf{\textit{Ct}$+$\textit{Al}$+$- R} & Replace all matches (widget repl.) \\ \hline
+            \textbf{\textit{Ct}$+$, R} & Replace current match (widget repl.)\\ \hline
+            \textbf{\textit{Ct}$+$\textit{Al}$+$, R} & Replace all matches (widget repl.) \\ \hline
             \textbf{\textit{Ct}$+$\textit{Sh}$+$F} & Search on search panel \\ \hline
-            \textbf{\textit{Ct}$+$\textit{down}} & Focus on search/replace results \\ \hline
-            \textbf{\textit{Ct}$+$\textit{up}} & Focus on search input box \\ \hline
+            \textbf{\textit{Ct}$+$\textit{<K>}} & Focus on search/replace results \\ \hline
+            \textbf{\textit{Ct}$+$\textit{<I>}} & Focus on search input box \\ \hline
             \textbf{\textit{Ct}$+$. F} & Show next search match / search sel. \\ \hline
             \textbf{\textit{Ct}$+$\textit{Sh}$+$. F} & Show previous search match \\ \hline
             \textbf{\textit{Ct}$+$R} & Replace on search panel \\ \hline
@@ -357,19 +321,25 @@
         \begin{tabular}{ll}
             \hline
             \textbf{\textit{Tab}} & Auto-commplete best suggestion \\ \hline
-            \textbf{\textit{Ct}$+$A F} & Go to symbol in file... \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$A F} & Go to symbol in workspace... \\ \hline
+            \textbf{\textit{Ct}$+$A F} & Go to symbol... \\
+            \quad & \quad in file... \\
+            \quad $+$\textit{Sh} & \quad in workspace... \\ \hline
             \textbf{\textit{Ct}$+$A...} & Navigate... \\
-            \quad \textit{<u,d>} & \quad to next/previous symbol highlight \\
-            \quad \textit{<l,r>} & \quad cursor backwards/forwards \\
-            \quad L & \quad to last cursor location \\ \hline
-            \textbf{\textit{Ct}$+$A P} & Peek definition \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$A P} & Peek declaration \\ \hline
-            \textbf{\textit{Ct}$+$A D} & Go to definition \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Al}$+$A D} & Go to definition (to side) \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$A D} & Go to declaration \\ \hline
+            \quad \textit{<I,K>} & \quad to next/previous symbol highlight \\
+            \quad \textit{<J,L>} & \quad cursor backwards/forwards \\
+            \quad T & \quad to last cursor location (toggle) \\
+            \quad A & \quad to line... \\ \hline
+            \textbf{\textit{Ct}$+$A P} & Peek... \\
+            \quad & \quad definition \\
+            \quad $+$\textit{Sh} & \quad declaration \\ \hline
+            \textbf{\textit{Ct}$+$A D} & Go to... \\
+            \quad & \quad definition \\
+            \quad $+$\textit{Al} & \quad definition (to side) \\
+            \quad $+$\textit{Sh} & \quad declaration \\ \hline
             \textbf{\textit{Ct}$+$A S} & Trigger completion suggestion \\ \hline
             \textbf{\textit{Ct}$+$A H} & Show hover \\ \hline
+            \textbf{\textit{Ct}$+$A B} & Focus on breadcrumbs \\ \hline
+            \textbf{\textit{<a2>}} & Navigate bradcrumbs \\ \hline
         \end{tabular}
 
     \end{minipage}
