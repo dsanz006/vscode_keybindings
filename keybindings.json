@@ -188,10 +188,10 @@
 
     Editor :: Text Selection:
 
-        · Ct+D              : Select current word, expand selection
-        · Ct+Sh+D           : Select current line
-        · Ct+Al+D           : Select all occourrences of current text
-        · Ct+U              : Soft undo: deselect last selection added with Ctrl+D
+        · Ct+<              : Select current word, expand selection
+        · Ct+Sh+<           : Select current line
+        · Ct+Al+<           : Select all occourrences of current text
+        · Ct+U              : Soft undo: deselect last selection added with Ctrl+<
         · Al+<I,K>          : Move selected text up/down (if no selection, move line)
 
     Cursor, Scrolling & Selection:
@@ -205,8 +205,7 @@
         · Ct+<a3>		    : Cursor select up/down/left/right 
         · Ct+Sh+<Ñ,Ç>       : Cursor select word left/right
         · Ct+Sh+Al+<Ñ,Ç>	: Cursor select word part left/right
-        · Ct+<              : Cursor to line end
-        · Ct+Sh+<           : Cursor to line start
+        · Al+<J/L>          : Cursor to line start/end
 
     Last added:
 
@@ -1648,17 +1647,17 @@
         "when": "!editorFocus && !inputFocus && activeEditor == 'workbench.editor.htmlPreviewPart'"
     },
     {
-        "key": "ctrl+d",
+        "key": "ctrl+[IntlBackslash]",
         "command": "editor.action.smartSelect.expand",
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+shift+d",
+        "key": "ctrl+shift+[IntlBackslash]",
         "command": "expandLineSelection",
         "when": "textInputFocus"
     },
     {
-        "key": "ctrl+alt+d",
+        "key": "ctrl+alt+[IntlBackslash]",
         "command": "editor.action.changeAll",
         "when": "editorTextFocus"
     },
@@ -1808,12 +1807,12 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+[IntlBackslash]",
+        "key": "alt+l",
         "command": "cursorLineEnd",
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+shift+[IntlBackslash]",
+        "key": "alt+j",
         "command": "cursorLineStart",
         "when": "editorTextFocus"
     },
