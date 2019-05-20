@@ -77,20 +77,23 @@
 
     ----------------------------------------------------------
 
-    Problems panel:
+    Panels: Problems, Terminal:
 
-        · Ct+P              : Focus on problems panel
+        · Ct+P              : Focus on panel
+        · Ct+Sh+P           : Focus on problems panel
         · Alt+P <a2>        : Focus on next/prev. problem
+        · Ct+T              : Focus on terminal
+        · Al+T F            : Open new terminal in location of current file
+        · terminalFocus:
+                                · Ct+Sh+C/X/V : Copy/cut/paste text
 
     Editor:
 
         · Ct+E              : Focus on active editor (from anywhere)
         · Ct+{1-9}          : Focus on file index 1-9 of group
         · Al+{1-9}          : Open editor in position 1-9
-
-    Compare Editor:
-
-        · Al+C <a2>         : Go to next/previous change
+        · Compare Editor:
+                                · Al+C <a2> : Go to next/previous change
 
     ----------------------------------------------------------
 
@@ -134,8 +137,7 @@
         · Ct+, R            : Replace current match (widget replace)
         · Ct+Al+, R         : Replace all matches (widget replace)
         · Ct+Sh+F           : Search on search panel
-        · Ct+<K>            : Focus on search/replace results
-        · Ct+<I>            : Focus on search input box
+        · Ct+<a1>            : Focus on upper/lower search box (search/replace/results fields)
         · Ct+. F            : Show next search panel match / Search selected
         · Ct+Sh+. F         : Show previous search panel match
         · Ct+Sh+R           : Replace on search panel
@@ -147,14 +149,6 @@
                                 · C : Toggle search/find case sensitive
                                 · R : Toggle search/find regex
                                 · W : Toggle search/find whole word
-
-    ----------------------------------------------------------
-
-    Terminal:
-        · Ct+T              : Focus on terminal
-        · Al+T F            : Open new terminal in location of current file
-        · terminalFocus:
-                                · Ct+Sh+C/X/V : Copy/cut/paste text
 
     ----------------------------------------------------------
 
@@ -194,10 +188,11 @@
 
     Editor :: Text Selection:
 
-        · Ct+<              : Select current line
+        · Ct+D              : Select current word, expand selection
+        · Ct+Sh+D           : Select current line
+        · Ct+Al+D           : Select all occourrences of current text
         · Ct+U              : Soft undo: deselect last selection added with Ctrl+D
-        · SET THIS!!          : Select all occurrences of currently selected text
-        · Al+<u,d>          : Move selected text up/down (if no selection, move line)
+        · Al+<I,K>          : Move selected text up/down (if no selection, move line)
 
     Cursor, Scrolling & Selection:
     
@@ -210,6 +205,8 @@
         · Ct+<a3>		    : Cursor select up/down/left/right 
         · Ct+Sh+<Ñ,Ç>       : Cursor select word left/right
         · Ct+Sh+Al+<Ñ,Ç>	: Cursor select word part left/right
+        · Ct+<              : Cursor to line end
+        · Ct+Sh+<           : Cursor to line start
 
     Last added:
 
@@ -848,19 +845,9 @@
         "when": "hasSearchResult"
     },
     {
-        "key": "ctrl+up",
-        "command": "search.action.focusSearchFromResults",
-        "when": "panelFocus && searchViewletVisible"
-    },
-    {
         "key": "ctrl+i",
         "command": "search.action.focusSearchFromResults",
         "when": "panelFocus && searchViewletVisible"
-    },
-    {
-        "key": "ctrl+down",
-        "command": "search.focus.nextInputBox",
-        "when": "inputBoxFocus && searchViewletVisible"
     },
     {
         "key": "ctrl+k",
@@ -904,32 +891,32 @@
     {
         "key": "alt+f c",
         "command": "toggleFindCaseSensitive",
-        "when": "editorFocus"
+        "when": "editorFocus && findWidgetVisible"
     },
     {
         "key": "alt+f alt+c",
         "command": "toggleFindCaseSensitive",
-        "when": "editorFocus"
+        "when": "editorFocus && findWidgetVisible"
     },
     {
         "key": "alt+f r",
         "command": "toggleFindRegex",
-        "when": "editorFocus"
+        "when": "editorFocus && findWidgetVisible"
     },
     {
         "key": "alt+f alt+r",
         "command": "toggleFindRegex",
-        "when": "editorFocus"
+        "when": "editorFocus && findWidgetVisible"
     },
     {
         "key": "alt+f w",
         "command": "toggleFindWholeWord",
-        "when": "editorFocus"
+        "when": "editorFocus && findWidgetVisible"
     },
     {
         "key": "alt+f alt+w",
         "command": "toggleFindWholeWord",
-        "when": "editorFocus"
+        "when": "editorFocus && findWidgetVisible"
     },
     {
         "key": "alt+f c",
@@ -1034,11 +1021,15 @@
 
 /* ---------------------------------------------------- */
     
-/****  Problems panel ****/
+/****  Panels: Problems ****/
 
     //added keybindings
     {
         "key": "ctrl+p",
+        "command": "workbench.action.focusPanel"
+    },
+    {
+        "key": "ctrl+shift+p",
         "command": "workbench.action.problems.focus",
         //"when": "!(panelFocus && activePanel == 'workbench.panel.markers')" //XXX should be same as "!problemsViewFocus"
     },
@@ -1085,7 +1076,7 @@
 
 /* ---------------------------------------------------- */
 
-/****  Terminal ****/
+/****  Panels: Terminal ****/
 
     {
         "key": "ctrl+t",
@@ -1627,6 +1618,16 @@
 /**** Text Edition (XXX todo) ****/
 
     {
+        "key": "ctrl+shift+k",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
         "key": "alt+a",
         "command": "editor.action.selectAll",
         "when": "textInputFocus"
@@ -1647,19 +1648,29 @@
         "when": "!editorFocus && !inputFocus && activeEditor == 'workbench.editor.htmlPreviewPart'"
     },
     {
-        "key": "ctrl+[IntlBackslash]",
+        "key": "ctrl+d",
+        "command": "editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+d",
         "command": "expandLineSelection",
         "when": "textInputFocus"
     },
     {
-        "key": "ctrl+shift+k",
-        "command": "editor.action.insertCursorBelow",
+        "key": "ctrl+alt+d",
+        "command": "editor.action.changeAll",
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+shift+i",
-        "command": "editor.action.insertCursorAbove",
-        "when": "editorTextFocus"
+        "key": "alt+i",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+k",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
     },
 
 /* ---------------------------------------------------- */
@@ -1794,6 +1805,16 @@
     {
         "key": "ctrl+shift+space ctrl+shift+i",
         "command": "scrollkey.up2",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+[IntlBackslash]",
+        "command": "cursorLineEnd",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+[IntlBackslash]",
+        "command": "cursorLineStart",
         "when": "editorTextFocus"
     },
 
@@ -3265,11 +3286,35 @@
         "command": "-workbench.action.quickInputBack",
         "when": "inQuickOpen"
     },
+    {
+        "key": "shift+alt+[IntlBackslash]",
+        "command": "-editor.action.autoFix",
+        "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)quickfix\\b/"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "-expandLineSelection",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.reloadWindow",
+        "when": "isDevelopment"
+    },
+    {
+        "key": "shift+alt+right",
+        "command": "-editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+left",
+        "command": "-editor.action.smartSelect.shrink",
+        "when": "editorTextFocus"
+    },
 
 /* ---------------------------------------------------- */
 
 /**** Automatic additions (should be empty) ****/
 
     {},
-
 ]

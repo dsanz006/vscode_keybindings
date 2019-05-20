@@ -143,18 +143,18 @@
         \begin{tabular}{ll}
             \hline
             \textbf{\textit{Ct}$+$O...} & Open/menu/command modifier key... \\
-            \quad O & \quad quick open... \\
-            \quad C & \quad Command palette... \\
-            \quad R & \quad Open recent... \\
-            \quad R ($+$\textit{Sh}) & \quad Focus on recent file on history... \\
-            \quad E & \quad Focus on file explorer \\
-            \quad E ($+$\textit{Sh}) & \quad Reveal current file in explorer (wrksp.) \\
-            \quad W & \quad Open workspace... \\
-            \quad D & \quad Open directory... \\
-            \quad F & \quad Open file... \\
-            \quad N & \quad Open active file in new window \\
-            \quad N ($+$\textit{Sh}) & \quad Duplicate workspace in new window \\
-            \quad \textit{Bs}/\textit{Su} & \quad Close window \\ \hline
+            \quad \textbf{O} & \quad quick open... \\
+            \quad \textbf{C} & \quad Command palette... \\
+            \quad \textbf{R} & \quad Open recent... \\
+            \quad \textbf{R ($+$\textit{Sh})} & \quad Focus on recent file on history... \\
+            \quad \textbf{E} & \quad Focus on file explorer \\
+            \quad \textbf{E ($+$\textit{Sh})} & \quad Reveal current file in explorer (wrksp.) \\
+            \quad \textbf{W} & \quad Open workspace... \\
+            \quad \textbf{D} & \quad Open directory... \\
+            \quad \textbf{F} & \quad Open file... \\
+            \quad \textbf{N} & \quad Open active file in new window \\
+            \quad \textbf{N ($+$\textit{Sh})} & \quad Duplicate workspace in new window \\
+            \quad \textbf{\textit{Bs}/\textit{Su}} & \quad Close window \\ \hline
         \end{tabular}
 
     \end{minipage}
@@ -162,7 +162,7 @@
 \node[fancytitle, right=10pt] at (box.north west) {Menu, open, file explorer, commands...};
 \end{tikzpicture}
 
-%------------ PROBLEMS PANEL ---------------
+%------------ PANELS: PROBLEMS, TERMINAL ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
     \begin{minipage}{0.3\textwidth}
@@ -170,13 +170,18 @@
         \center
         \begin{tabular}{ll}
             \hline
-            \textbf{\textit{Ct}$+$P} & Focus on problems panel \\ \hline
+            \textbf{\textit{Ct}$+$P} & Focus on panel \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$P} & Focus on problems panel \\ \hline
             \textbf{\textit{Al}$+$P <a2>} & Focus on next/previous problem \\ \hline
+            \textbf{\textit{Ct}$+$T} & Focus terminal \\ \hline
+            \textbf{\textit{Al}$+$T F} & Open terminal in file path \\ \hline
+            On terminal: &  \\
+            \quad \textbf{\textit{Ct}$+$\textit{Sh}$+$C/X/V} & \quad copy/cut/paste text \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Problems panel};
+\node[fancytitle, right=10pt] at (box.north west) {Panels: Problems, Terminal};
 \end{tikzpicture}
 
 %------------ EDITOR ---------------
@@ -190,46 +195,13 @@
             \textbf{\textit{Ct}$+$E} & Focus on active editor \\ \hline
             \textbf{\textit{Ct}$+$\{1-9\}} & Focus on file index 1-9 of group \\ \hline
             \textbf{\textit{Al}$+$\{1-9\}} & Open editor in position 1-9 \\ \hline
+            Compare Editor: & \\
+            \quad \textbf{\textit{Al}$+$C <a2>} & Go to next/previous change \\ \hline
         \end{tabular}
 
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {Editor};
-\end{tikzpicture}
-
-%------------ COMPARE EDITOR ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Al}$+$C <a2>} & Go to next/previous change \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Compare editor};
-\end{tikzpicture}
-
-%------------ TERMINAL ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Ct}$+$T} & Focus terminal \\ \hline
-            \textbf{\textit{Al}$+$T F} & Open terminal in file path \\ \hline
-            \textbf{On terminal:} &  \\
-            \quad \textit{Ct}$+$\textit{Sh}$+$C/X/V & \quad copy/cut/paste text \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Terminal};
 \end{tikzpicture}
 
 \columnbreak
@@ -243,28 +215,28 @@
         \begin{tabular}{ll}
             \hline
             \textbf{\textit{Ct}$+$D...} & Adding breakpoints in editor... \\
-            \quad B & \quad Toggle breakpoint \\
-            \quad C & \quad Add conditional breakpoint \\
-            \quad F & \quad Add function breakpoint \\
-            \quad T & \quad Add tracepoint (logpoint) \\
-            \quad E & \quad Enable/Disable breakpoint \\
-            \quad \textit{<a2>} & \quad Go to next/prev. breakpoint \\
-            \quad H & \quad Show debug hover \\ \hline
+            \quad \textbf{B} & \quad Toggle breakpoint \\
+            \quad \textbf{C} & \quad Add conditional breakpoint \\
+            \quad \textbf{F} & \quad Add function breakpoint \\
+            \quad \textbf{T} & \quad Add tracepoint (logpoint) \\
+            \quad \textbf{E} & \quad Enable/Disable breakpoint \\
+            \quad \textbf{\textit{<a2>}} & \quad Go to next/prev. breakpoint \\
+            \quad \textbf{H} & \quad Show debug hover \\ \hline
             \textbf{\textit{Al}$+$D...} & Focus on ... \\
-            \quad D & \quad debug bar \\
-            \quad B & \quad breakpoints window \\
-            \quad V & \quad variables window \\
-            \quad W & \quad watch window \\
-            \quad C & \quad call stack window \\ \hline
+            \quad \textbf{D} & \quad debug bar \\
+            \quad \textbf{B} & \quad breakpoints window \\
+            \quad \textbf{V} & \quad variables window \\
+            \quad \textbf{W} & \quad watch window \\
+            \quad \textbf{C} & \quad call stack window \\ \hline
 
-            \textbf{breakpoints view:} &  \\
-            \quad \textit{Bs}/\textit{Su} & \quad Remove breakpoint \\
-            \quad \textit{Ct}$+$D E & Enable/disable breakpoint \\
-            \quad \textit{En} & \quad Open breakpoint \\
+            Breakpoints view: &  \\
+            \quad \textbf{\textit{Bs}/\textit{Su}} & \quad Remove breakpoint \\
+            \quad \textbf{\textit{Ct}$+$D E} & Enable/disable breakpoint \\
+            \quad \textbf{\textit{En}} & \quad Open breakpoint \\
             \quad             & \quad $+$\textit{Sh}: open to side \\
-            \quad \textit{Ct}$+$D A & \quad Enable all breakpoints \\
-            \quad \textit{Ct}$+$\textit{Sh}$+$D A & \quad Disable all breakpoints \\
-            \quad \textit{Ct}$+$\textit{Su}/\textit{Bs} & \quad Remove all breakpoints \\ \hline
+            \quad \textbf{\textit{Ct}$+$D A} & \quad Enable all breakpoints \\
+            \quad \textbf{\textit{Ct}$+$\textit{Sh}$+$D A} & \quad Disable all breakpoints \\
+            \quad \textbf{\textit{Ct}$+$\textit{Su}/\textit{Bs}} & \quad Remove all breakpoints \\ \hline
             \textbf{F7} & Run default task \\ \hline
             \textbf{\textit{Sh}$+$F7} & Run non-default task (choose) \\ \hline
             \textbf{\textit{Sh}$+$\textit{Al}$+$F5} & Choose debug config., start \\ \hline
@@ -292,8 +264,7 @@
             \textbf{\textit{Ct}$+$, R} & Replace current match (widget repl.)\\ \hline
             \textbf{\textit{Ct}$+$\textit{Al}$+$, R} & Replace all matches (widget repl.) \\ \hline
             \textbf{\textit{Ct}$+$\textit{Sh}$+$F} & Search on search panel \\ \hline
-            \textbf{\textit{Ct}$+$\textit{<K>}} & Focus on search/replace results \\ \hline
-            \textbf{\textit{Ct}$+$\textit{<I>}} & Focus on search input box \\ \hline
+            \textbf{\textit{Ct}$+$\textit{<a1>}} & Focus on upper/lower search box \\ \hline
             \textbf{\textit{Ct}$+$. F} & Show next search match / search sel. \\ \hline
             \textbf{\textit{Ct}$+$\textit{Sh}$+$. F} & Show previous search match \\ \hline
             \textbf{\textit{Ct}$+$\textit{Sh}$+$R} & Replace on search panel \\ \hline
@@ -301,10 +272,10 @@
             \textbf{\textit{Ct}$+$\textit{Sh}$+$. R} & Replace all file matches (search pan.) \\ \hline
             \textbf{\textit{Ct}$+$\textit{Al}$+$. R} & Replace all matches (search pan.) \\ \hline
             \textbf{\textit{Al}$+$F...} & Others... \\ \hline
-            \quad E & \quad Collapse search results \\ \hline
-            \quad C & \quad Toggle search/find case sensitive \\ \hline
-            \quad R & \quad Toggle search/find regex. \\ \hline
-            \quad W & \quad Toggle search/find whole word \\ \hline
+            \quad \textbf{E} & \quad Collapse search results \\ \hline
+            \quad \textbf{C} & \quad Toggle search/find case sensitive \\ \hline
+            \quad \textbf{R} & \quad Toggle search/find regex. \\ \hline
+            \quad \textbf{W} & \quad Toggle search/find whole word \\ \hline
         \end{tabular}
 
     \end{minipage}
@@ -323,23 +294,23 @@
             \textbf{\textit{Tab}} & Auto-commplete best suggestion \\ \hline
             \textbf{\textit{Ct}$+$A F} & Go to symbol... \\
             \quad & \quad in file... \\
-            \quad $+$\textit{Sh} & \quad in workspace... \\ \hline
+            \quad \textbf{$+$\textit{Sh}} & \quad in workspace... \\ \hline
             \textbf{\textit{Ct}$+$A...} & Navigate... \\
-            \quad \textit{<I,K>} & \quad to next/previous symbol highlight \\
-            \quad \textit{<J,L>} & \quad cursor backwards/forwards \\
-            \quad T & \quad to last cursor location (toggle) \\
-            \quad A & \quad to line... \\ \hline
+            \quad \textbf{\textit{<I,K>}} & \quad to next/previous symbol highlight \\
+            \quad \textbf{\textit{<J,L>}} & \quad cursor backwards/forwards \\
+            \quad \textbf{T} & \quad to last cursor location (toggle) \\
+            \quad \textbf{A} & \quad to line... \\ \hline
             \textbf{\textit{Ct}$+$A P} & Peek... \\
             \quad & \quad definition \\
-            \quad $+$\textit{Sh} & \quad declaration \\ \hline
+            \quad \textbf{$+$\textit{Sh}} & \quad declaration \\ \hline
             \textbf{\textit{Ct}$+$A D} & Go to... \\
             \quad & \quad definition \\
-            \quad $+$\textit{Al} & \quad definition (to side) \\
-            \quad $+$\textit{Sh} & \quad declaration \\ \hline
+            \quad $+$\textbf{\textit{Al}} & \quad definition (to side) \\
+            \quad $+$\textbf{\textit{Sh}} & \quad declaration \\ \hline
             \textbf{\textit{Ct}$+$A S} & Trigger completion suggestion \\ \hline
             \textbf{\textit{Ct}$+$A H} & Show hover \\ \hline
             \textbf{\textit{Ct}$+$A B} & Focus on breadcrumbs \\ \hline
-            \textbf{\textit{<a2>}} & Navigate bradcrumbs \\ \hline
+            \textbf{\textit{<a2>}} & Navigate breadcrumbs \\ \hline
         \end{tabular}
 
     \end{minipage}
