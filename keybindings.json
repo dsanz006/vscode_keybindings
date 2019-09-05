@@ -37,8 +37,8 @@
                                 · on terminalFocus: New terminal window
                                 · on fileExplorerFocus: New file, +Sh for new folder
         · Ct+M              : Maximize current view...
-                                · on panelFocus: panel
-                                · on editorFocus: editor, +Sh to reset size
+                                · on panelFocus: toogle maximize panel
+                                · on editorFocus: toggle maximize editor
                                 · on fileExplorerFocus: collapse all folders
         · Ct+Q <a2>         : Focus next/previous...
                                 · on editorFocus: <J,L> within group, <I,K> other group
@@ -242,7 +242,7 @@
     },
     {
         "key": "ctrl+m",
-        "command": "workbench.action.minimizeOtherEditors",
+        "command": "workbench.action.toggleEditorWidths",
         "when" : "editorFocus"
     },
     {
@@ -1177,12 +1177,12 @@
     },
     {
         "key": "ctrl+q x",
-        "command": "workbench.action.splitEditorRight",
+        "command": "workbench.action.splitEditorDown",
         "when": "editorFocus"
     },
     {
         "key": "ctrl+q ctrl+x",
-        "command": "workbench.action.splitEditorRight",
+        "command": "workbench.action.splitEditorDown",
         "when": "editorFocus"
     },
     {
@@ -1661,21 +1661,6 @@
         "command": "editor.action.changeAll",
         "when": "editorTextFocus"
     },
-    {
-        "key": "alt+i",
-        "command": "editor.action.moveLinesUpAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "alt+k",
-        "command": "editor.action.moveLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-
-/* ---------------------------------------------------- */
-    
-/**** Cursor, Scrolling & Selection ****/
-
     {
         "key": "ctrl+k",
         "command": "cursorDown",
