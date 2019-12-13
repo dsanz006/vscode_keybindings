@@ -3295,6 +3295,16 @@
         "command": "-editor.action.smartSelect.shrink",
         "when": "editorTextFocus"
     },
+    {
+        "key": "ctrl+k ctrl+l",
+        "command": "-editor.toggleFold",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "-addCursorsAtSearchResults",
+        "when": "fileMatchOrMatchFocus && searchViewletVisible"
+    },
 
 /* ---------------------------------------------------- */
 
