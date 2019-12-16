@@ -65,7 +65,8 @@
         \textit{Key naming:} \\
 
         \textbf{\textit{Ct}} (Control), \textbf{\textit{Sh}} (Shift), \textbf{\textit{Al}} (Alt), \textbf{\textit{En}} (Enter), 
-        \textbf{\textit{Bs}} (Back space), \textbf{\textit{Su}}, (Supr), \textbf{\textit{<a1>}}/\textbf{\textit{<u,d,l,r>}} (Primary Arrows), \textbf{\textit{<a2>}}/\textbf{\textit{<I,k,J,L>}} (Secondary Arrows), \textbf{\textit{<a3>}}/\textbf{\textit{<`,\textceltpal,Ñ,Ç>}} (Tertiary Arrows)   \\
+        \textbf{\textit{Bs}} (Back space), \textbf{\textit{Su}}, (Supr), \textbf{\textit{<a>}},\textbf{\textit{<u,d,l,r>}} (Arrows),
+        \textbf{\textit{Pag}} (Page Up/Down)   \\
 
         %TWO COLUMNS:
 %        \begin{vwcol}[widths={0.5,0.5},
@@ -92,35 +93,26 @@
             \textbf{\textit{En}} & Open file \\ \hline
             \textbf{\textit{Ct}$+$\textit{En}} & Open to side editor \\ \hline
             \textbf{\textit{Lft}/\textit{Rght}} & Exp./coll. folders, search results... \\ \hline
-            \textbf{\textit{Bs}/\textit{Su}} & Delete/remove \\ \hline
-            \textbf{\textit{Ct}$+$G} & Leave, cancel, exit... (Esc) \\ \hline
             \textbf{\textit{Ct}$+$N} & New... \\
-            \quad \textit{terminal:} & \quad new terminal window \\
-            \quad \textit{file expl.:} & \quad new file \\
+            \quad \textit{terminal:} & \quad new tab \\
+            \quad \textit{file explor.:} & \quad new file \\
             \quad                      & \quad $+$\textit{Sh}: new folder \\ \hline
             \textbf{\textit{Ct}$+$M} & Maximize... \\
             \quad \textit{panel:} & \quad toggle maximize panel \\
             \quad \textit{editor:} & \quad toggle maximize editor \\
             \quad \textit{file expl.:} & \quad collapse all folders \\ \hline
-            \textbf{\textit{Ct}$+$Q <a2>} & Focus next/previous... \\
-            \quad \textit{editor:} & \quad \textit{<J,L>} within group \\
-            \quad                  & \quad \textit{<I,K>} other group \\
-            \quad \textit{terminal:} & \quad \textit{<J,L>} for panes \\
-            \quad                    & \quad \textit{<I,K>} for windows \\ \hline
-            \textbf{\textit{Ct}$+$Q <a3>} & Move... \\
-            \quad \textit{editor:} & \quad \textit{<Ñ,Ç>} within group \\
-            \quad                  & \quad \textit{<`,\textceltpal>} to other group \\
-            \quad                  & \quad $+$\textit{Sh}: move full group \\ \hline
-            \textbf{\textit{Ct}$+$Q X} & Split... \\
-            \quad \textit{editor:} & \quad into new group \\
-            \quad \textit{terminal:} & \quad into new pane \\ \hline
-            \textbf{\textit{Ct}$+$Q T} & Toggle... \\
-            \quad \textit{editor:} & \quad horizontal/vertical split \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Pag}} & Focus next/previous tab/editor... \\
+            \quad \textit{editor:} & \quad within group \\
+            \quad                  & \quad \textit{+Al} other group \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$\textit{Pag}} & Move tab/editor... \\
+            \quad \textit{editor:} & \quad within group \\
+            \quad                  & \quad \textit{+Al} to other group \\ \hline
+            \textbf{\textit{Al}$+$E X} & Split editor into new group \\ \hline
+            \textbf{\textit{Al}$+$E T} & Toggle editor horiz./vert. group split \\ \hline
             \textbf{\textit{Ct}$+$W} & Close... \\
             \quad \textit{editor:} & \quad current editor \\
-            \quad                  & \quad $+$\textit{Sh}: others in group \\ 
             \quad                  & \quad $+$\textit{Al}: current group \\
-            \quad                  & \quad $+$\textit{Al}$+$\textit{Sh}: other groups \\ \hline
+            \quad                  & \quad $+$\textit{Sh}: others in group \\ \hline
             \textbf{\textit{Ct}$+$-} & Toggle panel view \\ \hline
             \textbf{\textit{Ct}$+$\textit{Sh}$+$-} & Toggle sidebar view \\ \hline
         \end{tabular}
@@ -130,6 +122,25 @@
 };
 \node[fancytitle, right=10pt] at (box.north west) {General};
 \end{tikzpicture}
+
+%------------ EDITOR ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Ct}$+$E} & Focus on active editor \\ \hline
+            \textbf{\textit{Al}$+$C <u,d>} & Compare: Go to next/prev. change \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Editor};
+\end{tikzpicture}
+
+\columnbreak
 
 \columnbreak
 
@@ -161,50 +172,6 @@
 \node[fancytitle, right=10pt] at (box.north west) {Menu, open, file explorer, commands...};
 \end{tikzpicture}
 
-%------------ PANELS: PROBLEMS, TERMINAL ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Ct}$+$P} & Focus on panel \\ \hline
-            \textbf{\textit{Ct}$+$\textit{Sh}$+$P} & Focus on problems panel \\ \hline
-            \textbf{\textit{Al}$+$P <a2>} & Focus on next/previous problem \\ \hline
-            \textbf{\textit{Ct}$+$T} & Focus terminal \\ \hline
-            \textbf{\textit{Al}$+$T F} & Open terminal in file path \\ \hline
-            On terminal: &  \\
-            \quad \textbf{\textit{Ct}$+$\textit{Sh}$+$C/X/V} & \quad copy/cut/paste text \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Panels: Problems, Terminal};
-\end{tikzpicture}
-
-%------------ EDITOR ---------------
-\begin{tikzpicture}
-\node [mybox] (box){%
-    \begin{minipage}{0.3\textwidth}
-        
-        \center
-        \begin{tabular}{ll}
-            \hline
-            \textbf{\textit{Ct}$+$E} & Focus on active editor \\ \hline
-            \textbf{\textit{Ct}$+$\{1-9\}} & Focus on file index 1-9 of group \\ \hline
-            \textbf{\textit{Al}$+$\{1-9\}} & Open editor in position 1-9 \\ \hline
-            Compare Editor: & \\
-            \quad \textbf{\textit{Al}$+$C <a2>} & Go to next/previous change \\ \hline
-        \end{tabular}
-
-    \end{minipage}
-};
-\node[fancytitle, right=10pt] at (box.north west) {Editor};
-\end{tikzpicture}
-
-\columnbreak
-
 %------------ DEBUG ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
@@ -219,7 +186,7 @@
             \quad \textbf{F} & \quad Add function breakpoint \\
             \quad \textbf{T} & \quad Add tracepoint (logpoint) \\
             \quad \textbf{E} & \quad Enable/Disable breakpoint \\
-            \quad \textbf{\textit{<a2>}} & \quad Go to next/prev. breakpoint \\
+            \quad \textbf{\textit{<u,d>}} & \quad Go to next/prev. breakpoint \\
             \quad \textbf{H} & \quad Show debug hover \\ \hline
             \textbf{\textit{Al}$+$D...} & Focus on ... \\
             \quad \textbf{D} & \quad debug bar \\
@@ -247,6 +214,28 @@
 \node[fancytitle, right=10pt] at (box.north west) {Debug};
 \end{tikzpicture}
 
+%------------ PANELS: PROBLEMS, TERMINAL ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+        
+        \center
+        \begin{tabular}{ll}
+            \hline
+            \textbf{\textit{Ct}$+$P} & Focus on panel \\ \hline
+            \textbf{\textit{Ct}$+$\textit{Sh}$+$P} & Focus on problems panel \\ \hline
+            \textbf{\textit{Al}$+$E <u,d>} & Focus on next/previous problem \\ \hline
+            \textbf{\textit{Ct}$+$T} & Focus terminal \\ \hline
+            \textbf{\textit{Al}$+$T F} & Open terminal in file path \\ \hline
+            On terminal: &  \\
+            \quad \textbf{\textit{Ct}$+$\textit{Sh}$+$C/X/V} & \quad copy/cut/paste text \\ \hline
+        \end{tabular}
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Panels: Problems, Terminal};
+\end{tikzpicture}
+
 %------------ SEARCH & REPLACE ---------------
 \begin{tikzpicture}
 \node [mybox] (box){%
@@ -263,7 +252,7 @@
             \textbf{\textit{Ct}$+$, R} & Replace current match (widget repl.)\\ \hline
             \textbf{\textit{Ct}$+$\textit{Al}$+$, R} & Replace all matches (widget repl.) \\ \hline
             \textbf{\textit{Ct}$+$\textit{Sh}$+$F} & Search on search panel \\ \hline
-            \textbf{\textit{Ct}$+$\textit{<a1>}} & Focus on upper/lower search box \\ \hline
+            \textbf{\textit{Ct}$+$\textit{<u,d>}} & Focus on upper/lower search box \\ \hline
             \textbf{\textit{Ct}$+$. F} & Show next search match / search sel. \\ \hline
             \textbf{\textit{Ct}$+$\textit{Sh}$+$. F} & Show previous search match \\ \hline
             \textbf{\textit{Ct}$+$\textit{Sh}$+$R} & Replace on search panel \\ \hline
@@ -309,7 +298,6 @@
             \textbf{\textit{Ct}$+$A S} & Trigger completion suggestion \\ \hline
             \textbf{\textit{Ct}$+$A H} & Show hover \\ \hline
             \textbf{\textit{Ct}$+$A B} & Focus on breadcrumbs \\ \hline
-            \textbf{\textit{<a2>}} & Navigate breadcrumbs \\ \hline
         \end{tabular}
 
     \end{minipage}
